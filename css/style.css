@@ -1,15 +1,15 @@
 /* ============================================
-   Excellence Agency — Main Stylesheet
+   Excellence Agency - Main Stylesheet
    RTL Arabic | Modern Education Platform
    ============================================ */
 
-/* ── Variables ── */
+/* -- Variables -- */
 :root {
-  --navy:        #0d2347;
-  --navy-light:  #1a3a6b;
-  --gold:        #c9a84c;
-  --gold-light:  #e8c96e;
-  --red:         #c1272d;
+  --navy:        #16255c;
+  --navy-light:  #253c85;
+  --gold:        #d3272e;
+  --gold-light:  #ee4b4f;
+  --red:         #d3272e;
   --white:       #ffffff;
   --off-white:   #f8f9fc;
   --gray-100:    #f1f4f9;
@@ -28,13 +28,13 @@
   --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
   --shadow:      0 4px 16px rgba(0,0,0,.10);
   --shadow-lg:   0 12px 40px rgba(0,0,0,.15);
-  --shadow-gold: 0 8px 32px rgba(201,168,76,.25);
+  --shadow-gold: 0 8px 32px rgba(211,39,46,.25);
 
   --transition:  all .3s cubic-bezier(.4,0,.2,1);
   --nav-h:       72px;
 }
 
-/* ── Reset & Base ── */
+/* -- Reset & Base -- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -54,13 +54,13 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
-/* ── Container ── */
+/* -- Container -- */
 .container {
   width: min(1200px, 100% - 2rem);
   margin-inline: auto;
 }
 
-/* ── Section Defaults ── */
+/* -- Section Defaults -- */
 .section { padding-block: 90px; }
 
 .section-header {
@@ -72,7 +72,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(201,168,76,.12);
+  background: rgba(211,39,46,.12);
   color: var(--gold);
   font-size: .8rem;
   font-weight: 700;
@@ -100,7 +100,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .text-gold { color: var(--gold); }
 
-/* ── Buttons ── */
+/* -- Buttons -- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -118,7 +118,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .btn-primary {
   background: var(--gold);
-  color: var(--navy);
+  color: var(--white);
   border-color: var(--gold);
 }
 .btn-primary:hover {
@@ -153,7 +153,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .btn-lg { padding: 15px 32px; font-size: 1.05rem; border-radius: var(--radius-lg); }
 .btn-sm { padding: 8px 18px; font-size: .87rem; }
 
-/* ── NAVBAR ── */
+/* -- NAVBAR -- */
 .navbar {
   position: fixed;
   top: 0;
@@ -185,12 +185,19 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   gap: 10px;
 }
 
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
 .logo-text {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 900;
   color: var(--white);
   transition: var(--transition);
   letter-spacing: -.01em;
+  white-space: nowrap;
 }
 
 .navbar.scrolled .logo-text { color: var(--navy); }
@@ -217,7 +224,16 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .navbar.scrolled .nav-links a { color: var(--gray-600); }
 .navbar.scrolled .nav-links a:hover { color: var(--navy); background: var(--gray-100); }
 
-.navbar.scrolled .nav-links .btn-primary { color: var(--navy); background: var(--gold); }
+.nav-links a.btn-primary,
+.navbar.scrolled .nav-links a.btn-primary {
+  color: var(--white);
+  background: var(--gold);
+}
+.nav-links a.btn-primary:hover,
+.navbar.scrolled .nav-links a.btn-primary:hover {
+  color: var(--white);
+  background: var(--gold-light);
+}
 
 .hamburger {
   display: none;
@@ -238,7 +254,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 }
 .navbar.scrolled .hamburger span { background: var(--navy); }
 
-/* ── HERO ── */
+/* -- HERO -- */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -258,7 +274,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,.15) 0%, transparent 60%),
+  background: radial-gradient(ellipse at 30% 50%, rgba(211,39,46,.15) 0%, transparent 60%),
               radial-gradient(ellipse at 80% 20%, rgba(193,39,45,.12) 0%, transparent 50%);
 }
 
@@ -342,8 +358,20 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .hero-subtitle {
   font-size: 1.05rem;
   color: rgba(255,255,255,.75);
-  margin-bottom: 36px;
+  margin-bottom: 12px;
   line-height: 1.8;
+}
+
+.hero-tagline {
+  font-family: 'Cairo', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--gold-light);
+  letter-spacing: .02em;
+  margin-bottom: 32px;
+  direction: ltr;
+  text-align: right;
 }
 
 .hero-actions {
@@ -416,7 +444,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   100% { transform: translateY(18px); opacity: 0; }
 }
 
-/* ── Animations ── */
+/* -- Animations -- */
 .animate-fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -431,7 +459,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── STATS BAR ── */
+/* -- STATS BAR -- */
 .stats-bar {
   background: var(--navy);
   padding-block: 40px;
@@ -469,7 +497,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   font-weight: 500;
 }
 
-/* ── ABOUT ── */
+/* -- ABOUT -- */
 .about { background: var(--off-white); }
 
 .about-grid {
@@ -541,7 +569,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .feature-icon-sm {
   width: 24px; height: 24px;
   background: var(--gold);
-  color: var(--navy);
+  color: var(--white);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -551,7 +579,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   flex-shrink: 0;
 }
 
-/* ── DESTINATIONS ── */
+/* -- DESTINATIONS -- */
 .destinations { background: var(--white); }
 
 .destinations-grid {
@@ -601,7 +629,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   top: 12px;
   right: 12px;
   background: var(--gold);
-  color: var(--navy);
+  color: var(--white);
   font-size: .72rem;
   font-weight: 800;
   padding: 4px 10px;
@@ -693,7 +721,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   border-color: var(--white);
 }
 
-/* ── SERVICES ── */
+/* -- SERVICES -- */
 .services { background: var(--off-white); }
 
 .services-grid {
@@ -745,7 +773,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   line-height: 1.65;
 }
 
-/* ── HOW IT WORKS ── */
+/* -- HOW IT WORKS -- */
 .how-it-works { background: var(--white); }
 
 .steps-grid {
@@ -813,9 +841,9 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   flex-shrink: 0;
 }
 
-/* ── TESTIMONIALS ── */
+/* -- TESTIMONIALS -- */
 .testimonials { background: var(--navy); }
-.testimonials .section-tag { background: rgba(201,168,76,.2); }
+.testimonials .section-tag { background: rgba(211,39,46,.2); }
 .testimonials .section-title { color: var(--white); }
 .testimonials .section-subtitle { color: rgba(255,255,255,.6); }
 
@@ -886,7 +914,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   font-size: .78rem;
 }
 
-/* ── APPLY SECTION ── */
+/* -- APPLY SECTION -- */
 .apply-section { background: var(--off-white); }
 
 .apply-wrap {
@@ -921,7 +949,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   gap: 8px;
 }
 
-/* ── FORM ── */
+/* -- FORM -- */
 .apply-form-wrap {
   background: var(--white);
   border-radius: var(--radius-xl);
@@ -956,7 +984,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .step-dot.active {
   background: var(--gold);
-  color: var(--navy);
+  color: var(--white);
 }
 .step-dot.done {
   background: var(--navy);
@@ -1026,7 +1054,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .form-group textarea:focus {
   border-color: var(--gold);
   background: var(--white);
-  box-shadow: 0 0 0 3px rgba(201,168,76,.12);
+  box-shadow: 0 0 0 3px rgba(211,39,46,.12);
 }
 
 .form-group input.error,
@@ -1062,7 +1090,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .radio-option:hover, .checkbox-option:hover {
   border-color: var(--gold);
-  background: rgba(201,168,76,.05);
+  background: rgba(211,39,46,.05);
   color: var(--navy);
 }
 
@@ -1074,7 +1102,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .radio-option input:checked ~ .radio-custom { background: var(--gold); border-color: var(--gold); box-shadow: inset 0 0 0 3px var(--white); }
 .checkbox-option input:checked ~ .check-custom { background: var(--gold); border-color: var(--gold); }
-.checkbox-option input:checked ~ .check-custom::after { content: '✓'; }
+.checkbox-option input:checked ~ .check-custom::after { content: '\2713'; }
 
 .radio-option input:checked ~ *,
 .checkbox-option input:checked ~ * {
@@ -1085,7 +1113,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .radio-option:has(input:checked),
 .checkbox-option:has(input:checked) {
   border-color: var(--gold);
-  background: rgba(201,168,76,.08);
+  background: rgba(211,39,46,.08);
   color: var(--navy);
   font-weight: 700;
 }
@@ -1163,7 +1191,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   line-height: 1.7;
 }
 
-/* ── CONTACT ── */
+/* -- CONTACT -- */
 .contact { background: var(--white); }
 
 .contact-grid {
@@ -1262,7 +1290,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   font-size: .82rem;
 }
 
-/* ── FOOTER ── */
+/* -- FOOTER -- */
 .footer {
   background: var(--navy);
   color: rgba(255,255,255,.7);
@@ -1349,7 +1377,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .footer-bottom-links a:hover { color: var(--gold); }
 
-/* ── WhatsApp Float ── */
+/* -- WhatsApp Float -- */
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
@@ -1372,7 +1400,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   box-shadow: 0 6px 28px rgba(37,211,102,.5);
 }
 
-/* ── Scroll Reveal ── */
+/* -- Scroll Reveal -- */
 [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
@@ -1387,7 +1415,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 [data-reveal-delay="3"] { transition-delay: .3s; }
 [data-reveal-delay="4"] { transition-delay: .4s; }
 
-/* ── RESPONSIVE ── */
+/* -- RESPONSIVE -- */
 @media (max-width: 1024px) {
   .destinations-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
