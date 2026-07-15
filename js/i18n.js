@@ -3,7 +3,7 @@
 const translations = {
   ar: {
     "meta.title": "Excellence Study Agency | مكتب التميز للدراسة في الخارج",
-    "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا والدول العربية.",
+    "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا.",
 
     "nav.destinations": "الوجهات",
     "nav.services": "خدماتنا",
@@ -16,12 +16,11 @@ const translations = {
 
     "hero.badge": "Excellence Study Agency — مكتب التميز للدراسة في الخارج",
     "hero.title.html": "حقّق حلمك<br /><span class=\"hero-highlight\">وادرس في الخارج</span>",
-    "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا والدول العربية",
+    "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "سجّل مجاناً الآن",
     "hero.cta2": "كيف نساعدك؟",
     "hero.scroll": "اكتشف أكثر",
-    "hero.flag.arabic": "الدول العربية",
 
     "stats.students": "طالب مسجّل",
     "stats.countries": "دول وجهة",
@@ -70,13 +69,6 @@ const translations = {
     "dest.es.tag3": "السياحة والفندقة",
     "dest.es.info1": "🌍 لغة عالمية",
     "dest.es.info2": "☀️ جودة حياة عالية",
-    "dest.ar.name": "الدراسة بالعربية الفصحى",
-    "dest.ar.desc": "الدراسة في الجامعات العربية بالفصحى — مصر والأردن وغيرها — بتخصصات متنوعة وتكاليف منخفضة.",
-    "dest.ar.tag1": "الشريعة والقانون",
-    "dest.ar.tag2": "الطب",
-    "dest.ar.tag3": "العلوم الإنسانية",
-    "dest.ar.info1": "📖 باللغة العربية",
-    "dest.ar.info2": "💰 تكلفة منخفضة جداً",
     "dest.more.title": "ودول أخرى",
     "dest.more.desc": "ألمانيا، فرنسا، تركيا، رومانيا، قبرص وأكثر...",
     "dest.more.cta": "استفسر الآن",
@@ -170,8 +162,7 @@ const translations = {
     "form.destination.o2": "🇷🇺 روسيا",
     "form.destination.o3": "🇵🇱 بولندا",
     "form.destination.o4": "🇪🇸 إسبانيا",
-    "form.destination.o5": "🌍 الدراسة بالعربية الفصحى",
-    "form.destination.o6": "وجهة أخرى",
+    "form.destination.o5": "وجهة أخرى",
     "form.specialty.label": "التخصص المرغوب",
     "form.specialty.placeholder": "-- اختر التخصص --",
     "form.specialty.o1": "الطب البشري",
@@ -239,7 +230,7 @@ const translations = {
 
   fr: {
     "meta.title": "Excellence Study Agency | Bureau d'études à l'étranger",
-    "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne, Espagne et dans les pays arabes.",
+    "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne et Espagne.",
 
     "nav.destinations": "Destinations",
     "nav.services": "Services",
@@ -252,12 +243,11 @@ const translations = {
 
     "hero.badge": "Excellence Study Agency — Bureau d'études à l'étranger",
     "hero.title.html": "Réalisez votre rêve<br /><span class=\"hero-highlight\">étudiez à l'étranger</span>",
-    "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne, Espagne et dans les pays arabes",
+    "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne et Espagne",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "Inscription gratuite",
     "hero.cta2": "Comment ça marche ?",
     "hero.scroll": "Découvrir",
-    "hero.flag.arabic": "Pays arabes",
 
     "stats.students": "Étudiants inscrits",
     "stats.countries": "Pays de destination",
@@ -306,13 +296,6 @@ const translations = {
     "dest.es.tag3": "Tourisme et hôtellerie",
     "dest.es.info1": "🌍 Langue internationale",
     "dest.es.info2": "☀️ Qualité de vie élevée",
-    "dest.ar.name": "Études en arabe classique",
-    "dest.ar.desc": "Étudiez dans des universités arabes en langue arabe classique — Égypte, Jordanie et autres — avec des filières variées et des coûts réduits.",
-    "dest.ar.tag1": "Charia et droit",
-    "dest.ar.tag2": "Médecine",
-    "dest.ar.tag3": "Sciences humaines",
-    "dest.ar.info1": "📖 En langue arabe",
-    "dest.ar.info2": "💰 Coût très réduit",
     "dest.more.title": "Et d'autres pays",
     "dest.more.desc": "Allemagne, France, Turquie, Roumanie, Chypre et plus...",
     "dest.more.cta": "Renseignez-vous",
@@ -406,8 +389,7 @@ const translations = {
     "form.destination.o2": "🇷🇺 Russie",
     "form.destination.o3": "🇵🇱 Pologne",
     "form.destination.o4": "🇪🇸 Espagne",
-    "form.destination.o5": "🌍 Études en arabe classique",
-    "form.destination.o6": "Autre destination",
+    "form.destination.o5": "Autre destination",
     "form.specialty.label": "Filière souhaitée",
     "form.specialty.placeholder": "-- Choisissez une filière --",
     "form.specialty.o1": "Médecine",
