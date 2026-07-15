@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Excellence Study Agency | مكتب التميز للدراسة في الخارج</title>
-  <meta name="description" content="مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا والدول العربية. Your Excellence is Our Priority." />
+  <meta name="description" content="مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا والدول العربية." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" href="img/logo.png" />
 </head>
@@ -22,12 +22,18 @@
     </a>
 
     <nav class="nav-links" id="navLinks">
-      <a href="#destinations">الوجهات</a>
-      <a href="#services">خدماتنا</a>
-      <a href="#how-it-works">كيف نعمل</a>
-      <a href="#testimonials">قصص النجاح</a>
-      <a href="#contact">تواصل معنا</a>
-      <a href="#apply" class="btn btn-primary btn-sm">سجّل الآن</a>
+      <a href="#destinations" data-i18n="nav.destinations">الوجهات</a>
+      <a href="#services" data-i18n="nav.services">خدماتنا</a>
+      <a href="#how-it-works" data-i18n="nav.how">كيف نعمل</a>
+      <a href="#partners" data-i18n="nav.partners">شراكاتنا</a>
+      <a href="#certificates" data-i18n="nav.certificates">الشهادات</a>
+      <a href="#testimonials" data-i18n="nav.testimonials">قصص النجاح</a>
+      <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
+      <div class="lang-switch">
+        <button type="button" data-lang="ar" aria-label="العربية">🇲🇦 AR</button>
+        <button type="button" data-lang="fr" aria-label="Français">🇫🇷 FR</button>
+      </div>
+      <a href="#apply" class="btn btn-primary btn-sm" data-i18n="nav.cta">سجّل الآن</a>
     </nav>
 
     <button class="hamburger" id="hamburger" aria-label="القائمة">
@@ -49,39 +55,38 @@
   <div class="container hero-content">
     <div class="hero-badge animate-fade-up">
       <span class="badge-dot"></span>
-      Excellence Study Agency — مكتب التميز للدراسة في الخارج
+      <span data-i18n="hero.badge">Excellence Study Agency — مكتب التميز للدراسة في الخارج</span>
     </div>
-    <h1 class="hero-title animate-fade-up delay-1">
+    <h1 class="hero-title animate-fade-up delay-1" data-i18n-html="hero.title.html">
       حقّق حلمك<br />
       <span class="hero-highlight">وادرس في الخارج</span>
     </h1>
-    <p class="hero-subtitle animate-fade-up delay-2">
+    <p class="hero-subtitle animate-fade-up delay-2" data-i18n-html="hero.subtitle.html">
       نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />
       في ليتوانيا وروسيا وبولندا وإسبانيا والدول العربية
     </p>
-    <p class="hero-tagline animate-fade-up delay-2">Your Excellence Is Our Priority</p>
+    <p class="hero-tagline animate-fade-up delay-2" data-i18n="hero.tagline">Your Excellence Is Our Priority</p>
     <div class="hero-actions animate-fade-up delay-3">
-      <a href="#apply" class="btn btn-primary btn-lg">
+      <a href="#apply" class="btn btn-primary btn-lg" data-i18n="hero.cta1">
         سجّل مجاناً الآن
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#how-it-works" class="btn btn-outline btn-lg">
+      <a href="#how-it-works" class="btn btn-outline btn-lg" data-i18n="hero.cta2">
         كيف نساعدك؟
       </a>
     </div>
     <div class="hero-flags animate-fade-up delay-4">
-      <span class="flag-chip">🇱🇹 ليتوانيا</span>
-      <span class="flag-chip">🇷🇺 روسيا</span>
-      <span class="flag-chip">🇵🇱 بولندا</span>
-      <span class="flag-chip">🇪🇸 إسبانيا</span>
-      <span class="flag-chip">🌍 الدول العربية</span>
+      <span class="flag-chip">🇱🇹 <span data-i18n="dest.lt.name">ليتوانيا</span></span>
+      <span class="flag-chip">🇷🇺 <span data-i18n="dest.ru.name">روسيا</span></span>
+      <span class="flag-chip">🇵🇱 <span data-i18n="dest.pl.name">بولندا</span></span>
+      <span class="flag-chip">🇪🇸 <span data-i18n="dest.es.name">إسبانيا</span></span>
+      <span class="flag-chip">🌍 <span data-i18n="hero.flag.arabic">الدول العربية</span></span>
     </div>
   </div>
   <div class="hero-scroll">
     <div class="scroll-indicator">
       <div class="scroll-dot"></div>
     </div>
-    <span>اكتشف أكثر</span>
+    <span data-i18n="hero.scroll">اكتشف أكثر</span>
   </div>
 </section>
 
@@ -91,22 +96,22 @@
     <div class="stat-item" data-target="500">
       <span class="stat-number" data-count="500">0</span>
       <span class="stat-plus">+</span>
-      <p class="stat-label">طالب مسجّل</p>
+      <p class="stat-label" data-i18n="stats.students">طالب مسجّل</p>
     </div>
     <div class="stat-item" data-target="10">
       <span class="stat-number" data-count="10">0</span>
       <span class="stat-plus">+</span>
-      <p class="stat-label">دول وجهة</p>
+      <p class="stat-label" data-i18n="stats.countries">دول وجهة</p>
     </div>
     <div class="stat-item" data-target="98">
       <span class="stat-number" data-count="98">0</span>
       <span class="stat-plus">%</span>
-      <p class="stat-label">نسبة القبول</p>
+      <p class="stat-label" data-i18n="stats.acceptance">نسبة القبول</p>
     </div>
     <div class="stat-item" data-target="7">
       <span class="stat-number" data-count="7">0</span>
       <span class="stat-plus">+</span>
-      <p class="stat-label">سنوات خبرة</p>
+      <p class="stat-label" data-i18n="stats.experience">سنوات خبرة</p>
     </div>
   </div>
 </section>
@@ -117,39 +122,39 @@
     <div class="about-visual">
       <div class="about-img-wrap">
         <div class="about-img-placeholder">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <img src="img/logo.png" alt="Excellence Study Agency" class="about-logo-img" />
         </div>
         <div class="about-badge-float">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--gold)"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>موثوق من 500+ عائلة</span>
+          <span data-i18n="about.badge">موثوق من 500+ عائلة</span>
         </div>
       </div>
     </div>
     <div class="about-content">
-      <div class="section-tag">من نحن</div>
-      <h2 class="section-title">Excellence Study Agency — شريكك<br /><span class="text-gold">نحو مستقبل أفضل</span></h2>
-      <p class="about-text">
-        نحن مكتب التميز للدراسة في الخارج (ESA)، فريق متخصص في توجيه الطلاب المغاربة نحو أفضل الجامعات والمعاهد في الخارج. لدينا شراكات مباشرة مع جامعات معترف بها دولياً في ليتوانيا مثل Vilnius University وVilnius Business College، وساعدنا عشرات الطلاب على الحصول على قبولهم الجامعي وتأشيرة دراستهم بنجاح.
+      <div class="section-tag" data-i18n="about.tag">من نحن</div>
+      <h2 class="section-title" data-i18n-html="about.title.html">Excellence Study Agency — شريكك<br /><span class="text-gold">نحو مستقبل أفضل</span></h2>
+      <p class="about-text" data-i18n="about.p1">
+        مكتب التميز هو شريكك الموثوق لتحقيق حلم الدراسة في الخارج...
       </p>
-      <p class="about-text">
-        خبرتنا تمتد عبر ليتوانيا وروسيا وبولندا وإسبانيا والدول العربية — نوفر لك القبول الجامعي، تأشيرة الدراسة، السكن، والمتابعة الكاملة. Your Excellence Is Our Priority.
+      <p class="about-text" data-i18n="about.p2">
+        نؤمن بأن التعليم المتميز يجب أن يكون في متناول الجميع...
       </p>
       <div class="about-features">
         <div class="about-feature">
           <div class="feature-icon-sm">✓</div>
-          <span>قبول جامعي مضمون</span>
+          <span data-i18n="about.feat1">قبول جامعي مضمون</span>
         </div>
         <div class="about-feature">
           <div class="feature-icon-sm">✓</div>
-          <span>متابعة تأشيرة الدراسة</span>
+          <span data-i18n="about.feat2">متابعة تأشيرة الدراسة</span>
         </div>
         <div class="about-feature">
           <div class="feature-icon-sm">✓</div>
-          <span>مساعدة في السكن</span>
+          <span data-i18n="about.feat3">مساعدة في السكن</span>
         </div>
         <div class="about-feature">
           <div class="feature-icon-sm">✓</div>
-          <span>دعم ما بعد الوصول</span>
+          <span data-i18n="about.feat4">دعم ما بعد الوصول</span>
         </div>
       </div>
     </div>
@@ -160,9 +165,9 @@
 <section class="destinations section" id="destinations">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">الوجهات</div>
-      <h2 class="section-title">اختر وجهتك <span class="text-gold">الدراسية</span></h2>
-      <p class="section-subtitle">خيارات متنوعة لتناسب مختلف التخصصات والميزانيات</p>
+      <div class="section-tag" data-i18n="dest.tag">الوجهات</div>
+      <h2 class="section-title" data-i18n-html="dest.title.html">اختر وجهتك <span class="text-gold">الدراسية</span></h2>
+      <p class="section-subtitle" data-i18n="dest.subtitle">خيارات متنوعة لتناسب مختلف التخصصات والميزانيات</p>
     </div>
 
     <div class="destinations-grid">
@@ -171,19 +176,19 @@
         <div class="dest-img">
           <div class="dest-flag">🇱🇹</div>
           <div class="dest-overlay"></div>
-          <div class="dest-badge">الأكثر طلباً</div>
+          <div class="dest-badge" data-i18n="dest.lt.badge">الأكثر طلباً</div>
         </div>
         <div class="dest-body">
-          <h3 class="dest-name">ليتوانيا</h3>
-          <p class="dest-desc">دراسة الطب والهندسة بتكاليف معقولة في قلب أوروبا، مع جامعات معترف بها دولياً.</p>
+          <h3 class="dest-name" data-i18n="dest.lt.name">ليتوانيا</h3>
+          <p class="dest-desc" data-i18n="dest.lt.desc">دراسة الطب والهندسة بتكاليف معقولة في قلب أوروبا، مع جامعات معترف بها دولياً.</p>
           <ul class="dest-tags">
-            <li>الطب والصيدلة</li>
-            <li>الهندسة</li>
-            <li>تقنية المعلومات</li>
+            <li data-i18n="dest.lt.tag1">الطب والصيدلة</li>
+            <li data-i18n="dest.lt.tag2">الهندسة</li>
+            <li data-i18n="dest.lt.tag3">تقنية المعلومات</li>
           </ul>
           <div class="dest-info">
-            <span>💰 تكلفة معقولة</span>
-            <span>🎓 جامعات معترفة</span>
+            <span data-i18n="dest.lt.info1">💰 تكلفة معقولة</span>
+            <span data-i18n="dest.lt.info2">🎓 جامعات معترفة</span>
           </div>
         </div>
       </div>
@@ -194,16 +199,16 @@
           <div class="dest-overlay"></div>
         </div>
         <div class="dest-body">
-          <h3 class="dest-name">روسيا</h3>
-          <p class="dest-desc">تقاليد علمية راسخة وجامعات مرموقة في الطب والهندسة والعلوم بأسعار تنافسية.</p>
+          <h3 class="dest-name" data-i18n="dest.ru.name">روسيا</h3>
+          <p class="dest-desc" data-i18n="dest.ru.desc">تقاليد علمية راسخة وجامعات مرموقة في الطب والهندسة والعلوم بأسعار تنافسية.</p>
           <ul class="dest-tags">
-            <li>الطب البشري</li>
-            <li>الهندسة</li>
-            <li>العلوم الطبيعية</li>
+            <li data-i18n="dest.ru.tag1">الطب البشري</li>
+            <li data-i18n="dest.ru.tag2">الهندسة</li>
+            <li data-i18n="dest.ru.tag3">العلوم الطبيعية</li>
           </ul>
           <div class="dest-info">
-            <span>💰 تكلفة منخفضة</span>
-            <span>🎓 تعليم متميز</span>
+            <span data-i18n="dest.ru.info1">💰 تكلفة منخفضة</span>
+            <span data-i18n="dest.ru.info2">🎓 تعليم متميز</span>
           </div>
         </div>
       </div>
@@ -214,16 +219,16 @@
           <div class="dest-overlay"></div>
         </div>
         <div class="dest-body">
-          <h3 class="dest-name">بولندا</h3>
-          <p class="dest-desc">بوابة أوروبا الشرقية مع معايير تعليمية أوروبية وتكاليف دراسة مقبولة.</p>
+          <h3 class="dest-name" data-i18n="dest.pl.name">بولندا</h3>
+          <p class="dest-desc" data-i18n="dest.pl.desc">بوابة أوروبا الشرقية مع معايير تعليمية أوروبية وتكاليف دراسة مقبولة.</p>
           <ul class="dest-tags">
-            <li>الطب والصيدلة</li>
-            <li>الأعمال والاقتصاد</li>
-            <li>الهندسة</li>
+            <li data-i18n="dest.pl.tag1">الطب والصيدلة</li>
+            <li data-i18n="dest.pl.tag2">الأعمال والاقتصاد</li>
+            <li data-i18n="dest.pl.tag3">الهندسة</li>
           </ul>
           <div class="dest-info">
-            <span>🇪🇺 داخل الاتحاد الأوروبي</span>
-            <span>🎓 شهادات أوروبية</span>
+            <span data-i18n="dest.pl.info1">🇪🇺 داخل الاتحاد الأوروبي</span>
+            <span data-i18n="dest.pl.info2">🎓 شهادات أوروبية</span>
           </div>
         </div>
       </div>
@@ -234,16 +239,16 @@
           <div class="dest-overlay"></div>
         </div>
         <div class="dest-body">
-          <h3 class="dest-name">إسبانيا</h3>
-          <p class="dest-desc">تعليم عالي الجودة في بيئة ثقافية غنية، بلغة مشتركة مع ملايين المتحدثين حول العالم.</p>
+          <h3 class="dest-name" data-i18n="dest.es.name">إسبانيا</h3>
+          <p class="dest-desc" data-i18n="dest.es.desc">تعليم عالي الجودة في بيئة ثقافية غنية، بلغة مشتركة مع ملايين المتحدثين حول العالم.</p>
           <ul class="dest-tags">
-            <li>الفنون والتصميم</li>
-            <li>الأعمال</li>
-            <li>السياحة والفندقة</li>
+            <li data-i18n="dest.es.tag1">الفنون والتصميم</li>
+            <li data-i18n="dest.es.tag2">الأعمال</li>
+            <li data-i18n="dest.es.tag3">السياحة والفندقة</li>
           </ul>
           <div class="dest-info">
-            <span>🌍 لغة عالمية</span>
-            <span>☀️ جودة حياة عالية</span>
+            <span data-i18n="dest.es.info1">🌍 لغة عالمية</span>
+            <span data-i18n="dest.es.info2">☀️ جودة حياة عالية</span>
           </div>
         </div>
       </div>
@@ -254,16 +259,16 @@
           <div class="dest-overlay"></div>
         </div>
         <div class="dest-body">
-          <h3 class="dest-name">الدراسة بالعربية الفصحى</h3>
-          <p class="dest-desc">الدراسة في الجامعات العربية بالفصحى — مصر والأردن وغيرها — بتخصصات متنوعة وتكاليف منخفضة.</p>
+          <h3 class="dest-name" data-i18n="dest.ar.name">الدراسة بالعربية الفصحى</h3>
+          <p class="dest-desc" data-i18n="dest.ar.desc">الدراسة في الجامعات العربية بالفصحى — مصر والأردن وغيرها — بتخصصات متنوعة وتكاليف منخفضة.</p>
           <ul class="dest-tags">
-            <li>الشريعة والقانون</li>
-            <li>الطب</li>
-            <li>العلوم الإنسانية</li>
+            <li data-i18n="dest.ar.tag1">الشريعة والقانون</li>
+            <li data-i18n="dest.ar.tag2">الطب</li>
+            <li data-i18n="dest.ar.tag3">العلوم الإنسانية</li>
           </ul>
           <div class="dest-info">
-            <span>📖 باللغة العربية</span>
-            <span>💰 تكلفة منخفضة جداً</span>
+            <span data-i18n="dest.ar.info1">📖 باللغة العربية</span>
+            <span data-i18n="dest.ar.info2">💰 تكلفة منخفضة جداً</span>
           </div>
         </div>
       </div>
@@ -273,9 +278,9 @@
           <div class="dest-more-flags">
             <span>🇩🇪</span><span>🇫🇷</span><span>🇹🇷</span><span>🇷🇴</span><span>🇨🇾</span>
           </div>
-          <h3>ودول أخرى</h3>
-          <p>ألمانيا، فرنسا، تركيا، رومانيا، قبرص وأكثر...</p>
-          <a href="#apply" class="btn btn-outline btn-sm">استفسر الآن</a>
+          <h3 data-i18n="dest.more.title">ودول أخرى</h3>
+          <p data-i18n="dest.more.desc">ألمانيا، فرنسا، تركيا، رومانيا، قبرص وأكثر...</p>
+          <a href="#apply" class="btn btn-outline btn-sm" data-i18n="dest.more.cta">استفسر الآن</a>
         </div>
       </div>
 
@@ -287,52 +292,52 @@
 <section class="services section" id="services">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">خدماتنا</div>
-      <h2 class="section-title">كل ما تحتاجه في <span class="text-gold">مكان واحد</span></h2>
-      <p class="section-subtitle">نتكفل بكل شيء لتتفرغ أنت لمستقبلك</p>
+      <div class="section-tag" data-i18n="services.tag">خدماتنا</div>
+      <h2 class="section-title" data-i18n-html="services.title.html">كل ما تحتاجه في <span class="text-gold">مكان واحد</span></h2>
+      <p class="section-subtitle" data-i18n="services.subtitle">نتكفل بكل شيء لتتفرغ أنت لمستقبلك</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
         </div>
-        <h3>القبول الجامعي</h3>
-        <p>نساعدك في اختيار الجامعة المناسبة وتقديم ملفك وضمان القبول.</p>
+        <h3 data-i18n="services.s1.title">القبول الجامعي</h3>
+        <p data-i18n="services.s1.desc">نساعدك في اختيار الجامعة المناسبة وتقديم ملفك وضمان القبول.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
         </div>
-        <h3>تأشيرة الدراسة</h3>
-        <p>نتولى إعداد ملف التأشيرة كاملاً ومتابعته مع السفارة خطوة بخطوة.</p>
+        <h3 data-i18n="services.s2.title">تأشيرة الدراسة</h3>
+        <p data-i18n="services.s2.desc">نتولى إعداد ملف التأشيرة كاملاً ومتابعته مع السفارة خطوة بخطوة.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <h3>السكن الطلابي</h3>
-        <p>نوفر لك خيارات سكن مناسبة ومأمونة قرب جامعتك منذ اليوم الأول.</p>
+        <h3 data-i18n="services.s3.title">السكن الطلابي</h3>
+        <p data-i18n="services.s3.desc">نوفر لك خيارات سكن مناسبة ومأمونة قرب جامعتك منذ اليوم الأول.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
-        <h3>التأمين الطلابي</h3>
-        <p>نساعدك في استخراج التأمين الصحي المطلوب للدراسة في الخارج.</p>
+        <h3 data-i18n="services.s4.title">التأمين الطلابي</h3>
+        <p data-i18n="services.s4.desc">نساعدك في استخراج التأمين الصحي المطلوب للدراسة في الخارج.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <h3>مجتمع الطلاب</h3>
-        <p>نربطك بمجتمع من الطلاب المغاربة في نفس البلد لدعم بعضكم البعض.</p>
+        <h3 data-i18n="services.s5.title">مجتمع الطلاب</h3>
+        <p data-i18n="services.s5.desc">نربطك بمجتمع من الطلاب المغاربة في نفس البلد لدعم بعضكم البعض.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.85 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.77 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <h3>الدعم المستمر</h3>
-        <p>فريقنا متاح لك على مدار الساعة للإجابة عن أسئلتك ومتابعة ملفك.</p>
+        <h3 data-i18n="services.s6.title">الدعم المستمر</h3>
+        <p data-i18n="services.s6.desc">فريقنا متاح لك على مدار الساعة للإجابة عن أسئلتك ومتابعة ملفك.</p>
       </div>
     </div>
   </div>
@@ -342,39 +347,93 @@
 <section class="how-it-works section" id="how-it-works">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">كيف نعمل</div>
-      <h2 class="section-title">أربع خطوات <span class="text-gold">لحلمك</span></h2>
-      <p class="section-subtitle">عملية واضحة وبسيطة من البداية للنهاية</p>
+      <div class="section-tag" data-i18n="how.tag">كيف نعمل</div>
+      <h2 class="section-title" data-i18n-html="how.title.html">أربع خطوات <span class="text-gold">لحلمك</span></h2>
+      <p class="section-subtitle" data-i18n="how.subtitle">عملية واضحة وبسيطة من البداية للنهاية</p>
     </div>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">01</div>
         <div class="step-icon">📋</div>
-        <h3>سجّل بياناتك</h3>
-        <p>املأ استمارة التسجيل المجانية وأخبرنا عن مستواك الدراسي ووجهتك المفضلة.</p>
+        <h3 data-i18n="how.s1.title">سجّل بياناتك</h3>
+        <p data-i18n="how.s1.desc">املأ استمارة التسجيل المجانية وأخبرنا عن مستواك الدراسي ووجهتك المفضلة.</p>
       </div>
       <div class="step-arrow">←</div>
       <div class="step-card">
         <div class="step-num">02</div>
         <div class="step-icon">🤝</div>
-        <h3>استشارة مجانية</h3>
-        <p>يتواصل معك مستشارنا المتخصص لتقييم ملفك واقتراح أفضل الخيارات لك.</p>
+        <h3 data-i18n="how.s2.title">استشارة مجانية</h3>
+        <p data-i18n="how.s2.desc">يتواصل معك مستشارنا المتخصص لتقييم ملفك واقتراح أفضل الخيارات لك.</p>
       </div>
       <div class="step-arrow">←</div>
       <div class="step-card">
         <div class="step-num">03</div>
         <div class="step-icon">🎓</div>
-        <h3>القبول والتأشيرة</h3>
-        <p>نتولى إعداد الملفات والتقديم للجامعة ومتابعة التأشيرة حتى موافقتها.</p>
+        <h3 data-i18n="how.s3.title">القبول والتأشيرة</h3>
+        <p data-i18n="how.s3.desc">نتولى إعداد الملفات والتقديم للجامعة ومتابعة التأشيرة حتى موافقتها.</p>
       </div>
       <div class="step-arrow">←</div>
       <div class="step-card">
         <div class="step-num">04</div>
         <div class="step-icon">✈️</div>
-        <h3>السفر والانطلاق</h3>
-        <p>تسافر بثقة ونرافقك في استقبالك وإيجاد السكن وبدء حياتك الجامعية.</p>
+        <h3 data-i18n="how.s4.title">السفر والانطلاق</h3>
+        <p data-i18n="how.s4.desc">تسافر بثقة ونرافقك في استقبالك وإيجاد السكن وبدء حياتك الجامعية.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ====== PARTNERS ====== -->
+<section class="partners section" id="partners">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="partners.tag">شراكاتنا</div>
+      <h2 class="section-title" data-i18n-html="partners.title.html">جامعات <span class="text-gold">شريكة موثوقة</span></h2>
+      <p class="section-subtitle" data-i18n="partners.subtitle">نتعامل مباشرة مع مؤسسات جامعية معترف بها دولياً</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-icon">🎓</div>
+        <h3 data-i18n="partners.p1.name">Vilnius University</h3>
+        <p data-i18n="partners.p1.loc">فيلنيوس، ليتوانيا 🇱🇹</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon">🎓</div>
+        <h3 data-i18n="partners.p2.name">Vilnius Business College</h3>
+        <p data-i18n="partners.p2.loc">فيلنيوس، ليتوانيا 🇱🇹</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon">🎓</div>
+        <h3 data-i18n="partners.p3.name">Vytautas Magnus University</h3>
+        <p data-i18n="partners.p3.loc">كاوناس، ليتوانيا 🇱🇹</p>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon">🌍</div>
+        <h3 data-i18n="partners.p4.name">شركاء إضافيون</h3>
+        <p data-i18n="partners.p4.loc">روسيا، بولندا، إسبانيا 🌍</p>
+      </div>
+    </div>
+    <p class="partners-note" data-i18n="partners.note">* صور الشراكة والاعتماد الرسمي قيد الإضافة</p>
+  </div>
+</section>
+
+<!-- ====== CERTIFICATES ====== -->
+<section class="certificates section" id="certificates">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="certs.tag">شهادات القبول</div>
+      <h2 class="section-title" data-i18n-html="certs.title.html">قصص نجاح <span class="text-gold">موثّقة</span></h2>
+      <p class="section-subtitle" data-i18n="certs.subtitle">نماذج حقيقية من خطابات قبول طلابنا في الجامعات الشريكة</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-placeholder"><span>📄</span></div>
+      <div class="cert-placeholder"><span>📄</span></div>
+      <div class="cert-placeholder"><span>📄</span></div>
+      <div class="cert-placeholder"><span>📄</span></div>
+      <div class="cert-placeholder"><span>📄</span></div>
+      <div class="cert-placeholder"><span>📄</span></div>
+    </div>
+    <p class="certs-note" data-i18n="certs.placeholder">سيتم إضافة صور خطابات القبول هنا قريباً</p>
   </div>
 </section>
 
@@ -382,41 +441,41 @@
 <section class="testimonials section" id="testimonials">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">قصص النجاح</div>
-      <h2 class="section-title">ماذا يقول <span class="text-gold">طلابنا؟</span></h2>
-      <p class="section-subtitle">تجارب حقيقية من طلاب يدرسون الآن في الخارج بمساعدتنا</p>
+      <div class="section-tag" data-i18n="testi.tag">قصص النجاح</div>
+      <h2 class="section-title" data-i18n-html="testi.title.html">ماذا يقول <span class="text-gold">طلابنا؟</span></h2>
+      <p class="section-subtitle" data-i18n="testi.subtitle">تجارب حقيقية من طلاب يدرسون الآن في الخارج بمساعدتنا</p>
     </div>
     <div class="testimonials-grid">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"ما كنت نتصور غادي نقبل بهاد السرعة، Excellence Study Agency تكفلات بملفي بالكامل من القبول حتى تأشيرة الدراسة. الآن كنقرا برمجة وتكنولوجيا الأنترنيت في فيلنيوس."</p>
+        <p class="testi-text" data-i18n="testi.t1.text">"..."</p>
         <div class="testi-author">
           <div class="testi-avatar">ف</div>
           <div>
-            <strong>فيصل</strong>
-            <span>برمجة وتكنولوجيا الأنترنيت — ليتوانيا 🇱🇹</span>
+            <strong data-i18n="testi.t1.name">فيصل</strong>
+            <span data-i18n="testi.t1.program">برمجة وتكنولوجيا الأنترنيت — ليتوانيا 🇱🇹</span>
           </div>
         </div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"فريق محترف ومتابعة يومية، ساعدوني نجيب قبولي في نظم المعلومات وأمن المعلومات وخرجت التأشيرة فوقت قياسي. Your Excellence Is Our Priority فعلاً حقيقة."</p>
+        <p class="testi-text" data-i18n="testi.t2.text">"..."</p>
         <div class="testi-author">
           <div class="testi-avatar">ح</div>
           <div>
-            <strong>حمزة</strong>
-            <span>نظم المعلوماتية — ليتوانيا 🇱🇹</span>
+            <strong data-i18n="testi.t2.name">حمزة</strong>
+            <span data-i18n="testi.t2.program">نظم المعلوماتية — ليتوانيا 🇱🇹</span>
           </div>
         </div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"كنت حاير بين بلدان بزاف، مستشار الوكالة شرح ليا كلشي بالتفصيل وساعدني نختار تخصص الأعمال الرقمية. الحمد لله دابا كنقرا فجامعة معترف بها دولياً."</p>
+        <p class="testi-text" data-i18n="testi.t3.text">"..."</p>
         <div class="testi-author">
           <div class="testi-avatar">ش</div>
           <div>
-            <strong>شكري</strong>
-            <span>الأعمال الرقمية — ليتوانيا 🇱🇹</span>
+            <strong data-i18n="testi.t3.name">شكري</strong>
+            <span data-i18n="testi.t3.program">الأعمال الرقمية — ليتوانيا 🇱🇹</span>
           </div>
         </div>
       </div>
@@ -429,19 +488,19 @@
   <div class="container">
     <div class="apply-wrap">
       <div class="apply-info">
-        <div class="section-tag">التسجيل المجاني</div>
-        <h2 class="section-title">ابدأ رحلتك<br /><span class="text-gold">اليوم مجاناً</span></h2>
-        <p>سجّل الآن واحصل على استشارة مجانية مع أحد خبرائنا خلال 24 ساعة.</p>
+        <div class="section-tag" data-i18n="apply.tag">التسجيل المجاني</div>
+        <h2 class="section-title" data-i18n-html="apply.title.html">ابدأ رحلتك<br /><span class="text-gold">اليوم مجاناً</span></h2>
+        <p data-i18n="apply.desc">سجّل الآن واحصل على استشارة مجانية مع أحد خبرائنا خلال 24 ساعة.</p>
         <ul class="apply-perks">
-          <li>✓ استشارة مجانية بدون التزام</li>
-          <li>✓ تقييم ملفك الدراسي</li>
-          <li>✓ اقتراح أفضل الوجهات لك</li>
-          <li>✓ إجابة على كل أسئلتك</li>
+          <li data-i18n="apply.perk1">✓ استشارة مجانية بدون التزام</li>
+          <li data-i18n="apply.perk2">✓ تقييم ملفك الدراسي</li>
+          <li data-i18n="apply.perk3">✓ اقتراح أفضل الوجهات لك</li>
+          <li data-i18n="apply.perk4">✓ إجابة على كل أسئلتك</li>
         </ul>
         <div class="apply-contact">
           <a href="https://wa.me/212660095616" class="btn btn-whatsapp" target="_blank">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            تواصل عبر واتساب
+            <span data-i18n="apply.whatsapp">تواصل عبر واتساب</span>
           </a>
         </div>
       </div>
@@ -462,218 +521,218 @@
 
           <!-- STEP 1 -->
           <div class="form-step active" data-step="1">
-            <h3 class="form-step-title">معلوماتك الشخصية</h3>
+            <h3 class="form-step-title" data-i18n="form.step1.title">معلوماتك الشخصية</h3>
             <div class="form-group">
-              <label for="fullName">الاسم الكامل <span class="required">*</span></label>
-              <input type="text" id="fullName" name="fullName" placeholder="مثال: محمد الأمراني" required />
+              <label for="fullName" data-i18n="form.fullName.label">الاسم الكامل <span class="required">*</span></label>
+              <input type="text" id="fullName" name="fullName" data-i18n-placeholder="form.fullName.placeholder" placeholder="مثال: محمد الأمراني" required />
             </div>
             <div class="form-group">
-              <label for="phone">رقم الهاتف <span class="required">*</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="+212 6XX XXX XXX" required />
+              <label for="phone" data-i18n="form.phone.label">رقم الهاتف <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" data-i18n-placeholder="form.phone.placeholder" placeholder="+212 6XX XXX XXX" required />
             </div>
             <div class="form-group">
-              <label for="city">المدينة <span class="required">*</span></label>
-              <input type="text" id="city" name="city" placeholder="مثال: الرباط، الدار البيضاء..." required />
+              <label for="city" data-i18n="form.city.label">المدينة <span class="required">*</span></label>
+              <input type="text" id="city" name="city" data-i18n-placeholder="form.city.placeholder" placeholder="مثال: الرباط، الدار البيضاء..." required />
             </div>
             <div class="form-group">
-              <label>مستواك الدراسي <span class="required">*</span></label>
+              <label data-i18n="form.educLevel.label">مستواك الدراسي <span class="required">*</span></label>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="educLevel" value="bac_student" required />
                   <span class="radio-custom"></span>
-                  أدرس في سنة البكالوريا
+                  <span data-i18n="form.educLevel.o1">أدرس في سنة البكالوريا</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="educLevel" value="bac_holder" />
                   <span class="radio-custom"></span>
-                  حاصل على البكالوريا
+                  <span data-i18n="form.educLevel.o2">حاصل على البكالوريا</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="educLevel" value="license" />
                   <span class="radio-custom"></span>
-                  أدرس أو حاصل على الإجازة
+                  <span data-i18n="form.educLevel.o3">أدرس أو حاصل على الإجازة</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="educLevel" value="master" />
                   <span class="radio-custom"></span>
-                  أدرس أو حاصل على الماجستير
+                  <span data-i18n="form.educLevel.o4">أدرس أو حاصل على الماجستير</span>
                 </label>
               </div>
             </div>
             <div class="form-nav">
-              <button type="button" class="btn btn-primary next-step">التالي ←</button>
+              <button type="button" class="btn btn-primary next-step" data-i18n="form.next">التالي ←</button>
               <span class="step-counter">1 / 4</span>
             </div>
           </div>
 
           <!-- STEP 2 -->
           <div class="form-step" data-step="2">
-            <h3 class="form-step-title">الوجهة والتخصص</h3>
+            <h3 class="form-step-title" data-i18n="form.step2.title">الوجهة والتخصص</h3>
             <div class="form-group">
-              <label>الوجهة الدراسية المفضلة <span class="required">*</span></label>
+              <label data-i18n="form.destination.label">الوجهة الدراسية المفضلة <span class="required">*</span></label>
               <div class="checkbox-group">
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="lithuania" />
                   <span class="check-custom"></span>
-                  🇱🇹 ليتوانيا
+                  <span data-i18n="form.destination.o1">🇱🇹 ليتوانيا</span>
                 </label>
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="russia" />
                   <span class="check-custom"></span>
-                  🇷🇺 روسيا
+                  <span data-i18n="form.destination.o2">🇷🇺 روسيا</span>
                 </label>
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="poland" />
                   <span class="check-custom"></span>
-                  🇵🇱 بولندا
+                  <span data-i18n="form.destination.o3">🇵🇱 بولندا</span>
                 </label>
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="spain" />
                   <span class="check-custom"></span>
-                  🇪🇸 إسبانيا
+                  <span data-i18n="form.destination.o4">🇪🇸 إسبانيا</span>
                 </label>
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="arabic" />
                   <span class="check-custom"></span>
-                  🌍 الدراسة بالعربية الفصحى
+                  <span data-i18n="form.destination.o5">🌍 الدراسة بالعربية الفصحى</span>
                 </label>
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="other" />
                   <span class="check-custom"></span>
-                  وجهة أخرى
+                  <span data-i18n="form.destination.o6">وجهة أخرى</span>
                 </label>
               </div>
             </div>
             <div class="form-group">
-              <label for="specialty">التخصص المرغوب <span class="required">*</span></label>
+              <label for="specialty" data-i18n="form.specialty.label">التخصص المرغوب <span class="required">*</span></label>
               <select id="specialty" name="specialty" required>
-                <option value="">-- اختر التخصص --</option>
-                <option value="medicine">الطب البشري</option>
-                <option value="dentistry">طب الأسنان</option>
-                <option value="pharmacy">الصيدلة</option>
-                <option value="engineering">الهندسة</option>
-                <option value="it">تقنية المعلومات</option>
-                <option value="business">الأعمال والاقتصاد</option>
-                <option value="law">القانون والشريعة</option>
-                <option value="arts">الفنون والتصميم</option>
-                <option value="tourism">السياحة والفندقة</option>
-                <option value="other">تخصص آخر</option>
+                <option value="" data-i18n="form.specialty.placeholder">-- اختر التخصص --</option>
+                <option value="medicine" data-i18n="form.specialty.o1">الطب البشري</option>
+                <option value="dentistry" data-i18n="form.specialty.o2">طب الأسنان</option>
+                <option value="pharmacy" data-i18n="form.specialty.o3">الصيدلة</option>
+                <option value="engineering" data-i18n="form.specialty.o4">الهندسة</option>
+                <option value="it" data-i18n="form.specialty.o5">تقنية المعلومات</option>
+                <option value="business" data-i18n="form.specialty.o6">الأعمال والاقتصاد</option>
+                <option value="law" data-i18n="form.specialty.o7">القانون والشريعة</option>
+                <option value="arts" data-i18n="form.specialty.o8">الفنون والتصميم</option>
+                <option value="tourism" data-i18n="form.specialty.o9">السياحة والفندقة</option>
+                <option value="other" data-i18n="form.specialty.o10">تخصص آخر</option>
               </select>
             </div>
             <div class="form-nav">
-              <button type="button" class="btn btn-outline prev-step">→ السابق</button>
-              <button type="button" class="btn btn-primary next-step">التالي ←</button>
+              <button type="button" class="btn btn-outline prev-step" data-i18n="form.prev">→ السابق</button>
+              <button type="button" class="btn btn-primary next-step" data-i18n="form.next">التالي ←</button>
               <span class="step-counter">2 / 4</span>
             </div>
           </div>
 
           <!-- STEP 3 -->
           <div class="form-step" data-step="3">
-            <h3 class="form-step-title">التوقيت والميزانية</h3>
+            <h3 class="form-step-title" data-i18n="form.step3.title">التوقيت والميزانية</h3>
             <div class="form-group">
-              <label>موعد الدراسة المتوقع <span class="required">*</span></label>
+              <label data-i18n="form.startDate.label">موعد الدراسة المتوقع <span class="required">*</span></label>
               <div class="radio-group">
                 <label class="radio-option">
-                  <input type="radio" name="startDate" value="2025_sept" required />
+                  <input type="radio" name="startDate" value="2026_sept" required />
                   <span class="radio-custom"></span>
-                  سبتمبر 2025
+                  <span data-i18n="form.startDate.o1">سبتمبر 2026</span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="startDate" value="2026_feb" />
+                  <input type="radio" name="startDate" value="2027_feb" />
                   <span class="radio-custom"></span>
-                  فبراير 2026
+                  <span data-i18n="form.startDate.o2">فبراير 2027</span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="startDate" value="2026_sept" />
+                  <input type="radio" name="startDate" value="2027_sept" />
                   <span class="radio-custom"></span>
-                  سبتمبر 2026
+                  <span data-i18n="form.startDate.o3">سبتمبر 2027</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="startDate" value="not_sure" />
                   <span class="radio-custom"></span>
-                  لم أحدد بعد
+                  <span data-i18n="form.startDate.o4">لم أحدد بعد</span>
                 </label>
               </div>
             </div>
             <div class="form-group">
-              <label>الميزانية السنوية المتاحة (رسوم + معيشة) <span class="required">*</span></label>
+              <label data-i18n="form.budget.label">الميزانية السنوية المتاحة (رسوم + معيشة) <span class="required">*</span></label>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="budget" value="low" required />
                   <span class="radio-custom"></span>
-                  أقل من 3000 دولار
+                  <span data-i18n="form.budget.o1">أقل من 3000 دولار</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="budget" value="mid" />
                   <span class="radio-custom"></span>
-                  من 3000 إلى 6000 دولار
+                  <span data-i18n="form.budget.o2">من 3000 إلى 6000 دولار</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="budget" value="high" />
                   <span class="radio-custom"></span>
-                  أكثر من 6000 دولار
+                  <span data-i18n="form.budget.o3">أكثر من 6000 دولار</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="budget" value="flexible" />
                   <span class="radio-custom"></span>
-                  مرن حسب الوجهة
+                  <span data-i18n="form.budget.o4">مرن حسب الوجهة</span>
                 </label>
               </div>
             </div>
             <div class="form-nav">
-              <button type="button" class="btn btn-outline prev-step">→ السابق</button>
-              <button type="button" class="btn btn-primary next-step">التالي ←</button>
+              <button type="button" class="btn btn-outline prev-step" data-i18n="form.prev">→ السابق</button>
+              <button type="button" class="btn btn-primary next-step" data-i18n="form.next">التالي ←</button>
               <span class="step-counter">3 / 4</span>
             </div>
           </div>
 
           <!-- STEP 4 -->
           <div class="form-step" data-step="4">
-            <h3 class="form-step-title">معلومات إضافية</h3>
+            <h3 class="form-step-title" data-i18n="form.step4.title">معلومات إضافية</h3>
             <div class="form-group">
-              <label>كيف عرفت عن وكالة التميز؟</label>
+              <label data-i18n="form.source.label">كيف عرفت عن Excellence Study Agency؟</label>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="source" value="facebook" />
                   <span class="radio-custom"></span>
-                  فيسبوك / إنستغرام
+                  <span data-i18n="form.source.o1">فيسبوك / إنستغرام</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="source" value="friend" />
                   <span class="radio-custom"></span>
-                  توصية من صديق أو عائلة
+                  <span data-i18n="form.source.o2">توصية من صديق أو عائلة</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="source" value="tiktok" />
                   <span class="radio-custom"></span>
-                  تيك توك
+                  <span data-i18n="form.source.o3">تيك توك</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="source" value="google" />
                   <span class="radio-custom"></span>
-                  بحث في جوجل
+                  <span data-i18n="form.source.o4">بحث في جوجل</span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="source" value="other" />
                   <span class="radio-custom"></span>
-                  مصدر آخر
+                  <span data-i18n="form.source.o5">مصدر آخر</span>
                 </label>
               </div>
             </div>
             <div class="form-group">
-              <label for="notes">أسئلة أو ملاحظات إضافية</label>
-              <textarea id="notes" name="notes" rows="4" placeholder="اكتب هنا أي سؤال تريد طرحه أو معلومات إضافية..."></textarea>
+              <label for="notes" data-i18n="form.notes.label">أسئلة أو ملاحظات إضافية</label>
+              <textarea id="notes" name="notes" rows="4" data-i18n-placeholder="form.notes.placeholder" placeholder="اكتب هنا أي سؤال تريد طرحه أو معلومات إضافية..."></textarea>
             </div>
             <div class="form-group">
               <label class="checkbox-option privacy-check">
                 <input type="checkbox" name="privacy" required />
                 <span class="check-custom"></span>
-                أوافق على <a href="#">سياسة الخصوصية</a> وأن يتواصل معي فريق وكالة التميز
+                <span data-i18n-html="form.privacy.html">أوافق على <a href="#">سياسة الخصوصية</a> وأن يتواصل معي فريق Excellence Study Agency</span>
               </label>
             </div>
             <div class="form-nav">
-              <button type="button" class="btn btn-outline prev-step">→ السابق</button>
-              <button type="submit" class="btn btn-primary btn-submit">
+              <button type="button" class="btn btn-outline prev-step" data-i18n="form.prev">→ السابق</button>
+              <button type="submit" class="btn btn-primary btn-submit" data-i18n="form.submit">
                 أرسل طلبي الآن 🚀
               </button>
               <span class="step-counter">4 / 4</span>
@@ -683,9 +742,9 @@
           <!-- SUCCESS -->
           <div class="form-success" id="formSuccess">
             <div class="success-icon">🎉</div>
-            <h3>تم استلام طلبك!</h3>
-            <p>شكراً <span id="successName"></span>! سيتواصل معك أحد مستشارينا خلال 24 ساعة على رقم هاتفك.</p>
-            <a href="https://wa.me/212660095616" class="btn btn-whatsapp" target="_blank">
+            <h3 data-i18n="form.success.title">تم استلام طلبك!</h3>
+            <p data-i18n-html="form.success.text.html">شكراً <span id="successName"></span>! سيتواصل معك أحد مستشارينا خلال 24 ساعة على رقم هاتفك.</p>
+            <a href="https://wa.me/212660095616" class="btn btn-whatsapp" target="_blank" data-i18n="form.success.whatsapp">
               تواصل معنا الآن على واتساب
             </a>
           </div>
@@ -700,35 +759,35 @@
 <section class="contact section" id="contact">
   <div class="container contact-grid">
     <div class="contact-info">
-      <div class="section-tag">تواصل معنا</div>
-      <h2 class="section-title">نحن هنا <span class="text-gold">لمساعدتك</span></h2>
+      <div class="section-tag" data-i18n="contact.tag">تواصل معنا</div>
+      <h2 class="section-title" data-i18n-html="contact.title.html">نحن هنا <span class="text-gold">لمساعدتك</span></h2>
       <div class="contact-items">
         <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div>
-            <strong>العنوان</strong>
-            <span>الدار البيضاء، المغرب</span>
+            <strong data-i18n="contact.address.label">العنوان</strong>
+            <span data-i18n="contact.address.value">الدار البيضاء، المغرب</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
           <div>
-            <strong>الهاتف</strong>
+            <strong data-i18n="contact.phone.label">الهاتف</strong>
             <span dir="ltr">+212 660-095616</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div>
-            <strong>البريد الإلكتروني</strong>
+            <strong data-i18n="contact.email.label">البريد الإلكتروني</strong>
             <span>Contact@excellencestudyagency.com</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🕐</div>
           <div>
-            <strong>ساعات العمل</strong>
-            <span>الاثنين – السبت: 9 ص – 7 م</span>
+            <strong data-i18n="contact.hours.label">ساعات العمل</strong>
+            <span data-i18n="contact.hours.value">الاثنين – السبت: 9 ص – 7 م</span>
           </div>
         </div>
       </div>
@@ -739,8 +798,8 @@
         <a href="#" class="social-btn" aria-label="إنستغرام">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="#" class="social-btn" aria-label="يوتيوب">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58a2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        <a href="#" class="social-btn" aria-label="تيك توك">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0115.54 3h-3.09v12.4a2.592 2.592 0 01-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 004.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
         </a>
         <a href="https://wa.me/212660095616" class="social-btn" aria-label="واتساب" target="_blank">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -750,8 +809,8 @@
     <div class="contact-map">
       <div class="map-placeholder">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <p>الدار البيضاء، المغرب</p>
-        <span>خريطة قريباً</span>
+        <p data-i18n="contact.address.value">الدار البيضاء، المغرب</p>
+        <span data-i18n="contact.map.note">خريطة قريباً</span>
       </div>
     </div>
   </div>
@@ -762,38 +821,38 @@
   <div class="container footer-inner">
     <div class="footer-brand">
       <span class="logo-text footer-logo">Excellence <span class="logo-accent">Study Agency</span></span>
-      <p>Your Excellence Is Our Priority</p>
+      <p data-i18n="footer.tagline">Your Excellence Is Our Priority</p>
       <p class="footer-site">www.excellenceagency.ma</p>
     </div>
     <div class="footer-links">
-      <h4>روابط سريعة</h4>
-      <a href="#about">من نحن</a>
-      <a href="#destinations">الوجهات</a>
-      <a href="#services">خدماتنا</a>
-      <a href="#how-it-works">كيف نعمل</a>
-      <a href="#apply">سجّل الآن</a>
+      <h4 data-i18n="footer.links.title">روابط سريعة</h4>
+      <a href="#about" data-i18n="footer.links.about">من نحن</a>
+      <a href="#destinations" data-i18n="footer.links.dest">الوجهات</a>
+      <a href="#services" data-i18n="footer.links.services">خدماتنا</a>
+      <a href="#how-it-works" data-i18n="footer.links.how">كيف نعمل</a>
+      <a href="#apply" data-i18n="footer.links.apply">سجّل الآن</a>
     </div>
     <div class="footer-links">
-      <h4>الوجهات</h4>
-      <a href="#destinations">🇱🇹 ليتوانيا</a>
-      <a href="#destinations">🇷🇺 روسيا</a>
-      <a href="#destinations">🇵🇱 بولندا</a>
-      <a href="#destinations">🇪🇸 إسبانيا</a>
-      <a href="#destinations">🌍 الدول العربية</a>
+      <h4 data-i18n="footer.dest.title">الوجهات</h4>
+      <a href="#destinations" data-i18n="dest.lt.name">🇱🇹 ليتوانيا</a>
+      <a href="#destinations" data-i18n="dest.ru.name">🇷🇺 روسيا</a>
+      <a href="#destinations" data-i18n="dest.pl.name">🇵🇱 بولندا</a>
+      <a href="#destinations" data-i18n="dest.es.name">🇪🇸 إسبانيا</a>
+      <a href="#destinations" data-i18n="dest.ar.name">🌍 الدول العربية</a>
     </div>
     <div class="footer-contact">
-      <h4>تواصل معنا</h4>
+      <h4 data-i18n="footer.contact.title">تواصل معنا</h4>
       <p>Contact@excellencestudyagency.com</p>
       <p dir="ltr">+212 660-095616</p>
-      <p>الدار البيضاء، المغرب</p>
+      <p data-i18n="contact.address.value">الدار البيضاء، المغرب</p>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="container">
-      <p>© 2026 Excellence Study Agency (ESA). جميع الحقوق محفوظة.</p>
+      <p data-i18n="footer.copyright">© 2026 Excellence Study Agency (ESA). جميع الحقوق محفوظة.</p>
       <div class="footer-bottom-links">
-        <a href="#">سياسة الخصوصية</a>
-        <a href="#">الشروط والأحكام</a>
+        <a href="#" data-i18n="footer.privacy">سياسة الخصوصية</a>
+        <a href="#" data-i18n="footer.terms">الشروط والأحكام</a>
       </div>
     </div>
   </div>
@@ -804,6 +863,7 @@
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

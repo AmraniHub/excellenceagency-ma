@@ -55,7 +55,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.dest-card, .service-card, .step-card, .testi-card, .stat-item, .contact-item, .about-feature').forEach((el, i) => {
+document.querySelectorAll('.dest-card, .service-card, .step-card, .testi-card, .stat-item, .contact-item, .about-feature, .partner-card, .cert-placeholder').forEach((el, i) => {
   el.setAttribute('data-reveal', '');
   el.setAttribute('data-reveal-delay', (i % 4) + 1);
   revealObserver.observe(el);

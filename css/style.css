@@ -1490,3 +1490,169 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   .hero-actions .btn { width: 100%; justify-content: center; }
   .about-features { grid-template-columns: 1fr; }
 }
+
+/* -- Language switch -- */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 100px;
+  padding: 3px;
+  margin-inline: 4px;
+}
+
+.lang-switch button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,.75);
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: .78rem;
+  padding: 5px 10px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-switch button.active {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.navbar.scrolled .lang-switch {
+  background: var(--gray-100);
+  border-color: var(--gray-200);
+}
+
+.navbar.scrolled .lang-switch button { color: var(--gray-600); }
+.navbar.scrolled .lang-switch button.active { color: var(--white); background: var(--gold); }
+
+/* -- French / LTR overrides -- */
+body.lang-fr {
+  font-family: 'Poppins', 'Cairo', sans-serif;
+}
+
+body.lang-fr .hero-tagline { text-align: left; }
+
+/* -- About logo visual -- */
+.about-logo-img {
+  width: 65%;
+  max-width: 220px;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.25));
+}
+
+/* -- Partners -- */
+.partners { background: var(--off-white); }
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.partner-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.partner-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.partner-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.partner-card h3 {
+  font-size: .95rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 6px;
+  direction: ltr;
+}
+
+.partner-card p {
+  font-size: .82rem;
+  color: var(--text-muted);
+}
+
+.partners-note {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+/* -- Certificates -- */
+.certificates { background: var(--navy); }
+.certificates .section-tag { background: rgba(211,39,46,.2); }
+.certificates .section-title { color: var(--white); }
+.certificates .section-subtitle { color: rgba(255,255,255,.6); }
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cert-placeholder {
+  aspect-ratio: 3 / 4;
+  background: rgba(255,255,255,.06);
+  border: 1.5px dashed rgba(255,255,255,.25);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  opacity: .5;
+  transition: var(--transition);
+}
+
+.cert-placeholder:hover {
+  background: rgba(255,255,255,.1);
+  border-color: var(--gold);
+  opacity: .8;
+}
+
+.certs-note {
+  text-align: center;
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .partners-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .lang-switch {
+    order: -1;
+    margin: 8px 0 12px;
+    background: var(--gray-100);
+    border-color: var(--gray-200);
+    align-self: flex-start;
+  }
+  .lang-switch button { color: var(--gray-600); }
+  .lang-switch button.active { color: var(--white); background: var(--gold); }
+  .partners-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .certs-grid { grid-template-columns: 1fr; }
+}
