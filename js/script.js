@@ -55,7 +55,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.dest-card, .service-card, .step-card, .testi-card, .stat-item, .contact-item, .about-feature, .partner-card, .cert-placeholder').forEach((el, i) => {
+document.querySelectorAll('.dest-card, .service-card, .step-card, .testi-card, .stat-item, .contact-item, .about-feature, .partner-card, .cert-card').forEach((el, i) => {
   el.setAttribute('data-reveal', '');
   el.setAttribute('data-reveal-delay', (i % 4) + 1);
   revealObserver.observe(el);
@@ -189,3 +189,31 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-40% 0px -40% 0px' });
 
 sections.forEach(s => sectionObserver.observe(s));
+
+/* ── Certificate lightbox ── */
+const certLightbox = document.getElementById('certLightbox');
+const certLightboxImg = document.getElementById('certLightboxImg');
+const certLightboxName = document.getElementById('certLightboxName');
+const certLightboxClose = document.getElementById('certLightboxClose');
+
+document.querySelectorAll('.cert-card').forEach(card => {
+  card.addEventListener('click', () => {
+    certLightboxImg.src = card.dataset.src;
+    certLightboxImg.alt = card.dataset.name;
+    certLightboxName.textContent = card.dataset.name;
+    certLightbox.classList.add('open');
+  });
+});
+
+function closeCertLightbox() {
+  certLightbox.classList.remove('open');
+  certLightboxImg.src = '';
+}
+
+certLightboxClose.addEventListener('click', closeCertLightbox);
+certLightbox.addEventListener('click', e => {
+  if (e.target === certLightbox) closeCertLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeCertLightbox();
+});

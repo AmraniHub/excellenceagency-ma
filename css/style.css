@@ -1604,39 +1604,99 @@ body.lang-fr .hero-tagline { text-align: left; }
 
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
 }
 
-.cert-placeholder {
-  aspect-ratio: 3 / 4;
+.cert-card {
+  aspect-ratio: 1 / 1;
+  position: relative;
   background: rgba(255,255,255,.06);
-  border: 1.5px dashed rgba(255,255,255,.25);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  opacity: .5;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
   transition: var(--transition);
 }
 
-.cert-placeholder:hover {
-  background: rgba(255,255,255,.1);
-  border-color: var(--gold);
-  opacity: .8;
+.cert-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
 }
 
-.certs-note {
-  text-align: center;
-  font-size: .85rem;
-  color: rgba(255,255,255,.45);
-  font-style: italic;
+.cert-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
+
+.cert-card:hover img { transform: scale(1.06); }
+
+.cert-name {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
+  color: var(--white);
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 18px 8px 6px;
+  text-align: center;
+}
+
+/* -- Certificate lightbox -- */
+.cert-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 20px;
+}
+
+.cert-lightbox.open { display: flex; }
+
+.cert-lightbox img {
+  max-width: min(600px, 90vw);
+  max-height: 75vh;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.cert-lightbox p {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.cert-lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: var(--white);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cert-lightbox-close:hover { background: var(--gold); border-color: var(--gold); }
 
 @media (max-width: 1024px) {
   .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1650,9 +1710,51 @@ body.lang-fr .hero-tagline { text-align: left; }
   .lang-switch button { color: var(--gray-600); }
   .lang-switch button.active { color: var(--white); background: var(--gold); }
   .partners-grid { grid-template-columns: 1fr; }
-  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 480px) {
-  .certs-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* -- Flag icons (SVG sprite, replaces unreliable emoji flags) -- */
+.flag-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.5em;
+  height: 1em;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+}
+
+.dest-flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dest-flag .flag-icon {
+  width: 88px;
+  height: 58px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+}
+
+.dest-more-flags .flag-icon {
+  width: 28px;
+  height: 19px;
+  margin: 0 2px;
+}
+
+.partner-card p .flag-icon,
+.testi-author span .flag-icon {
+  width: 1.3em;
+  height: .87em;
+  margin-inline-start: 4px;
+}
+
+.lang-switch .flag-icon {
+  width: 1.2em;
+  height: .8em;
 }
