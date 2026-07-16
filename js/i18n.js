@@ -44,6 +44,11 @@ const translations = {
     "home.cta.title": "جاهز تبدأ رحلتك؟",
     "home.cta.subtitle": "سجّل الآن واحصل على استشارة مجانية خلال 24 ساعة",
 
+    "youtube.tag": "قناتنا على يوتيوب",
+    "youtube.title.html": "تابعنا على <span class=\"text-gold\">يوتيوب</span>",
+    "youtube.subtitle": "فيديوهات ونصائح حصرية حول الدراسة في الخارج، تجارب طلابنا، ونظرة من الداخل على الجامعات الشريكة.",
+    "youtube.cta": "اشترك في القناة",
+
     "dest.tag": "الوجهات",
     "dest.title.html": "اختر وجهتك <span class=\"text-gold\">الدراسية</span>",
     "dest.subtitle": "خيارات متنوعة لتناسب مختلف التخصصات والميزانيات",
@@ -278,6 +283,11 @@ const translations = {
     "home.cta.title": "Prêt à commencer votre parcours ?",
     "home.cta.subtitle": "Inscrivez-vous maintenant et bénéficiez d'une consultation gratuite sous 24 heures",
 
+    "youtube.tag": "Notre chaîne YouTube",
+    "youtube.title.html": "Suivez-nous sur <span class=\"text-gold\">YouTube</span>",
+    "youtube.subtitle": "Vidéos et conseils exclusifs sur les études à l'étranger, témoignages de nos étudiants et coulisses de nos universités partenaires.",
+    "youtube.cta": "S'abonner à la chaîne",
+
     "dest.tag": "Destinations",
     "dest.title.html": "Choisissez votre <span class=\"text-gold\">destination</span>",
     "dest.subtitle": "Des options variées adaptées à toutes les filières et tous les budgets",
@@ -511,6 +521,11 @@ const translations = {
     "home.explore.subtitle": "Browse each section in detail",
     "home.cta.title": "Ready to start your journey?",
     "home.cta.subtitle": "Register now and get a free consultation within 24 hours",
+
+    "youtube.tag": "Our YouTube Channel",
+    "youtube.title.html": "Follow us on <span class=\"text-gold\">YouTube</span>",
+    "youtube.subtitle": "Exclusive videos and tips about studying abroad, our students' experiences, and an inside look at our partner universities.",
+    "youtube.cta": "Subscribe to the Channel",
 
     "dest.tag": "Destinations",
     "dest.title.html": "Choose your study <span class=\"text-gold\">destination</span>",

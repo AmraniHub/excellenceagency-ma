@@ -1348,6 +1348,23 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   margin-top: 8px;
 }
 
+.footer-social {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.footer-social .social-btn {
+  background: rgba(255,255,255,.08);
+  color: var(--white);
+}
+
+.footer-social .social-btn:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
 .footer-links h4,
 .footer-contact h4 {
   color: var(--white);
@@ -1826,6 +1843,39 @@ body.lang-ltr .form-group textarea {
 .page-hero .breadcrumb a:hover { color: var(--gold); }
 
 /* -- Page CTA banner -- */
+.youtube-promo {
+  background: var(--off-white);
+  text-align: center;
+}
+
+.youtube-promo-inner {
+  max-width: 640px;
+}
+
+.youtube-promo-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: var(--shadow-gold);
+}
+
+.youtube-promo .section-header,
+.youtube-promo .section-tag,
+.youtube-promo .section-title,
+.youtube-promo .section-subtitle {
+  margin-inline: auto;
+}
+
+.youtube-promo .section-subtitle {
+  margin-bottom: 28px;
+}
+
 .page-cta {
   background: var(--navy);
   padding-block: 56px;
