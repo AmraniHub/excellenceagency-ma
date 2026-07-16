@@ -271,11 +271,37 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   z-index: 0;
 }
 
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  animation: heroKenBurns 20s ease-in-out infinite;
+}
+
+@keyframes heroKenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.08) translate(-1%, -1%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(211,39,46,.15) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 20%, rgba(193,39,45,.12) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 30% 50%, rgba(211,39,46,.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(193,39,45,.14) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(13,35,71,.92) 0%, rgba(10,31,68,.82) 45%, rgba(26,58,107,.88) 100%);
 }
 
 .hero-shapes {
