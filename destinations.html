@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-title-key="nav.destinations">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Excellence Study Agency | مكتب التميز للدراسة في الخارج</title>
-  <meta name="description" content="مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا." />
+  <title>الوجهات الدراسية | Excellence Study Agency</title>
+  <meta name="description" content="اختر وجهتك الدراسية المفضلة: ليتوانيا، روسيا، بولندا، إسبانيا وأكثر مع Excellence Study Agency." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -32,7 +32,7 @@
 </head>
 <body>
 
-<!-- ====== FLAG SPRITE (emoji flags don't render on Windows) ====== -->
+<!-- ====== FLAG SPRITE ====== -->
 <svg style="display:none" aria-hidden="true">
   <symbol id="flag-lt" viewBox="0 0 3 2">
     <rect width="3" height="2" fill="#fdb913"/>
@@ -101,9 +101,8 @@
       <img src="img/logo.png" alt="Excellence Study Agency" class="logo-img" />
       <span class="logo-text">Excellence <span class="logo-accent">Study Agency</span></span>
     </a>
-
     <nav class="nav-links" id="navLinks">
-      <a href="destinations.html" data-i18n="nav.destinations">الوجهات</a>
+      <a href="destinations.html" class="active" data-i18n="nav.destinations">الوجهات</a>
       <a href="services.html" data-i18n="nav.services">خدماتنا</a>
       <a href="how-it-works.html" data-i18n="nav.how">كيف نعمل</a>
       <a href="partners.html" data-i18n="nav.partners">شراكاتنا</a>
@@ -117,173 +116,125 @@
       </div>
       <a href="apply.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">سجّل الآن</a>
     </nav>
-
     <button class="hamburger" id="hamburger" aria-label="القائمة">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- ====== HERO ====== -->
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="hero-slider">
-      <div class="hero-slide active" style="background-image:url('img/hero-slide-1.jpg')"></div>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
+<!-- ====== PAGE HERO ====== -->
+<div class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html" data-i18n="nav.home">الرئيسية</a> / <span data-i18n="nav.destinations">الوجهات</span></p>
+    <h1 class="section-title" data-i18n-html="dest.title.html">اختر وجهتك <span class="text-gold">الدراسية</span></h1>
   </div>
-  <div class="container hero-content">
-    <div class="hero-badge animate-fade-up">
-      <span class="badge-dot"></span>
-      <span data-i18n="hero.badge">Excellence Study Agency — مكتب التميز للدراسة في الخارج</span>
-    </div>
-    <h1 class="hero-title animate-fade-up delay-1" data-i18n-html="hero.title.html">
-      حقّق حلمك<br />
-      <span class="hero-highlight">وادرس في الخارج</span>
-    </h1>
-    <p class="hero-subtitle animate-fade-up delay-2" data-i18n-html="hero.subtitle.html">
-      نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />
-      في ليتوانيا وروسيا وبولندا وإسبانيا
-    </p>
-    <p class="hero-tagline animate-fade-up delay-2" data-i18n="hero.tagline">Your Excellence Is Our Priority</p>
-    <div class="hero-actions animate-fade-up delay-3">
-      <a href="apply.html" class="btn btn-primary btn-lg" data-i18n="hero.cta1">
-        سجّل مجاناً الآن
-      </a>
-      <a href="how-it-works.html" class="btn btn-outline btn-lg" data-i18n="hero.cta2">
-        كيف نساعدك؟
-      </a>
-    </div>
-    <div class="hero-flags animate-fade-up delay-4">
-      <span class="flag-chip"><svg class="flag-icon"><use href="#flag-lt"/></svg> <span data-i18n="dest.lt.name">ليتوانيا</span></span>
-      <span class="flag-chip"><svg class="flag-icon"><use href="#flag-ru"/></svg> <span data-i18n="dest.ru.name">روسيا</span></span>
-      <span class="flag-chip"><svg class="flag-icon"><use href="#flag-pl"/></svg> <span data-i18n="dest.pl.name">بولندا</span></span>
-      <span class="flag-chip"><svg class="flag-icon"><use href="#flag-es"/></svg> <span data-i18n="dest.es.name">إسبانيا</span></span>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-indicator">
-      <div class="scroll-dot"></div>
-    </div>
-    <span data-i18n="hero.scroll">اكتشف أكثر</span>
-  </div>
-</section>
+</div>
 
-<!-- ====== STATS ====== -->
-<section class="stats-bar">
-  <div class="container stats-grid">
-    <div class="stat-item" data-target="500">
-      <span class="stat-number" data-count="500">0</span>
-      <span class="stat-plus">+</span>
-      <p class="stat-label" data-i18n="stats.students">طالب مسجّل</p>
-    </div>
-    <div class="stat-item" data-target="10">
-      <span class="stat-number" data-count="10">0</span>
-      <span class="stat-plus">+</span>
-      <p class="stat-label" data-i18n="stats.countries">دول وجهة</p>
-    </div>
-    <div class="stat-item" data-target="98">
-      <span class="stat-number" data-count="98">0</span>
-      <span class="stat-plus">%</span>
-      <p class="stat-label" data-i18n="stats.acceptance">نسبة القبول</p>
-    </div>
-    <div class="stat-item" data-target="7">
-      <span class="stat-number" data-count="7">0</span>
-      <span class="stat-plus">+</span>
-      <p class="stat-label" data-i18n="stats.experience">سنوات خبرة</p>
-    </div>
-  </div>
-</section>
-
-<!-- ====== ABOUT ====== -->
-<section class="about section" id="about">
-  <div class="container about-grid">
-    <div class="about-visual">
-      <div class="about-img-wrap">
-        <div class="about-img-placeholder">
-          <img src="img/logo.png" alt="Excellence Study Agency" class="about-logo-img" />
-        </div>
-        <div class="about-badge-float">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--gold)"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span data-i18n="about.badge">موثوق من 500+ عائلة</span>
-        </div>
-      </div>
-    </div>
-    <div class="about-content">
-      <div class="section-tag" data-i18n="about.tag">من نحن</div>
-      <h2 class="section-title" data-i18n-html="about.title.html">Excellence Study Agency — شريكك<br /><span class="text-gold">نحو مستقبل أفضل</span></h2>
-      <p class="about-text" data-i18n="about.p1">
-        مكتب التميز هو شريكك الموثوق لتحقيق حلم الدراسة في الخارج...
-      </p>
-      <p class="about-text" data-i18n="about.p2">
-        نؤمن بأن التعليم المتميز يجب أن يكون في متناول الجميع...
-      </p>
-      <div class="about-features">
-        <div class="about-feature">
-          <div class="feature-icon-sm">✓</div>
-          <span data-i18n="about.feat1">قبول جامعي مضمون</span>
-        </div>
-        <div class="about-feature">
-          <div class="feature-icon-sm">✓</div>
-          <span data-i18n="about.feat2">متابعة تأشيرة الدراسة</span>
-        </div>
-        <div class="about-feature">
-          <div class="feature-icon-sm">✓</div>
-          <span data-i18n="about.feat3">مساعدة في السكن</span>
-        </div>
-        <div class="about-feature">
-          <div class="feature-icon-sm">✓</div>
-          <span data-i18n="about.feat4">دعم ما بعد الوصول</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== EXPLORE (links to dedicated pages) ====== -->
-<section class="services section" id="explore" style="background:var(--white)">
+<!-- ====== DESTINATIONS ====== -->
+<section class="destinations section">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag" data-i18n="home.explore.tag">اكتشف المزيد</div>
-      <h2 class="section-title" data-i18n-html="home.explore.title.html">كل التفاصيل <span class="text-gold">في صفحاتها</span></h2>
-      <p class="section-subtitle" data-i18n="home.explore.subtitle">تصفّح كل قسم بالتفصيل</p>
+      <p class="section-subtitle" data-i18n="dest.subtitle">خيارات متنوعة لتناسب مختلف التخصصات والميزانيات</p>
     </div>
-    <div class="services-grid">
-      <a href="destinations.html" class="service-card" style="text-decoration:none">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3 data-i18n="nav.destinations">الوجهات</h3>
-        <p data-i18n="dest.subtitle">خيارات متنوعة لتناسب مختلف التخصصات والميزانيات</p>
-      </a>
-      <a href="services.html" class="service-card" style="text-decoration:none">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg></div>
-        <h3 data-i18n="nav.services">خدماتنا</h3>
-        <p data-i18n="services.subtitle">نتكفل بكل شيء لتتفرغ أنت لمستقبلك</p>
-      </a>
-      <a href="how-it-works.html" class="service-card" style="text-decoration:none">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <h3 data-i18n="nav.how">كيف نعمل</h3>
-        <p data-i18n="how.subtitle">عملية واضحة وبسيطة من البداية للنهاية</p>
-      </a>
-      <a href="partners.html" class="service-card" style="text-decoration:none">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-        <h3 data-i18n="nav.partners">شراكاتنا</h3>
-        <p data-i18n="partners.subtitle">نتعامل مباشرة مع مؤسسات جامعية معترف بها دولياً</p>
-      </a>
-      <a href="certificates.html" class="service-card" style="text-decoration:none">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-        <h3 data-i18n="nav.certificates">الشهادات</h3>
-        <p data-i18n="certs.subtitle">نماذج حقيقية من خطابات قبول طلابنا في الجامعات الشريكة</p>
-      </a>
-      <a href="testimonials.html" class="service-card" style="text-decoration:none">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-        <h3 data-i18n="nav.testimonials">قصص النجاح</h3>
-        <p data-i18n="testi.subtitle">تجارب حقيقية من طلاب يدرسون الآن في الخارج بمساعدتنا</p>
-      </a>
+
+    <div class="destinations-grid">
+
+      <div class="dest-card" data-country="lithuania">
+        <div class="dest-img">
+          <div class="dest-flag"><svg class="flag-icon"><use href="#flag-lt"/></svg></div>
+          <div class="dest-overlay"></div>
+          <div class="dest-badge" data-i18n="dest.lt.badge">الأكثر طلباً</div>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-name" data-i18n="dest.lt.name">ليتوانيا</h3>
+          <p class="dest-desc" data-i18n="dest.lt.desc">دراسة الطب والهندسة بتكاليف معقولة في قلب أوروبا، مع جامعات معترف بها دولياً.</p>
+          <ul class="dest-tags">
+            <li data-i18n="dest.lt.tag1">الطب والصيدلة</li>
+            <li data-i18n="dest.lt.tag2">الهندسة</li>
+            <li data-i18n="dest.lt.tag3">تقنية المعلومات</li>
+          </ul>
+          <div class="dest-info">
+            <span data-i18n="dest.lt.info1">💰 تكلفة معقولة</span>
+            <span data-i18n="dest.lt.info2">🎓 جامعات معترفة</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" data-country="russia">
+        <div class="dest-img">
+          <div class="dest-flag"><svg class="flag-icon"><use href="#flag-ru"/></svg></div>
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-name" data-i18n="dest.ru.name">روسيا</h3>
+          <p class="dest-desc" data-i18n="dest.ru.desc">تقاليد علمية راسخة وجامعات مرموقة في الطب والهندسة والعلوم بأسعار تنافسية.</p>
+          <ul class="dest-tags">
+            <li data-i18n="dest.ru.tag1">الطب البشري</li>
+            <li data-i18n="dest.ru.tag2">الهندسة</li>
+            <li data-i18n="dest.ru.tag3">العلوم الطبيعية</li>
+          </ul>
+          <div class="dest-info">
+            <span data-i18n="dest.ru.info1">💰 تكلفة منخفضة</span>
+            <span data-i18n="dest.ru.info2">🎓 تعليم متميز</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" data-country="poland">
+        <div class="dest-img">
+          <div class="dest-flag"><svg class="flag-icon"><use href="#flag-pl"/></svg></div>
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-name" data-i18n="dest.pl.name">بولندا</h3>
+          <p class="dest-desc" data-i18n="dest.pl.desc">بوابة أوروبا الشرقية مع معايير تعليمية أوروبية وتكاليف دراسة مقبولة.</p>
+          <ul class="dest-tags">
+            <li data-i18n="dest.pl.tag1">الطب والصيدلة</li>
+            <li data-i18n="dest.pl.tag2">الأعمال والاقتصاد</li>
+            <li data-i18n="dest.pl.tag3">الهندسة</li>
+          </ul>
+          <div class="dest-info">
+            <span data-i18n="dest.pl.info1">⭐ داخل الاتحاد الأوروبي</span>
+            <span data-i18n="dest.pl.info2">🎓 شهادات أوروبية</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" data-country="spain">
+        <div class="dest-img">
+          <div class="dest-flag"><svg class="flag-icon"><use href="#flag-es"/></svg></div>
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-name" data-i18n="dest.es.name">إسبانيا</h3>
+          <p class="dest-desc" data-i18n="dest.es.desc">تعليم عالي الجودة في بيئة ثقافية غنية، بلغة مشتركة مع ملايين المتحدثين حول العالم.</p>
+          <ul class="dest-tags">
+            <li data-i18n="dest.es.tag1">الفنون والتصميم</li>
+            <li data-i18n="dest.es.tag2">الأعمال</li>
+            <li data-i18n="dest.es.tag3">السياحة والفندقة</li>
+          </ul>
+          <div class="dest-info">
+            <span data-i18n="dest.es.info1">🌍 لغة عالمية</span>
+            <span data-i18n="dest.es.info2">☀️ جودة حياة عالية</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card dest-more">
+        <div class="dest-more-content">
+          <div class="dest-more-flags">
+            <svg class="flag-icon"><use href="#flag-de"/></svg>
+            <svg class="flag-icon"><use href="#flag-fr"/></svg>
+            <svg class="flag-icon"><use href="#flag-tr"/></svg>
+            <svg class="flag-icon"><use href="#flag-ro"/></svg>
+            <svg class="flag-icon"><use href="#flag-cy"/></svg>
+          </div>
+          <h3 data-i18n="dest.more.title">ودول أخرى</h3>
+          <p data-i18n="dest.more.desc">ألمانيا، فرنسا، تركيا، رومانيا، قبرص وأكثر...</p>
+          <a href="apply.html" class="btn btn-outline btn-sm" data-i18n="dest.more.cta">استفسر الآن</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -338,7 +289,6 @@
   </div>
 </footer>
 
-<!-- WhatsApp Float Button -->
 <a href="https://wa.me/212660095616" class="whatsapp-float" target="_blank" aria-label="واتساب">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>

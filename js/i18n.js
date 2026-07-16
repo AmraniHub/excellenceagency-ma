@@ -5,6 +5,7 @@ const translations = {
     "meta.title": "Excellence Study Agency | مكتب التميز للدراسة في الخارج",
     "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا.",
 
+    "nav.home": "الرئيسية",
     "nav.destinations": "الوجهات",
     "nav.services": "خدماتنا",
     "nav.how": "كيف نعمل",
@@ -36,6 +37,12 @@ const translations = {
     "about.feat2": "متابعة تأشيرة الدراسة",
     "about.feat3": "مساعدة في السكن",
     "about.feat4": "دعم ما بعد الوصول",
+
+    "home.explore.tag": "اكتشف المزيد",
+    "home.explore.title.html": "كل التفاصيل <span class=\"text-gold\">في صفحاتها</span>",
+    "home.explore.subtitle": "تصفّح كل قسم بالتفصيل",
+    "home.cta.title": "جاهز تبدأ رحلتك؟",
+    "home.cta.subtitle": "سجّل الآن واحصل على استشارة مجانية خلال 24 ساعة",
 
     "dest.tag": "الوجهات",
     "dest.title.html": "اختر وجهتك <span class=\"text-gold\">الدراسية</span>",
@@ -232,6 +239,7 @@ const translations = {
     "meta.title": "Excellence Study Agency | Bureau d'études à l'étranger",
     "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne et Espagne.",
 
+    "nav.home": "Accueil",
     "nav.destinations": "Destinations",
     "nav.services": "Services",
     "nav.how": "Notre méthode",
@@ -263,6 +271,12 @@ const translations = {
     "about.feat2": "Suivi du visa étudiant",
     "about.feat3": "Aide au logement",
     "about.feat4": "Accompagnement après l'arrivée",
+
+    "home.explore.tag": "En savoir plus",
+    "home.explore.title.html": "Tous les détails <span class=\"text-gold\">sur leurs pages</span>",
+    "home.explore.subtitle": "Parcourez chaque section en détail",
+    "home.cta.title": "Prêt à commencer votre parcours ?",
+    "home.cta.subtitle": "Inscrivez-vous maintenant et bénéficiez d'une consultation gratuite sous 24 heures",
 
     "dest.tag": "Destinations",
     "dest.title.html": "Choisissez votre <span class=\"text-gold\">destination</span>",
@@ -459,6 +473,7 @@ const translations = {
     "meta.title": "Excellence Study Agency | Study Abroad Office",
     "meta.description": "Excellence Study Agency (ESA) – your trusted partner to the best universities in Lithuania, Russia, Poland and Spain.",
 
+    "nav.home": "Home",
     "nav.destinations": "Destinations",
     "nav.services": "Services",
     "nav.how": "How It Works",
@@ -490,6 +505,12 @@ const translations = {
     "about.feat2": "Student visa follow-up",
     "about.feat3": "Housing assistance",
     "about.feat4": "Support after arrival",
+
+    "home.explore.tag": "Explore More",
+    "home.explore.title.html": "All the details <span class=\"text-gold\">on their pages</span>",
+    "home.explore.subtitle": "Browse each section in detail",
+    "home.cta.title": "Ready to start your journey?",
+    "home.cta.subtitle": "Register now and get a free consultation within 24 hours",
 
     "dest.tag": "Destinations",
     "dest.title.html": "Choose your study <span class=\"text-gold\">destination</span>",
@@ -713,9 +734,17 @@ function applyLanguage(lang) {
     if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
   });
 
-  if (dict["meta.title"]) document.title = dict["meta.title"];
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc && dict["meta.description"]) metaDesc.setAttribute("content", dict["meta.description"]);
+  const titleKey = document.documentElement.getAttribute("data-title-key");
+  if (titleKey && dict[titleKey]) {
+    document.title = `${dict[titleKey]} | Excellence Study Agency`;
+  } else if (dict["meta.title"]) {
+    document.title = dict["meta.title"];
+  }
+
+  if (!titleKey) {
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && dict["meta.description"]) metaDesc.setAttribute("content", dict["meta.description"]);
+  }
 
   document.querySelectorAll(".lang-switch button").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);

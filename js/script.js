@@ -61,111 +61,112 @@ document.querySelectorAll('.dest-card, .service-card, .step-card, .testi-card, .
   revealObserver.observe(el);
 });
 
-/* ── Multi-step form ── */
-const form          = document.getElementById('applyForm');
-const formSuccess   = document.getElementById('formSuccess');
-const stepDots      = document.querySelectorAll('.step-dot');
-const stepLines     = document.querySelectorAll('.step-line');
-let currentStep     = 1;
-const totalSteps    = 4;
+/* ── Multi-step form (only present on apply.html) ── */
+const form = document.getElementById('applyForm');
 
-function showStep(stepNum) {
-  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-  const target = document.querySelector(`.form-step[data-step="${stepNum}"]`);
-  if (target) target.classList.add('active');
+if (form) {
+  const formSuccess = document.getElementById('formSuccess');
+  const stepDots    = document.querySelectorAll('.step-dot');
+  const stepLines   = document.querySelectorAll('.step-line');
+  let currentStep   = 1;
+  const totalSteps  = 4;
 
-  stepDots.forEach((dot, idx) => {
-    dot.classList.remove('active', 'done');
-    if (idx + 1 < stepNum) dot.classList.add('done');
-    if (idx + 1 === stepNum) dot.classList.add('active');
-  });
-
-  stepLines.forEach((line, idx) => {
-    line.classList.toggle('done', idx + 1 < stepNum);
-  });
-
-  currentStep = stepNum;
-}
-
-function validateStep(stepNum) {
-  const step = document.querySelector(`.form-step[data-step="${stepNum}"]`);
-  if (!step) return true;
-
-  let valid = true;
-
-  step.querySelectorAll('input[required], select[required], textarea[required]').forEach(input => {
-    input.classList.remove('error');
-
-    if (input.type === 'radio' || input.type === 'checkbox') {
-      const name   = input.name;
-      const group  = step.querySelectorAll(`input[name="${name}"]`);
-      const checked = [...group].some(i => i.checked);
-      if (!checked) {
-        valid = false;
-        const wrapper = input.closest('.radio-group, .checkbox-group, .form-group');
-        if (wrapper) wrapper.classList.add('error-group');
-      }
-    } else {
-      if (!input.value.trim()) {
-        input.classList.add('error');
-        valid = false;
-      }
-    }
-  });
-
-  if (!valid) {
-    const firstError = step.querySelector('.error, .error-group input');
-    if (firstError) firstError.closest('.form-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  return valid;
-}
-
-document.querySelectorAll('.next-step').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (validateStep(currentStep)) {
-      if (currentStep < totalSteps) showStep(currentStep + 1);
-    }
-  });
-});
-
-document.querySelectorAll('.prev-step').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (currentStep > 1) showStep(currentStep - 1);
-  });
-});
-
-/* Clear error styling on interaction */
-form.addEventListener('input', e => e.target.classList.remove('error'));
-form.addEventListener('change', e => e.target.closest('.error-group')?.classList.remove('error-group'));
-
-/* Form submit */
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  if (!validateStep(4)) return;
-
-  const nameVal = document.getElementById('fullName').value.trim();
-
-  /* Simulate submission */
-  const submitBtn = form.querySelector('.btn-submit');
-  submitBtn.disabled  = true;
-  submitBtn.textContent = 'جاري الإرسال...';
-
-  setTimeout(() => {
+  const showStep = (stepNum) => {
     document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-    formSuccess.classList.add('show');
-    document.getElementById('successName').textContent = nameVal;
-    stepDots.forEach(d => { d.classList.remove('active'); d.classList.add('done'); });
-    stepLines.forEach(l => l.classList.add('done'));
+    const target = document.querySelector(`.form-step[data-step="${stepNum}"]`);
+    if (target) target.classList.add('active');
 
-    document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 900);
-});
+    stepDots.forEach((dot, idx) => {
+      dot.classList.remove('active', 'done');
+      if (idx + 1 < stepNum) dot.classList.add('done');
+      if (idx + 1 === stepNum) dot.classList.add('active');
+    });
 
-/* ── Smooth scroll for anchor links ── */
+    stepLines.forEach((line, idx) => {
+      line.classList.toggle('done', idx + 1 < stepNum);
+    });
+
+    currentStep = stepNum;
+  };
+
+  const validateStep = (stepNum) => {
+    const step = document.querySelector(`.form-step[data-step="${stepNum}"]`);
+    if (!step) return true;
+
+    let valid = true;
+
+    step.querySelectorAll('input[required], select[required], textarea[required]').forEach(input => {
+      input.classList.remove('error');
+
+      if (input.type === 'radio' || input.type === 'checkbox') {
+        const name    = input.name;
+        const group   = step.querySelectorAll(`input[name="${name}"]`);
+        const checked = [...group].some(i => i.checked);
+        if (!checked) {
+          valid = false;
+          const wrapper = input.closest('.radio-group, .checkbox-group, .form-group');
+          if (wrapper) wrapper.classList.add('error-group');
+        }
+      } else {
+        if (!input.value.trim()) {
+          input.classList.add('error');
+          valid = false;
+        }
+      }
+    });
+
+    if (!valid) {
+      const firstError = step.querySelector('.error, .error-group input');
+      if (firstError) firstError.closest('.form-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    return valid;
+  };
+
+  document.querySelectorAll('.next-step').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (validateStep(currentStep) && currentStep < totalSteps) showStep(currentStep + 1);
+    });
+  });
+
+  document.querySelectorAll('.prev-step').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep > 1) showStep(currentStep - 1);
+    });
+  });
+
+  form.addEventListener('input', e => e.target.classList.remove('error'));
+  form.addEventListener('change', e => e.target.closest('.error-group')?.classList.remove('error-group'));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validateStep(4)) return;
+
+    const nameVal = document.getElementById('fullName').value.trim();
+
+    const submitBtn = form.querySelector('.btn-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+
+    setTimeout(() => {
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      formSuccess.classList.add('show');
+      document.getElementById('successName').textContent = nameVal;
+      stepDots.forEach(d => { d.classList.remove('active'); d.classList.add('done'); });
+      stepLines.forEach(l => l.classList.add('done'));
+
+      document.querySelector('.apply-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 900);
+  });
+}
+
+/* ── Smooth scroll for same-page anchor links ── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  const href = anchor.getAttribute('href');
+  if (href.length < 2) return;
+
   anchor.addEventListener('click', e => {
-    const target = document.querySelector(anchor.getAttribute('href'));
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     const offset = navbar.offsetHeight + 16;
@@ -174,46 +175,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ── Active nav link on scroll ── */
-const sections = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navAnchors.forEach(a => a.classList.remove('active'));
-      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { rootMargin: '-40% 0px -40% 0px' });
-
-sections.forEach(s => sectionObserver.observe(s));
-
-/* ── Certificate lightbox ── */
+/* ── Certificate lightbox (only present on certificates.html) ── */
 const certLightbox = document.getElementById('certLightbox');
-const certLightboxImg = document.getElementById('certLightboxImg');
-const certLightboxName = document.getElementById('certLightboxName');
-const certLightboxClose = document.getElementById('certLightboxClose');
 
-document.querySelectorAll('.cert-card').forEach(card => {
-  card.addEventListener('click', () => {
-    certLightboxImg.src = card.dataset.src;
-    certLightboxImg.alt = card.dataset.name;
-    certLightboxName.textContent = card.dataset.name;
-    certLightbox.classList.add('open');
+if (certLightbox) {
+  const certLightboxImg   = document.getElementById('certLightboxImg');
+  const certLightboxName  = document.getElementById('certLightboxName');
+  const certLightboxClose = document.getElementById('certLightboxClose');
+
+  document.querySelectorAll('.cert-card').forEach(card => {
+    card.addEventListener('click', () => {
+      certLightboxImg.src = card.dataset.src;
+      certLightboxImg.alt = card.dataset.name;
+      certLightboxName.textContent = card.dataset.name;
+      certLightbox.classList.add('open');
+    });
   });
-});
 
-function closeCertLightbox() {
-  certLightbox.classList.remove('open');
-  certLightboxImg.src = '';
+  const closeCertLightbox = () => {
+    certLightbox.classList.remove('open');
+    certLightboxImg.src = '';
+  };
+
+  certLightboxClose.addEventListener('click', closeCertLightbox);
+  certLightbox.addEventListener('click', e => {
+    if (e.target === certLightbox) closeCertLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeCertLightbox();
+  });
 }
-
-certLightboxClose.addEventListener('click', closeCertLightbox);
-certLightbox.addEventListener('click', e => {
-  if (e.target === certLightbox) closeCertLightbox();
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeCertLightbox();
-});
