@@ -1561,9 +1561,18 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 /* -- French / English / LTR overrides -- */
 body.lang-ltr {
   font-family: 'Poppins', 'Cairo', sans-serif;
+  direction: ltr;
+  text-align: left;
 }
 
 body.lang-ltr .hero-tagline { text-align: left; }
+body.lang-ltr .apply-info .section-title { text-align: left; }
+
+body.lang-ltr .form-group input,
+body.lang-ltr .form-group select,
+body.lang-ltr .form-group textarea {
+  direction: ltr;
+}
 
 /* -- About logo visual -- */
 .about-logo-img {
