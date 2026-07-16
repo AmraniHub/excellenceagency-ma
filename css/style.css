@@ -1558,12 +1558,12 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .navbar.scrolled .lang-switch button { color: var(--gray-600); }
 .navbar.scrolled .lang-switch button.active { color: var(--white); background: var(--gold); }
 
-/* -- French / LTR overrides -- */
-body.lang-fr {
+/* -- French / English / LTR overrides -- */
+body.lang-ltr {
   font-family: 'Poppins', 'Cairo', sans-serif;
 }
 
-body.lang-fr .hero-tagline { text-align: left; }
+body.lang-ltr .hero-tagline { text-align: left; }
 
 /* -- About logo visual -- */
 .about-logo-img {
