@@ -3,15 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>سجّل الآن مجاناً | Excellence Study Agency</title>
-  <meta name="description" content="سجّل بياناتك الآن واحصل على استشارة مجانية للدراسة في الخارج مع Excellence Study Agency." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <title>ادرس في أوروبا بقبول شبه مضمون | Excellence Study Agency</title>
+  <meta name="description" content="سجّل الآن واحصل على استشارة مجانية للدراسة في ليتوانيا، روسيا، بولندا وإسبانيا. نسبة قبول 98%، دعم كامل من القبول حتى وصولك." />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
 
   <!-- Meta Pixel Code -->
   <script>
@@ -25,93 +19,792 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', 'YOUR_PIXEL_ID');
   fbq('track', 'PageView');
+  fbq('track', 'ViewContent');
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #16255c;
+      --navy-light:  #253c85;
+      --deep-navy:   #0d1638;
+      --red:         #d3272e;
+      --red-light:   #ee4b4f;
+      --light-red:   #fdecec;
+      --gold:        #c9a84c;
+      --gold-light:  #fbf3dc;
+      --bg:          #f8f9fc;
+      --surface:     #ffffff;
+      --surface2:    #f1f4f9;
+      --text:        #1e293b;
+      --muted:       #64748b;
+      --grad:        linear-gradient(135deg, #16255c 0%, #0d1638 100%);
+      --grad-red:    linear-gradient(135deg, #d3272e 0%, #a01d22 100%);
+      --grad-soft:   linear-gradient(135deg, #eef1fb 0%, #f8f9fc 60%, #eef1fb 100%);
+      --shadow:      0 4px 24px rgba(22,37,92,.15);
+      --shadow-lg:   0 8px 48px rgba(22,37,92,.20);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 1rem; overflow-x: hidden; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--surface2); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ── SCARCITY BAR ── */
+    .scarcity-bar {
+      background: var(--grad-red); color: #fff; text-align: center;
+      padding: 11px 16px; font-size: .88rem; font-weight: 700;
+      position: relative; z-index: 101; letter-spacing: .2px;
+    }
+    .scarcity-bar .pulse {
+      display: inline-block; width: 8px; height: 8px; background: #fff;
+      border-radius: 50%; margin-right: 8px; animation: blink 1.2s ease-in-out infinite;
+      vertical-align: middle;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,22,56,.97);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding: 0 40px; height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 20px rgba(13,22,56,.35);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 38px; height: 38px; border-radius: 8px; object-fit: contain; background: #fff; }
+    .nav-logo-text { font-size: 1.05rem; font-weight: 900; line-height: 1.1; color: #fff; }
+    .nav-logo-text span { color: var(--red-light); }
+    .nav-cta {
+      background: #fff; color: var(--navy); border: none; border-radius: 50px;
+      padding: 9px 22px; font-family: 'Cairo', sans-serif; font-size: .9rem; font-weight: 900;
+      cursor: pointer; text-decoration: none; transition: all .2s; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .nav-wa {
+      display: flex; align-items: center; gap: 6px; background: #25D366; color: #fff;
+      font-family: 'Cairo', sans-serif; font-weight: 900; font-size: .82rem;
+      border-radius: 50px; padding: 8px 16px; text-decoration: none;
+      transition: transform .15s, box-shadow .15s; white-space: nowrap;
+    }
+    .nav-wa:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(37,211,102,.45); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 52px 64px 60px; display: flex; align-items: center; justify-content: center;
+      background: var(--grad-soft); position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(22,37,92,.08) 0%, transparent 70%);
+      top: -150px; right: -150px; pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px; width: 100%;
+      display: flex; align-items: flex-start; gap: 60px; position: relative; z-index: 1;
+    }
+    .hero-text { flex: 1 1 480px; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--light-red); border: 1.5px solid var(--red-light);
+      color: var(--red); border-radius: 50px; padding: 5px 14px;
+      font-size: .82rem; font-weight: 700; margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 4.2vw, 3rem);
+      font-weight: 900; line-height: 1.28; color: var(--navy); margin-bottom: 16px;
+    }
+    h1 .accent { color: var(--red); }
+    h1 .gold   { color: var(--gold); }
+
+    .trust-strip { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: .83rem; font-weight: 700; color: var(--navy); }
+    .trust-item .ti-icon {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--light-red);
+      display: flex; align-items: center; justify-content: center; font-size: .85rem; flex-shrink: 0;
+    }
+
+    .hero-sub { font-size: .97rem; color: var(--muted); max-width: 460px; }
+
+    .hero-form-col { flex: 0 0 370px; }
+    .form-card { background: var(--surface); border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; border: 1px solid rgba(22,37,92,.12); }
+    .form-card-top { background: var(--grad); padding: 18px 24px; text-align: center; }
+    .form-card-top h2 { color: #fff; font-size: 1.15rem; font-weight: 900; }
+    .form-card-top p  { color: rgba(255,255,255,.85); font-size: .82rem; margin-top: 3px; }
+    .form-card-body { padding: 22px; }
+
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: .85rem; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+    .field input {
+      width: 100%; border: 1.5px solid var(--gold); border-radius: 10px;
+      padding: 12px 14px; font-family: 'Cairo', sans-serif; font-size: 16px;
+      color: var(--text); background: #fff; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .field input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(211,39,46,.12); }
+    .field input::placeholder { color: #bbb; }
+
+    .submit-btn {
+      width: 100%; background: var(--grad-red); color: #fff; border: none;
+      border-radius: 50px; padding: 15px 24px;
+      font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 900;
+      cursor: pointer; transition: opacity .2s, transform .15s; margin-top: 4px;
+      box-shadow: 0 6px 24px rgba(211,39,46,.35);
+    }
+    .submit-btn:hover  { opacity: .9; transform: translateY(-2px); }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .form-note { text-align: center; font-size: .76rem; color: var(--muted); margin-top: 10px; }
+
+    .reviews { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .review-item {
+      background: var(--surface2); border-radius: 12px; padding: 12px 14px;
+      display: flex; align-items: flex-start; gap: 10px; border: 1px solid rgba(22,37,92,.09);
+    }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: var(--grad); color: var(--gold-light); font-weight: 900; font-size: .95rem;
+      display: flex; align-items: center; justify-content: center; border: 2px solid var(--gold);
+    }
+    .review-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .review-name  { font-size: .84rem; font-weight: 700; color: var(--navy); }
+    .review-stars { color: var(--gold); font-size: .8rem; }
+    .review-text  { font-size: .81rem; color: var(--muted); margin-top: 3px; line-height: 1.55; }
+    .review-city  { display: inline-block; margin-top: 4px; font-size: .7rem; background: var(--light-red); color: var(--red); border-radius: 50px; padding: 1px 8px; font-weight: 700; }
+    .proof-tag    { display: inline-block; margin-top: 4px; font-size: .68rem; background: rgba(201,168,76,.15); color: #8a6d1f; border-radius: 50px; padding: 1px 8px; font-weight: 700; margin-left: 4px; }
+
+    /* ── SECTION SHARED ── */
+    .section-label { text-align: center; font-size: .8rem; font-weight: 700; color: var(--red); letter-spacing: .8px; text-transform: uppercase; margin-bottom: 8px; }
+    .section-title { text-align: center; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+    .section-title .accent { color: var(--red); }
+    .section-sub { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+    /* ── PROOF (real certificates) ── */
+    .proof-section { background: var(--bg); padding: 64px 40px; }
+    .proof-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+    .proof-card {
+      background: #fff; border-radius: 14px; overflow: hidden; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(22,37,92,.10); border: 1px solid rgba(22,37,92,.08);
+      transition: transform .2s, box-shadow .2s; position: relative;
+    }
+    .proof-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .proof-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+    .proof-name {
+      position: absolute; bottom: 0; inset-inline: 0;
+      background: linear-gradient(to top, rgba(13,22,56,.85), transparent);
+      color: #fff; font-size: .78rem; font-weight: 700; padding: 18px 8px 6px; text-align: center;
+    }
+    @media (max-width: 680px) {
+      .proof-section { padding: 48px 20px; }
+      .proof-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    }
+
+    /* ── WHY US ── */
+    .cards-strip { max-width: 1060px; margin: 0 auto; padding: 70px 40px 40px; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+    .why-card {
+      background: var(--surface); border-radius: 16px; padding: 26px 22px; text-align: center;
+      border: 1.5px solid rgba(22,37,92,.1); transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .why-card:hover { transform: translateY(-5px); border-color: var(--red); box-shadow: var(--shadow-lg); }
+    .why-icon  { font-size: 2.2rem; margin-bottom: 12px; }
+    .why-title { font-size: 1rem; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .why-desc  { font-size: .85rem; color: var(--muted); }
+
+    /* ── STATS ── */
+    .stats-band { background: var(--grad); padding: 52px 40px; position: relative; overflow: hidden; }
+    .stats-band::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,.06); top:-200px; right:-100px; }
+    .stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 30px; text-align: center; position: relative; z-index: 1; }
+    .stat-number { font-size: 2.6rem; font-weight: 900; color: var(--gold-light); line-height: 1; display: block; }
+    .stat-label  { font-size: .9rem; color: rgba(255,255,255,.82); margin-top: 6px; display: block; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--deep-navy); padding: 70px 40px; }
+    .how-section .section-title { color: #fff; }
+    .how-section .section-sub { color: rgba(255,255,255,.6); }
+    .how-steps { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+    .how-step { text-align: center; color: #fff; }
+    .how-num {
+      width: 58px; height: 58px; border-radius: 50%; background: var(--grad-red);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 900; margin: 0 auto 16px;
+      box-shadow: 0 6px 24px rgba(211,39,46,.45);
+    }
+    .how-step h4 { font-size: 1rem; font-weight: 900; margin-bottom: 6px; }
+    .how-step p  { font-size: .85rem; opacity: .7; line-height: 1.65; }
+    .how-time    { display: inline-block; margin-top: 8px; font-size: .75rem; color: var(--gold); font-weight: 700; background: rgba(201,168,76,.12); border-radius: 50px; padding: 3px 12px; }
+    @media (max-width: 640px) { .how-steps { grid-template-columns: 1fr; gap: 28px; } }
+
+    /* ── SERVICES ── */
+    .services-section { max-width: 1060px; margin: 0 auto; padding: 60px 40px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; }
+    .service-card {
+      background: var(--surface); border-radius: 18px; overflow: hidden; padding: 24px 22px;
+      border: 1.5px solid rgba(22,37,92,.1); transition: transform .25s, box-shadow .25s, border-color .25s; cursor: pointer;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--red); }
+    .service-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--grad); color: var(--gold); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .service-name { font-size: 1.02rem; font-weight: 900; color: var(--navy); margin-bottom: 6px; }
+    .service-desc { font-size: .85rem; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .service-btn {
+      display: inline-block; background: var(--light-red); color: var(--red); border: none;
+      border-radius: 50px; padding: 7px 16px; font-family: 'Cairo',sans-serif;
+      font-size: .82rem; font-weight: 700; cursor: pointer; transition: background .2s, color .2s; text-decoration: none;
+    }
+    .service-btn:hover { background: var(--red); color: #fff; }
+
+    /* ── GUARANTEE ── */
+    .guarantee-section { background: var(--deep-navy); padding: 70px 40px; text-align: center; }
+    .guarantee-box { max-width: 700px; margin: 0 auto; }
+    .guarantee-badge { font-size: 3.5rem; margin-bottom: 20px; }
+    .guarantee-box h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.3; }
+    .guarantee-box h2 span { color: var(--gold); }
+    .guarantee-box p { font-size: .97rem; color: rgba(255,255,255,.72); line-height: 1.85; margin-bottom: 28px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .guarantee-pills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .guarantee-pill { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 50px; padding: 9px 20px; font-size: .85rem; color: #fff; font-weight: 700; }
+
+    /* ── CTA SECTION ── */
+    .cta-section { background: var(--grad-red); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content:'🎓'; position:absolute; font-size:8rem; opacity:.08; top:-20px; right:5%; pointer-events:none; }
+    .cta-section::after  { content:'✈️'; position:absolute; font-size:7rem; opacity:.08; bottom:-10px; left:5%; pointer-events:none; }
+    .cta-inner { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-section h2 { font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 900; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+    .cta-section p  { color: rgba(255,255,255,.85); font-size: .97rem; margin-bottom: 28px; }
+    .cta-scarcity   { display: inline-block; background: rgba(0,0,0,.2); border-radius: 50px; padding: 6px 20px; font-size: .82rem; color: rgba(255,255,255,.9); font-weight: 700; margin-bottom: 24px; }
+    .cta-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+    .cta-form input {
+      width: 100%; padding: 14px 18px; border-radius: 50px; border: none;
+      font-family: 'Cairo', sans-serif; font-size: .97rem; text-align: right;
+      outline: none; background: rgba(255,255,255,.15); color: #fff;
+    }
+    .cta-form input::placeholder { color: rgba(255,255,255,.65); }
+    .cta-form input:focus { background: rgba(255,255,255,.25); }
+    .cta-form button {
+      width: 100%; padding: 15px; border-radius: 50px; border: none; cursor: pointer;
+      background: #fff; color: var(--navy);
+      font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 900;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2); transition: transform .2s, opacity .2s;
+    }
+    .cta-form button:hover { transform: translateY(-2px); }
+    .cta-form button:disabled { opacity: .6; cursor: not-allowed; }
+    .cta-note { font-size: .78rem; color: rgba(255,255,255,.7); }
+    @media (min-width: 540px) {
+      .cta-form { flex-direction: row; flex-wrap: wrap; }
+      .cta-form input { flex: 1 1 200px; }
+      .cta-form button { flex: 0 0 auto; padding: 15px 32px; width: auto; }
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); color: rgba(255,255,255,.75); padding: 48px 40px 24px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-top { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; margin-bottom: 36px; }
+    .footer-logo-text { font-size: 1.3rem; font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .footer-logo-text span { color: var(--red-light); }
+    .footer-tagline { font-size: .88rem; max-width: 260px; }
+    .footer-links h4, .footer-contact h4 { color: #fff; font-size: .95rem; font-weight: 700; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { font-size: .88rem; margin-bottom: 7px; }
+    .contact-item { display: flex; align-items: center; gap: 8px; font-size: .88rem; margin-bottom: 9px; }
+    .contact-item a { color: rgba(255,255,255,.75); text-decoration: none; transition: color .2s; }
+    .contact-item a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .82rem; }
+    .footer-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .footer-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.8); border-radius: 50px; padding: 3px 12px; font-size: .78rem; }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 200;
+      width: 56px; height: 56px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.5); text-decoration: none;
+      transition: transform .2s; animation: pulse-wa 2.5s ease-in-out infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+    @keyframes pulse-wa { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); } 50% { box-shadow: 0 4px 36px rgba(37,211,102,.8); } }
+
+    .scroll-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--grad-red); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(211,39,46,.45);
+      transition: transform .2s, opacity .3s; opacity: 0; pointer-events: none;
+    }
+    .scroll-btn.visible { opacity: 1; pointer-events: all; }
+    .scroll-btn:hover { transform: scale(1.1); }
+    .scroll-btn svg { width: 22px; height: 22px; fill: #fff; }
+
+    #toast {
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: var(--navy); color: #fff; padding: 12px 28px; border-radius: 50px;
+      font-size: .9rem; font-weight: 700; opacity: 0; transition: opacity .35s, transform .35s;
+      pointer-events: none; z-index: 300; white-space: nowrap;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 500; background: rgba(13,22,56,.92);
+      align-items: center; justify-content: center; flex-direction: column; gap: 16px; padding: 40px 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(500px, 90vw); max-height: 75vh; border-radius: 14px; box-shadow: var(--shadow-lg); }
+    .lightbox p { color: #fff; font-weight: 700; font-size: 1.05rem; }
+    .lightbox-close {
+      position: absolute; top: 24px; left: 24px; width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff;
+      font-size: 1.8rem; line-height: 1; cursor: pointer;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 24px 20px 40px; }
+      .hero-inner { flex-direction: column; gap: 12px; }
+      .hero-text { flex: 0 0 auto; width: 100%; }
+      .hero-form-col { width: 100%; flex: 0 0 auto; order: -1; }
+      .cards-strip { padding: 50px 20px 30px; }
+      .services-section { padding: 50px 20px; }
+      .stats-band { padding: 48px 20px; }
+      .how-section { padding: 60px 20px; }
+      .guarantee-section { padding: 60px 20px; }
+      .cta-section { padding: 60px 20px; }
+      footer { padding: 40px 20px 20px; }
+      .footer-top { gap: 28px; }
+    }
+    @media (max-width: 500px) {
+      h1 { font-size: 1.85rem; }
+      .trust-strip { gap: 10px; }
+      .footer-bottom { flex-direction: column; align-items: flex-end; }
+    }
+  </style>
 </head>
 <body>
 
-<section class="landing-page">
-  <div class="landing-wrap">
-    <div class="landing-info">
-      <img src="img/logo.png" alt="Excellence Study Agency" class="landing-logo" />
-      <h1>حقّق حلمك<br /><span class="hero-highlight">وادرس في الخارج</span></h1>
-      <p>سجّل بياناتك الآن، ويتواصل معك أحد مستشارينا خلال 24 ساعة لاستشارة مجانية بدون أي التزام.</p>
-      <ul class="landing-perks">
-        <li>✓ استشارة مجانية بدون التزام</li>
-        <li>✓ قبول جامعي في ليتوانيا، روسيا، بولندا وإسبانيا</li>
-        <li>✓ متابعة كاملة لتأشيرة الدراسة والسكن</li>
-      </ul>
+<!-- SCARCITY BAR -->
+<div class="scarcity-bar">
+  <span class="pulse"></span>عدد المقاعد المتاحة لموسم سبتمبر 2026 محدود — سجّل الآن
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/logo.png" alt="Excellence Study Agency" />
+    <div class="nav-logo-text">Excellence <span>Study</span></div>
+  </a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a href="https://wa.me/212660095616" class="nav-wa" target="_blank">💬 واتساب</a>
+    <a class="nav-cta" href="#leadForm">سجّل مجاناً ✨</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-text">
+      <div class="badge">🎓 المغرب · وكالة الدراسة بالخارج الموثوقة</div>
+      <h1>
+        حقق حلمك وادرس<br>
+        في جامعة أوروبية <span class="accent">مرموقة</span><br>
+        <span class="gold">بدعم كامل من الألف للياء</span>
+      </h1>
+
+      <div class="trust-strip">
+        <div class="trust-item"><div class="ti-icon">🎓</div><span>نسبة قبول 98% بين طلابنا</span></div>
+        <div class="trust-item"><div class="ti-icon">⚡</div><span>رد خلال 24 ساعة</span></div>
+        <div class="trust-item"><div class="ti-icon">💎</div><span>استشارة مجانية بدون التزام</span></div>
+      </div>
+
+      <p class="hero-sub">
+        قبول جامعي، تأشيرة، سكن، ومرافقة كاملة — من أول اتصال إلى وصولك لجامعتك في ليتوانيا، روسيا، بولندا أو إسبانيا. هذا ما نصنعه كل يوم لطلابنا ✨
+      </p>
     </div>
 
-    <div class="landing-form-card">
-      <div id="landingFormWrap">
-        <h2>سجّل الآن مجاناً</h2>
-        <p>أدخل اسمك ورقم هاتفك وسنتصل بك</p>
-        <form id="landingForm" novalidate>
-          <div class="form-group">
-            <label for="landingName">الاسم الكامل <span class="required">*</span></label>
-            <input type="text" id="landingName" name="name" placeholder="مثال: محمد الأمراني" required />
-          </div>
-          <div class="form-group">
-            <label for="landingPhone">رقم الهاتف <span class="required">*</span></label>
-            <input type="tel" id="landingPhone" name="phone" placeholder="+212 6XX XXX XXX" required />
-          </div>
-          <button type="submit" class="btn btn-primary btn-submit" id="landingSubmitBtn">
-            أرسل الآن 🚀
-          </button>
-          <div class="landing-error" id="landingError">حدث خطأ، حاول مرة أخرى أو تواصل معنا عبر واتساب.</div>
-        </form>
+    <div class="hero-form-col">
+      <div class="form-card" id="leadForm">
+        <div class="form-card-top">
+          <h2>🎓 سجّل بياناتك الآن</h2>
+          <p>بدون التزام · رد خلال 24 ساعة ⚡</p>
+          <p style="margin-top:6px;font-size:.8rem;color:rgba(255,255,255,.75);">📍 الدار البيضاء، المغرب</p>
+        </div>
+        <div class="form-card-body">
+          <form id="bookingForm" novalidate>
+            <div class="field">
+              <label for="fname">اسمك الكريم</label>
+              <input type="text" id="fname" name="name" placeholder="مثال: يوسف العلوي" required />
+            </div>
+            <div class="field">
+              <label for="fphone">رقم الواتساب</label>
+              <input type="tel" id="fphone" name="phone" placeholder="06XXXXXXXX" required />
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              سجّل الآن — نتصل بك فوراً 🎓
+            </button>
+          </form>
+          <p class="form-note">🔒 معلوماتك سرية — لن نشاركها مع أي جهة</p>
+          <p class="form-note" style="margin-top:8px">أو تواصل مباشرة: <a href="https://wa.me/212660095616" target="_blank" style="color:#25D366;font-weight:700;text-decoration:none">💬 +212 660-095616</a></p>
+        </div>
       </div>
 
-      <div class="landing-form-success" id="landingSuccess">
-        <div class="success-icon">🎉</div>
-        <h3>تم استلام طلبك!</h3>
-        <p>سيتواصل معك أحد مستشارينا خلال 24 ساعة.</p>
+      <!-- REVIEWS -->
+      <div class="reviews">
+        <div class="review-item">
+          <div class="review-avatar">ف</div>
+          <div>
+            <div class="review-header"><span class="review-name">فيصل</span><span class="review-stars">⭐⭐⭐⭐⭐</span></div>
+            <p class="review-text">"ما كنت نتصور غادي نقبل بهاد السرعة، تكفلاو بملفي بالكامل من القبول حتى تأشيرة الدراسة. الآن كنقرا في فيلنيوس."</p>
+            <span class="review-city">📍 ليتوانيا</span><span class="proof-tag">✓ طالب حقيقي</span>
+          </div>
+        </div>
+        <div class="review-item">
+          <div class="review-avatar">ح</div>
+          <div>
+            <div class="review-header"><span class="review-name">حمزة</span><span class="review-stars">⭐⭐⭐⭐⭐</span></div>
+            <p class="review-text">"فريق محترف ومتابعة يومية، ساعدوني نجيب قبولي وخرجت التأشيرة فوقت قياسي. Your Excellence Is Our Priority فعلاً حقيقة."</p>
+            <span class="review-city">📍 ليتوانيا</span><span class="proof-tag">✓ طالب حقيقي</span>
+          </div>
+        </div>
       </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROOF: REAL ACCEPTANCE LETTERS -->
+<section class="proof-section">
+  <div class="section-label">نتائج حقيقية</div>
+  <h2 class="section-title">شوف بنفسك <span class="accent">خطابات القبول</span></h2>
+  <p class="section-sub">هادو ماشي وعود — هادو خطابات قبول حقيقية لطلاب سجلو معانا. اضغط على أي صورة لتكبيرها</p>
+  <div class="proof-grid">
+    <div class="proof-card" data-src="img/certificates/cert-8.jpg" data-name="Faical"><img src="img/certificates/cert-8.jpg" alt="Faical" loading="lazy" /><span class="proof-name">Faical</span></div>
+    <div class="proof-card" data-src="img/certificates/cert-9.jpg" data-name="Hamza"><img src="img/certificates/cert-9.jpg" alt="Hamza" loading="lazy" /><span class="proof-name">Hamza</span></div>
+    <div class="proof-card" data-src="img/certificates/cert-6.jpg" data-name="Chokri"><img src="img/certificates/cert-6.jpg" alt="Chokri" loading="lazy" /><span class="proof-name">Chokri</span></div>
+    <div class="proof-card" data-src="img/certificates/cert-1.jpg" data-name="Achraf"><img src="img/certificates/cert-1.jpg" alt="Achraf" loading="lazy" /><span class="proof-name">Achraf</span></div>
+    <div class="proof-card" data-src="img/certificates/cert-13.jpg" data-name="Ismail"><img src="img/certificates/cert-13.jpg" alt="Ismail" loading="lazy" /><span class="proof-name">Ismail</span></div>
+    <div class="proof-card" data-src="img/certificates/cert-16.jpg" data-name="Salaheddine"><img src="img/certificates/cert-16.jpg" alt="Salaheddine" loading="lazy" /><span class="proof-name">Salaheddine</span></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="cards-strip">
+  <div class="section-label">لماذا Excellence Study Agency؟</div>
+  <h2 class="section-title">الفرق اللي <span class="accent">تحسّو</span> من أول استشارة</h2>
+  <p class="section-sub">مش مجرد وسيط — شراكات مباشرة مع جامعات معترف بها دولياً ومرافقة حقيقية</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🎓</div>
+      <div class="why-title">شراكات جامعية مباشرة</div>
+      <div class="why-desc">نتعامل مباشرة مع Vilnius University وجامعات شريكة أخرى — بدون وسطاء إضافيين</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">نسبة قبول 98%</div>
+      <div class="why-desc">ملفات طلابنا مُجهّزة باحترافية — هذا ما يرفع فرص قبولك بشكل كبير</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">👩‍💼</div>
+      <div class="why-title">مستشارون متخصصون</div>
+      <div class="why-desc">فريق يرافقك خطوة بخطوة من القبول حتى التأشيرة والسكن</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title">استشارة مجانية بدون التزام</div>
+      <div class="why-desc">تكلم معنا وقيّم خياراتك بدون أي مقابل — القرار ديالك بعد ما تكون عندك كل المعلومات</div>
     </div>
   </div>
 </section>
 
-<a href="https://wa.me/212660095616" class="whatsapp-float" target="_blank" aria-label="واتساب">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- STATS -->
+<section class="stats-band">
+  <div class="stats-inner">
+    <div><span class="stat-number">+500</span><span class="stat-label">طالب مسجّل</span></div>
+    <div><span class="stat-number">+10</span><span class="stat-label">دول وجهة</span></div>
+    <div><span class="stat-number">98%</span><span class="stat-label">نسبة القبول</span></div>
+    <div><span class="stat-number">+7</span><span class="stat-label">سنوات خبرة</span></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-label" style="color:rgba(255,255,255,.5)">كيف تسجّل؟</div>
+  <h2 class="section-title">3 خطوات بسيطة<br><span class="accent">وتكون جاهز للسفر</span></h2>
+  <p class="section-sub">ما كاين تعب ولا إجراءات معقدة — اسم ورقم وخلاص</p>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <h4>سجّل طلبك</h4>
+      <p>اسمك ورقم الواتساب فقط — 30 ثانية وخلاص. بدون تسجيل ولا التزام</p>
+      <span class="how-time">⏱ 30 ثانية</span>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <h4>استشارة مجانية</h4>
+      <p>مستشارنا يتصل بك خلال 24 ساعة لتقييم ملفك واقتراح أفضل الخيارات ليك</p>
+      <span class="how-time">⚡ خلال 24 ساعة</span>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <h4>القبول والسفر</h4>
+      <p>نتكفلو بالقبول، التأشيرة، والسكن — وترافقك حتى وصولك للجامعة</p>
+      <span class="how-time">🎓 دعم كامل</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="section-label">خدماتنا</div>
+  <h2 class="section-title">القبول، التأشيرة، والسكن — <span class="accent">كل شيء هنا</span></h2>
+  <p class="section-sub">مرافقة متكاملة لحلمك الدراسي، من البداية للنهاية</p>
+  <div class="services-grid">
+    <div class="service-card" onclick="scrollToForm()">
+      <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg></div>
+      <div class="service-name">القبول الجامعي</div>
+      <div class="service-desc">نساعدك في اختيار الجامعة المناسبة وتقديم ملفك وضمان القبول</div>
+      <a class="service-btn" href="#leadForm">سجّل ←</a>
+    </div>
+    <div class="service-card" onclick="scrollToForm()">
+      <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <div class="service-name">تأشيرة الدراسة</div>
+      <div class="service-desc">نتولى إعداد ملف التأشيرة كاملاً ومتابعته مع السفارة خطوة بخطوة</div>
+      <a class="service-btn" href="#leadForm">سجّل ←</a>
+    </div>
+    <div class="service-card" onclick="scrollToForm()">
+      <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="service-name">السكن الطلابي</div>
+      <div class="service-desc">نوفر لك خيارات سكن مناسبة ومأمونة قرب جامعتك منذ اليوم الأول</div>
+      <a class="service-btn" href="#leadForm">سجّل ←</a>
+    </div>
+    <div class="service-card" onclick="scrollToForm()">
+      <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+      <div class="service-name">التأمين الطلابي</div>
+      <div class="service-desc">نساعدك في استخراج التأمين الصحي المطلوب للدراسة في الخارج</div>
+      <a class="service-btn" href="#leadForm">سجّل ←</a>
+    </div>
+    <div class="service-card" onclick="scrollToForm()">
+      <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <div class="service-name">مجتمع الطلاب</div>
+      <div class="service-desc">نربطك بمجتمع من الطلاب المغاربة في نفس البلد لدعم بعضكم البعض</div>
+      <a class="service-btn" href="#leadForm">سجّل ←</a>
+    </div>
+    <div class="service-card" onclick="scrollToForm()">
+      <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.85 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.77 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div class="service-name">الدعم المستمر 🎁</div>
+      <div class="service-desc">فريقنا متاح لك على مدار الساعة للإجابة عن أسئلتك ومتابعة ملفك</div>
+      <a class="service-btn" href="#leadForm">سجّل ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section">
+  <div class="guarantee-box">
+    <div class="guarantee-badge">🛡️</div>
+    <h2>استشارة مجانية <span>100%</span> — بدون أي التزام</h2>
+    <p>
+      عندنا ثقة كاملة في خدماتنا — لهذا نعطيك استشارة أولى مجانية بالكامل.
+      تكلم معنا، اعرف كل خياراتك، وقرر بعقلانية بدون أي ضغط أو التزام مالي.
+      هذا وعدنا ليك.
+    </p>
+    <div class="guarantee-pills">
+      <span class="guarantee-pill">✅ استشارة مجانية</span>
+      <span class="guarantee-pill">✅ بدون التزام</span>
+      <span class="guarantee-pill">✅ نسبة قبول 98%</span>
+      <span class="guarantee-pill">✅ مرافقة كاملة</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-scarcity">⏳ المقاعد المتاحة لموسم سبتمبر 2026 محدودة</div>
+    <h2>سجّل الآن قبل ما تكمل المقاعد</h2>
+    <p>كل موسم عندنا عدد محدود من المقاعد مع جامعاتنا الشريكة. اللي يسجل دابا يضمن مكانه.</p>
+    <form class="cta-form" id="ctaForm">
+      <input type="text" id="cta-name" placeholder="اسمك الكريم" required />
+      <input type="tel" id="cta-phone" placeholder="رقم الواتساب — 06XXXXXXXX" required />
+      <button type="submit">🎓 سجّل الآن — مجاناً</button>
+    </form>
+    <p class="cta-note">🔒 معلوماتك سرية — رد خلال 24 ساعة ⚡</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-text">Excellence <span>Study Agency</span></div>
+        <p class="footer-tagline">Your Excellence Is Our Priority — وكالتك الموثوقة للدراسة في الخارج</p>
+      </div>
+      <div class="footer-links">
+        <h4>خدماتنا</h4>
+        <ul>
+          <li>🎓 القبول الجامعي</li>
+          <li>📋 تأشيرة الدراسة</li>
+          <li>🏠 السكن الطلابي</li>
+          <li>🩺 التأمين الطلابي</li>
+          <li>🤝 الدعم المستمر</li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>تواصل معنا</h4>
+        <div class="contact-item">📍 <span>الدار البيضاء، المغرب</span></div>
+        <div class="contact-item">📞 <a href="tel:+212660095616" dir="ltr">+212 660-095616</a></div>
+        <div class="contact-item">📱 <a href="https://wa.me/212660095616" target="_blank" style="color:#25D366;font-weight:700">💬 +212 660-095616</a></div>
+        <div class="contact-item">✉️ <a href="mailto:Contact@excellencestudyagency.com">Contact@excellencestudyagency.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Excellence Study Agency — جميع الحقوق محفوظة</span>
+      <div class="footer-tags">
+        <span class="footer-tag">ليتوانيا</span>
+        <span class="footer-tag">روسيا</span>
+        <span class="footer-tag">بولندا</span>
+        <span class="footer-tag">إسبانيا</span>
+        <span class="footer-tag">قبول مضمون</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/212660095616" class="wa-float" target="_blank" aria-label="واتساب">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<button class="scroll-btn" id="scrollBtn" onclick="scrollToForm()" title="سجّل الآن">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+
+<div id="toast"></div>
+
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="إغلاق">&times;</button>
+  <img src="" alt="" id="lightboxImg" />
+  <p id="lightboxName"></p>
+</div>
+
 <script>
-  const landingForm = document.getElementById('landingForm');
-  const landingError = document.getElementById('landingError');
-  const landingSubmitBtn = document.getElementById('landingSubmitBtn');
+  function scrollToForm() {
+    document.getElementById('leadForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
-  landingForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    landingError.classList.remove('show');
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
 
-    const name = document.getElementById('landingName').value.trim();
-    const phone = document.getElementById('landingPhone').value.trim();
-    if (!name || !phone) return;
+  function genEventId() { return 'ev_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9); }
 
-    landingSubmitBtn.disabled = true;
-    landingSubmitBtn.textContent = 'جاري الإرسال...';
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : undefined;
+  }
+
+  async function submitLead(name, phone, btn, originalText) {
+    btn.disabled = true;
+    btn.textContent = '⏳ جاري التسجيل...';
+    const eventId = genEventId();
 
     try {
-      const res = await fetch('/api/lead', {
+      await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, source: 'landing' })
+        body: JSON.stringify({
+          name, phone, source: 'landing',
+          eventId, eventSourceUrl: location.href,
+          fbp: getCookie('_fbp'), fbc: getCookie('_fbc')
+        })
       });
-      if (!res.ok) throw new Error('request failed');
+    } catch (_) {}
 
-      if (typeof fbq === 'function') fbq('track', 'Lead');
+    if (typeof fbq !== 'undefined') { fbq('track', 'Lead', {}, { eventID: eventId }); }
 
-      document.getElementById('landingFormWrap').style.display = 'none';
-      document.getElementById('landingSuccess').classList.add('show');
-    } catch (err) {
-      landingError.classList.add('show');
-      landingSubmitBtn.disabled = false;
-      landingSubmitBtn.textContent = 'أرسل الآن 🚀';
-    }
+    showToast('✅ تم استلام طلبك! سنتصل بك قريباً');
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    if (!name || !phone) { showToast('⚠️ يرجى ملء الاسم ورقم الواتساب'); return; }
+    submitLead(name, phone, btn, 'سجّل الآن — نتصل بك فوراً 🎓');
+    this.reset();
   });
+
+  document.getElementById('ctaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button');
+    const name = document.getElementById('cta-name').value.trim();
+    const phone = document.getElementById('cta-phone').value.trim();
+    if (!name || !phone) { showToast('⚠️ يرجى ملء الاسم ورقم الواتساب'); return; }
+    submitLead(name, phone, btn, '🎓 سجّل الآن — مجاناً');
+    this.reset();
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.style.opacity = '1';
+        en.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const scrollBtn = document.getElementById('scrollBtn');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  document.querySelectorAll('.why-card, .service-card, .review-item, .how-step, .guarantee-box, .proof-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxName = document.getElementById('lightboxName');
+  document.querySelectorAll('.proof-card').forEach(card => {
+    card.addEventListener('click', () => {
+      lightboxImg.src = card.dataset.src;
+      lightboxImg.alt = card.dataset.name;
+      lightboxName.textContent = card.dataset.name;
+      lightbox.classList.add('open');
+    });
+  });
+  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
