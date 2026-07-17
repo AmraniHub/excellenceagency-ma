@@ -749,6 +749,10 @@ function applyLanguage(lang) {
     if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
   });
 
+  document.querySelectorAll("[data-lang-block]").forEach(el => {
+    el.style.display = el.getAttribute("data-lang-block") === lang ? "" : "none";
+  });
+
   const titleKey = document.documentElement.getAttribute("data-title-key");
   if (titleKey && dict[titleKey]) {
     document.title = `${dict[titleKey]} | Excellence Study Agency`;

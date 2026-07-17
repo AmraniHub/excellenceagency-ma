@@ -2195,3 +2195,67 @@ body.lang-ltr .form-group textarea {
   .landing-perks { align-items: center; }
   .landing-logo { margin-inline: auto; }
 }
+
+/* -- Legal pages (privacy / terms) -- */
+.legal-content {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.legal-updated {
+  color: var(--text-muted);
+  font-size: .85rem;
+  margin-bottom: 32px;
+}
+
+.legal-content h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.legal-content h2:first-child { margin-top: 0; }
+
+.legal-content p {
+  color: var(--text-muted);
+  font-size: .95rem;
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+
+.legal-content ul {
+  margin-bottom: 14px;
+  padding-inline-start: 4px;
+}
+
+.legal-content li {
+  position: relative;
+  padding-inline-start: 22px;
+  color: var(--text-muted);
+  font-size: .95rem;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.legal-content li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.legal-content strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.legal-content a {
+  color: var(--gold);
+  font-weight: 700;
+}
