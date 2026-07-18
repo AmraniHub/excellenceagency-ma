@@ -131,9 +131,21 @@ export default async function handler(req, res) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...lead, timestamp })
       });
-      results.sheets = sheetRes.ok ? 'sent' : 'failed';
+      const sheetText = await sheetRes.text();
+      let sheetJson;
+      try { sheetJson = JSON.parse(sheetText); } catch (_) { /* not JSON */ }
+
+      if (sheetRes.ok && sheetJson && sheetJson.ok) {
+        results.sheets = 'sent';
+      } else {
+        // Surfaces the real cause (wrong deploy access, unbound script, etc.)
+        // in Vercel's function logs instead of a bare "failed".
+        results.sheets = `failed (status ${sheetRes.status}): ${sheetText.slice(0, 300)}`;
+        console.error('Sheets webhook did not confirm success:', results.sheets);
+      }
     } catch (err) {
-      results.sheets = 'error';
+      results.sheets = `error: ${err.message || err}`;
+      console.error('Sheets webhook request threw:', err);
     }
   }
 
