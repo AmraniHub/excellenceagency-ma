@@ -3,7 +3,7 @@
 const translations = {
   ar: {
     "meta.title": "Excellence Study Agency | مكتب التميز للدراسة في الخارج",
-    "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا.",
+    "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا والصين.",
 
     "nav.home": "الرئيسية",
     "nav.destinations": "الوجهات",
@@ -17,7 +17,7 @@ const translations = {
 
     "hero.badge": "Excellence Study Agency — مكتب التميز للدراسة في الخارج",
     "hero.title.html": "حقّق حلمك<br /><span class=\"hero-highlight\">وادرس في الخارج</span>",
-    "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا",
+    "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا والصين",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "سجّل مجاناً الآن",
     "hero.cta2": "كيف نساعدك؟",
@@ -39,8 +39,8 @@ const translations = {
     "about.feat4": "دعم ما بعد الوصول",
 
     "home.explore.tag": "اكتشف المزيد",
-    "home.explore.title.html": "كل التفاصيل <span class=\"text-gold\">في صفحاتها</span>",
-    "home.explore.subtitle": "تصفّح كل قسم بالتفصيل",
+    "home.explore.title.html": "اكتشف <span class=\"text-gold\">كل التفاصيل</span>",
+    "home.explore.subtitle": "تصفّح كل قسم على حدة لمعرفة المزيد",
     "home.cta.title": "جاهز تبدأ رحلتك؟",
     "home.cta.subtitle": "سجّل الآن واحصل على استشارة مجانية خلال 24 ساعة",
 
@@ -81,6 +81,13 @@ const translations = {
     "dest.es.tag3": "السياحة والفندقة",
     "dest.es.info1": "🌍 لغة عالمية",
     "dest.es.info2": "☀️ جودة حياة عالية",
+    "dest.cn.name": "الصين",
+    "dest.cn.desc": "منح دراسية كاملة وجزئية في جامعات عالمية مرموقة، بتكاليف معيشة منخفضة وتطور تكنولوجي متسارع.",
+    "dest.cn.tag1": "الهندسة والتكنولوجيا",
+    "dest.cn.tag2": "الطب",
+    "dest.cn.tag3": "إدارة الأعمال",
+    "dest.cn.info1": "🎓 منح دراسية متاحة",
+    "dest.cn.info2": "💰 تكلفة معيشة منخفضة",
     "dest.more.title": "ودول أخرى",
     "dest.more.desc": "ألمانيا، فرنسا، تركيا، رومانيا، قبرص وأكثر...",
     "dest.more.cta": "استفسر الآن",
@@ -123,7 +130,7 @@ const translations = {
     "partners.p3.name": "Vytautas Magnus University",
     "partners.p3.loc": "كاوناس، ليتوانيا",
     "partners.p4.name": "شركاء إضافيون",
-    "partners.p4.loc": "روسيا، بولندا، إسبانيا 🌍",
+    "partners.p4.loc": "روسيا، بولندا، إسبانيا، الصين 🌍",
     "partners.note": "* صور الشراكة والاعتماد الرسمي قيد الإضافة",
 
     "certs.tag": "شهادات القبول",
@@ -242,7 +249,7 @@ const translations = {
 
   fr: {
     "meta.title": "Excellence Study Agency | Bureau d'études à l'étranger",
-    "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne et Espagne.",
+    "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne, Espagne et Chine.",
 
     "nav.home": "Accueil",
     "nav.destinations": "Destinations",
@@ -256,7 +263,7 @@ const translations = {
 
     "hero.badge": "Excellence Study Agency — Bureau d'études à l'étranger",
     "hero.title.html": "Réalisez votre rêve<br /><span class=\"hero-highlight\">étudiez à l'étranger</span>",
-    "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne et Espagne",
+    "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne, Espagne et Chine",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "Inscription gratuite",
     "hero.cta2": "Comment ça marche ?",
@@ -278,8 +285,8 @@ const translations = {
     "about.feat4": "Accompagnement après l'arrivée",
 
     "home.explore.tag": "En savoir plus",
-    "home.explore.title.html": "Tous les détails <span class=\"text-gold\">sur leurs pages</span>",
-    "home.explore.subtitle": "Parcourez chaque section en détail",
+    "home.explore.title.html": "Découvrez <span class=\"text-gold\">tous les détails</span>",
+    "home.explore.subtitle": "Parcourez chaque section pour en savoir plus",
     "home.cta.title": "Prêt à commencer votre parcours ?",
     "home.cta.subtitle": "Inscrivez-vous maintenant et bénéficiez d'une consultation gratuite sous 24 heures",
 
@@ -320,6 +327,13 @@ const translations = {
     "dest.es.tag3": "Tourisme et hôtellerie",
     "dest.es.info1": "🌍 Langue internationale",
     "dest.es.info2": "☀️ Qualité de vie élevée",
+    "dest.cn.name": "Chine",
+    "dest.cn.desc": "Bourses d'études complètes et partielles dans des universités internationales prestigieuses, avec un coût de la vie réduit et une technologie de pointe.",
+    "dest.cn.tag1": "Ingénierie et technologie",
+    "dest.cn.tag2": "Médecine",
+    "dest.cn.tag3": "Commerce",
+    "dest.cn.info1": "🎓 Bourses disponibles",
+    "dest.cn.info2": "💰 Faible coût de la vie",
     "dest.more.title": "Et d'autres pays",
     "dest.more.desc": "Allemagne, France, Turquie, Roumanie, Chypre et plus...",
     "dest.more.cta": "Renseignez-vous",
@@ -362,7 +376,7 @@ const translations = {
     "partners.p3.name": "Vytautas Magnus University",
     "partners.p3.loc": "Kaunas, Lituanie",
     "partners.p4.name": "Autres partenaires",
-    "partners.p4.loc": "Russie, Pologne, Espagne 🌍",
+    "partners.p4.loc": "Russie, Pologne, Espagne, Chine 🌍",
     "partners.note": "* Photos de partenariat et accréditations officielles à venir",
 
     "certs.tag": "Lettres d'admission",
@@ -481,7 +495,7 @@ const translations = {
 
   en: {
     "meta.title": "Excellence Study Agency | Study Abroad Office",
-    "meta.description": "Excellence Study Agency (ESA) – your trusted partner to the best universities in Lithuania, Russia, Poland and Spain.",
+    "meta.description": "Excellence Study Agency (ESA) – your trusted partner to the best universities in Lithuania, Russia, Poland, Spain and China.",
 
     "nav.home": "Home",
     "nav.destinations": "Destinations",
@@ -495,7 +509,7 @@ const translations = {
 
     "hero.badge": "Excellence Study Agency — Study Abroad Office",
     "hero.title.html": "Achieve your dream<br /><span class=\"hero-highlight\">study abroad</span>",
-    "hero.subtitle.html": "We guide you from your first consultation all the way to your university —<br />in Lithuania, Russia, Poland and Spain",
+    "hero.subtitle.html": "We guide you from your first consultation all the way to your university —<br />in Lithuania, Russia, Poland, Spain and China",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "Register for Free",
     "hero.cta2": "How Can We Help?",
@@ -517,8 +531,8 @@ const translations = {
     "about.feat4": "Support after arrival",
 
     "home.explore.tag": "Explore More",
-    "home.explore.title.html": "All the details <span class=\"text-gold\">on their pages</span>",
-    "home.explore.subtitle": "Browse each section in detail",
+    "home.explore.title.html": "Discover <span class=\"text-gold\">all the details</span>",
+    "home.explore.subtitle": "Browse each section to learn more",
     "home.cta.title": "Ready to start your journey?",
     "home.cta.subtitle": "Register now and get a free consultation within 24 hours",
 
@@ -559,6 +573,13 @@ const translations = {
     "dest.es.tag3": "Tourism & Hospitality",
     "dest.es.info1": "🌍 International language",
     "dest.es.info2": "☀️ High quality of life",
+    "dest.cn.name": "China",
+    "dest.cn.desc": "Full and partial scholarships at prestigious international universities, with a low cost of living and rapid technological advancement.",
+    "dest.cn.tag1": "Engineering & Technology",
+    "dest.cn.tag2": "Medicine",
+    "dest.cn.tag3": "Business",
+    "dest.cn.info1": "🎓 Scholarships available",
+    "dest.cn.info2": "💰 Low cost of living",
     "dest.more.title": "And other countries",
     "dest.more.desc": "Germany, France, Turkey, Romania, Cyprus and more...",
     "dest.more.cta": "Ask now",
@@ -601,7 +622,7 @@ const translations = {
     "partners.p3.name": "Vytautas Magnus University",
     "partners.p3.loc": "Kaunas, Lithuania",
     "partners.p4.name": "Additional Partners",
-    "partners.p4.loc": "Russia, Poland, Spain 🌍",
+    "partners.p4.loc": "Russia, Poland, Spain, China 🌍",
     "partners.note": "* Partnership photos and official accreditation coming soon",
 
     "certs.tag": "Acceptance Letters",
