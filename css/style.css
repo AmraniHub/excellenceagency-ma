@@ -2045,14 +2045,37 @@ body.lang-ltr .form-group textarea {
 /* -- Page CTA banner -- */
 .youtube-promo {
   background: var(--off-white);
-  text-align: center;
 }
 
-.youtube-promo-inner {
-  max-width: 640px;
+.youtube-promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
 }
 
-.youtube-promo-icon {
+.youtube-thumbnail {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 1 / 1;
+}
+
+.youtube-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.youtube-thumbnail:hover img { transform: scale(1.04); }
+
+.youtube-play-btn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -2061,19 +2084,38 @@ body.lang-ltr .form-group textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
   box-shadow: var(--shadow-gold);
+  transition: var(--transition);
 }
 
-.youtube-promo .section-header,
-.youtube-promo .section-tag,
-.youtube-promo .section-title,
-.youtube-promo .section-subtitle {
-  margin-inline: auto;
+.youtube-thumbnail:hover .youtube-play-btn {
+  transform: scale(1.1);
+  background: var(--gold-light);
 }
 
-.youtube-promo .section-subtitle {
+.youtube-promo-text .section-header,
+.youtube-promo-text .section-tag,
+.youtube-promo-text .section-title,
+.youtube-promo-text .section-subtitle {
+  text-align: start;
+  margin-inline: 0;
+}
+
+.youtube-promo-text .section-subtitle {
   margin-bottom: 28px;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .youtube-promo-grid { grid-template-columns: 1fr; gap: 28px; }
+  .youtube-thumbnail { max-width: 400px; margin-inline: auto; }
+  .youtube-promo-text { text-align: center; }
+  .youtube-promo-text .section-tag,
+  .youtube-promo-text .section-title,
+  .youtube-promo-text .section-subtitle {
+    text-align: center;
+    margin-inline: auto;
+  }
 }
 
 .page-cta {
