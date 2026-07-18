@@ -1,16 +1,22 @@
 // Vercel serverless function: receives leads from the landing page and the
-// full apply form, forwards them to Telegram and to a Google Sheets webhook
-// (Apps Script).
+// full apply form, forwards them to Telegram, Google Sheets, and the Meta
+// Conversions API.
 //
-// Required environment variables (set in Vercel project settings):
+// Required / optional environment variables (set in Vercel project settings):
 //   TELEGRAM_BOT_TOKEN        - bot token from @BotFather
 //   TELEGRAM_CHAT_ID          - chat/group/channel id to receive leads
+//   TELEGRAM_BOT_TOKEN_2      - optional second bot token (broadcasts to a second chat too)
+//   TELEGRAM_CHAT_ID_2        - optional second bot's chat id
 //   SHEETS_WEBHOOK_URL        - Google Apps Script Web App URL (doPost)
+//   META_CAPI_ACCESS_TOKEN    - Conversions API access token (Events Manager → Settings → Conversions API)
 //
-// If a variable is missing, that integration is skipped (not fatal) so
-// the other one can still succeed. If both are missing, the request
-// still returns 200 so the UI doesn't show a false error, but nothing
-// is actually delivered anywhere — check Vercel logs.
+// If a variable is missing, that integration is skipped (not fatal) so the
+// others can still succeed. The request still returns 200 so the UI doesn't
+// show a false error even if nothing is configured — check Vercel logs.
+
+import { createHash } from 'crypto';
+
+const META_PIXEL_ID = '2423938361461208';
 
 const clean = (val, max) => (val == null ? '' : String(val).trim().slice(0, max));
 
@@ -39,6 +45,19 @@ const HEAR_LABELS = {
   facebook: 'فيسبوك / إنستغرام', friend: 'توصية من صديق أو عائلة',
   tiktok: 'تيك توك', google: 'بحث في جوجل', other: 'مصدر آخر'
 };
+
+async function sendTelegram(token, chatId, text) {
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' })
+    });
+    return res.ok ? 'sent' : 'failed';
+  } catch (err) {
+    return 'error';
+  }
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -72,38 +91,35 @@ export default async function handler(req, res) {
   };
   const timestamp = new Date().toISOString();
 
-  const results = { telegram: 'skipped', sheets: 'skipped' };
+  const results = { telegram: 'skipped', telegram2: 'skipped', sheets: 'skipped', metaCapi: 'skipped' };
+
+  const lines = [
+    `🎓 *New lead — Excellence Agency*`,
+    `👤 Name: ${lead.name}`,
+    `📞 Phone: ${lead.phone}`
+  ];
+  if (lead.city) lines.push(`🏙 City: ${lead.city}`);
+  if (lead.educLevel) lines.push(`📚 Education: ${EDUC_LABELS[lead.educLevel] || lead.educLevel}`);
+  if (lead.destination) lines.push(`🌍 Destination: ${lead.destination.split(', ').map(d => DEST_LABELS[d] || d).join(', ')}`);
+  if (lead.specialty) lines.push(`🧭 Specialty: ${lead.specialty}`);
+  if (lead.startDate) lines.push(`🗓 Start: ${START_LABELS[lead.startDate] || lead.startDate}`);
+  if (lead.budget) lines.push(`💰 Budget: ${BUDGET_LABELS[lead.budget] || lead.budget}`);
+  if (lead.hearAbout) lines.push(`📣 Heard via: ${HEAR_LABELS[lead.hearAbout] || lead.hearAbout}`);
+  if (lead.notes) lines.push(`📝 Notes: ${lead.notes}`);
+  lines.push(`📍 Page: ${lead.source}`);
+  lines.push(`🕐 ${timestamp}`);
+  const text = lines.join('\n');
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
-
   if (botToken && chatId) {
-    try {
-      const lines = [
-        `🎓 *New lead — Excellence Agency*`,
-        `👤 Name: ${lead.name}`,
-        `📞 Phone: ${lead.phone}`
-      ];
-      if (lead.city) lines.push(`🏙 City: ${lead.city}`);
-      if (lead.educLevel) lines.push(`📚 Education: ${EDUC_LABELS[lead.educLevel] || lead.educLevel}`);
-      if (lead.destination) lines.push(`🌍 Destination: ${lead.destination.split(', ').map(d => DEST_LABELS[d] || d).join(', ')}`);
-      if (lead.specialty) lines.push(`🧭 Specialty: ${lead.specialty}`);
-      if (lead.startDate) lines.push(`🗓 Start: ${START_LABELS[lead.startDate] || lead.startDate}`);
-      if (lead.budget) lines.push(`💰 Budget: ${BUDGET_LABELS[lead.budget] || lead.budget}`);
-      if (lead.hearAbout) lines.push(`📣 Heard via: ${HEAR_LABELS[lead.hearAbout] || lead.hearAbout}`);
-      if (lead.notes) lines.push(`📝 Notes: ${lead.notes}`);
-      lines.push(`📍 Page: ${lead.source}`);
-      lines.push(`🕐 ${timestamp}`);
+    results.telegram = await sendTelegram(botToken, chatId, text);
+  }
 
-      const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, text: lines.join('\n'), parse_mode: 'Markdown' })
-      });
-      results.telegram = tgRes.ok ? 'sent' : 'failed';
-    } catch (err) {
-      results.telegram = 'error';
-    }
+  const botToken2 = process.env.TELEGRAM_BOT_TOKEN_2;
+  const chatId2 = process.env.TELEGRAM_CHAT_ID_2;
+  if (botToken2 && chatId2) {
+    results.telegram2 = await sendTelegram(botToken2, chatId2, text);
   }
 
   const sheetsUrl = process.env.SHEETS_WEBHOOK_URL;
@@ -118,6 +134,44 @@ export default async function handler(req, res) {
       results.sheets = sheetRes.ok ? 'sent' : 'failed';
     } catch (err) {
       results.sheets = 'error';
+    }
+  }
+
+  const capiToken = process.env.META_CAPI_ACCESS_TOKEN;
+
+  if (capiToken && lead.eventId) {
+    try {
+      const normalizedPhone = lead.phone.replace(/\D/g, '');
+      const hashedPhone = normalizedPhone ? createHash('sha256').update(normalizedPhone).digest('hex') : undefined;
+      const forwardedFor = req.headers['x-forwarded-for'];
+      const clientIp = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor?.split(',')[0]?.trim();
+
+      const capiRes = await fetch(`https://graph.facebook.com/v21.0/${META_PIXEL_ID}/events?access_token=${capiToken}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          data: [{
+            event_name: 'Lead',
+            event_time: Math.floor(Date.now() / 1000),
+            event_id: lead.eventId,
+            event_source_url: lead.eventSourceUrl || undefined,
+            action_source: 'website',
+            user_data: {
+              ph: hashedPhone ? [hashedPhone] : undefined,
+              client_ip_address: clientIp,
+              client_user_agent: req.headers['user-agent'],
+              fbp: lead.fbp || undefined,
+              fbc: lead.fbc || undefined
+            },
+            custom_data: {
+              content_name: lead.source
+            }
+          }]
+        })
+      });
+      results.metaCapi = capiRes.ok ? 'sent' : 'failed';
+    } catch (err) {
+      results.metaCapi = 'error';
     }
   }
 
