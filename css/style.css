@@ -1019,10 +1019,10 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 }
 
 /* -- TESTIMONIALS -- */
-.testimonials { background: var(--navy); }
-.testimonials .section-tag { background: rgba(211,39,46,.2); }
-.testimonials .section-title { color: var(--white); }
-.testimonials .section-subtitle { color: rgba(255,255,255,.6); }
+.testimonials { background: var(--off-white); }
+.testimonials .section-tag { background: rgba(211,39,46,.1); }
+.testimonials .section-title { color: var(--navy); }
+.testimonials .section-subtitle { color: var(--text-muted); }
 
 .testimonials-grid {
   display: grid;
@@ -1031,17 +1031,17 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 }
 
 .testi-card {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: 30px 26px;
   transition: var(--transition);
-  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
 }
 
 .testi-card:hover {
-  background: rgba(255,255,255,.1);
   border-color: var(--gold);
+  box-shadow: var(--shadow);
   transform: translateY(-4px);
 }
 
@@ -1053,7 +1053,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 }
 
 .testi-text {
-  color: rgba(255,255,255,.8);
+  color: var(--text);
   font-size: .9rem;
   line-height: 1.75;
   font-style: italic;
@@ -1075,19 +1075,19 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
   justify-content: center;
   font-size: .8rem;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--white);
   flex-shrink: 0;
 }
 
 .testi-author strong {
   display: block;
-  color: var(--white);
+  color: var(--navy);
   font-size: .9rem;
   font-weight: 700;
 }
 
 .testi-author span {
-  color: rgba(255,255,255,.5);
+  color: var(--text-muted);
   font-size: .78rem;
 }
 
@@ -1469,8 +1469,9 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 /* -- FOOTER -- */
 .footer {
-  background: var(--navy);
-  color: rgba(255,255,255,.7);
+  background: var(--off-white);
+  color: var(--text-muted);
+  border-top: 1px solid var(--gray-200);
 }
 
 .footer-inner {
@@ -1481,7 +1482,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 }
 
 .footer-logo {
-  color: var(--white);
+  color: var(--navy);
   font-size: 1.3rem;
   display: block;
   margin-bottom: 12px;
@@ -1507,18 +1508,20 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 }
 
 .footer-social .social-btn {
-  background: rgba(255,255,255,.08);
-  color: var(--white);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  color: var(--navy);
 }
 
 .footer-social .social-btn:hover {
   background: var(--gold);
+  border-color: var(--gold);
   color: var(--white);
 }
 
 .footer-links h4,
 .footer-contact h4 {
-  color: var(--white);
+  color: var(--navy);
   font-size: .95rem;
   font-weight: 800;
   margin-bottom: 16px;
@@ -1526,7 +1529,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .footer-links a {
   display: block;
-  color: rgba(255,255,255,.6);
+  color: var(--text-muted);
   font-size: .87rem;
   margin-bottom: 8px;
   transition: var(--transition);
@@ -1537,11 +1540,11 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 .footer-contact p {
   font-size: .87rem;
   margin-bottom: 8px;
-  color: rgba(255,255,255,.6);
+  color: var(--text-muted);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid var(--gray-200);
   padding-block: 20px;
 }
 
@@ -1555,7 +1558,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .footer-bottom p {
   font-size: .83rem;
-  color: rgba(255,255,255,.5);
+  color: var(--gray-400);
 }
 
 .footer-bottom-links {
@@ -1565,7 +1568,7 @@ input, select, textarea, button { font-family: 'Cairo', sans-serif; }
 
 .footer-bottom-links a {
   font-size: .83rem;
-  color: rgba(255,255,255,.5);
+  color: var(--gray-400);
   transition: var(--transition);
 }
 
@@ -1824,10 +1827,10 @@ body.lang-ltr .form-group textarea {
 }
 
 /* -- Certificates -- */
-.certificates { background: var(--navy); }
-.certificates .section-tag { background: rgba(211,39,46,.2); }
-.certificates .section-title { color: var(--white); }
-.certificates .section-subtitle { color: rgba(255,255,255,.6); }
+.certificates { background: var(--white); }
+.certificates .section-tag { background: rgba(211,39,46,.1); }
+.certificates .section-title { color: var(--navy); }
+.certificates .section-subtitle { color: var(--text-muted); }
 
 .certs-grid {
   display: grid;
@@ -1838,8 +1841,8 @@ body.lang-ltr .form-group textarea {
 .cert-card {
   aspect-ratio: 1 / 1;
   position: relative;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.15);
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
@@ -2052,20 +2055,22 @@ body.lang-ltr .form-group textarea {
 }
 
 .page-cta {
-  background: var(--navy);
+  background: rgba(211,39,46,.06);
+  border-top: 1px solid rgba(211,39,46,.12);
+  border-bottom: 1px solid rgba(211,39,46,.12);
   padding-block: 56px;
   text-align: center;
 }
 
 .page-cta h2 {
-  color: var(--white);
+  color: var(--navy);
   font-size: 1.6rem;
   font-weight: 800;
   margin-bottom: 10px;
 }
 
 .page-cta p {
-  color: rgba(255,255,255,.6);
+  color: var(--text-muted);
   margin-bottom: 24px;
 }
 
