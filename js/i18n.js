@@ -44,6 +44,11 @@ const translations = {
     "home.cta.title": "جاهز تبدأ رحلتك؟",
     "home.cta.subtitle": "سجّل الآن واحصل على استشارة مجانية خلال 24 ساعة",
 
+    "visa.tag": "قصص نجاح حقيقية",
+    "visa.title.html": "طلابنا يحصلون على <span class=\"text-gold\">التأشيرة والإقامة</span>",
+    "visa.subtitle": "لحظات حقيقية لطلابنا وهم يستلمون تأشيراتهم وتصاريح إقامتهم الدراسية",
+    "visa.cta": "كن قصة النجاح القادمة",
+
     "youtube.tag": "قناتنا على يوتيوب",
     "youtube.title.html": "تابعنا على <span class=\"text-gold\">يوتيوب</span>",
     "youtube.subtitle": "فيديوهات ونصائح حصرية حول الدراسة في الخارج، تجارب طلابنا، ونظرة من الداخل على الجامعات الشريكة.",
@@ -290,6 +295,11 @@ const translations = {
     "home.cta.title": "Prêt à commencer votre parcours ?",
     "home.cta.subtitle": "Inscrivez-vous maintenant et bénéficiez d'une consultation gratuite sous 24 heures",
 
+    "visa.tag": "Histoires de réussite réelles",
+    "visa.title.html": "Nos étudiants obtiennent <span class=\"text-gold\">visa et titre de séjour</span>",
+    "visa.subtitle": "Des moments réels de nos étudiants recevant leurs visas et titres de séjour étudiant",
+    "visa.cta": "Devenez la prochaine réussite",
+
     "youtube.tag": "Notre chaîne YouTube",
     "youtube.title.html": "Suivez-nous sur <span class=\"text-gold\">YouTube</span>",
     "youtube.subtitle": "Vidéos et conseils exclusifs sur les études à l'étranger, témoignages de nos étudiants et coulisses de nos universités partenaires.",
@@ -535,6 +545,11 @@ const translations = {
     "home.explore.subtitle": "Browse each section to learn more",
     "home.cta.title": "Ready to start your journey?",
     "home.cta.subtitle": "Register now and get a free consultation within 24 hours",
+
+    "visa.tag": "Real Success Stories",
+    "visa.title.html": "Our students get their <span class=\"text-gold\">visa & residence permit</span>",
+    "visa.subtitle": "Real moments of our students receiving their study visas and residence permits",
+    "visa.cta": "Become the next success story",
 
     "youtube.tag": "Our YouTube Channel",
     "youtube.title.html": "Follow us on <span class=\"text-gold\">YouTube</span>",

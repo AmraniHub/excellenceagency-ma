@@ -205,3 +205,49 @@ if (certLightbox) {
     if (e.key === 'Escape') closeCertLightbox();
   });
 }
+
+/* ── Visa success carousel (homepage) ── */
+const visaTrack = document.querySelector('.visa-track');
+
+if (visaTrack) {
+  visaTrack.innerHTML += visaTrack.innerHTML;
+
+  const visaLightbox    = document.getElementById('visaLightbox');
+  const visaLightboxImg = document.getElementById('visaLightboxImg');
+  const visaLightboxClose = document.getElementById('visaLightboxClose');
+
+  visaTrack.querySelectorAll('.visa-slide img').forEach(img => {
+    img.parentElement.addEventListener('click', () => {
+      visaLightboxImg.src = img.src;
+      visaLightboxImg.alt = img.alt;
+      visaLightbox.classList.add('open');
+    });
+  });
+
+  const closeVisaLightbox = () => {
+    visaLightbox.classList.remove('open');
+    visaLightboxImg.src = '';
+  };
+
+  visaLightboxClose.addEventListener('click', closeVisaLightbox);
+  visaLightbox.addEventListener('click', e => {
+    if (e.target === visaLightbox) closeVisaLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeVisaLightbox();
+  });
+}
+
+/* ── Hero photo slider rotation (used on pages with multiple .hero-slide) ── */
+document.querySelectorAll('.hero-slider').forEach(slider => {
+  const slides = slider.querySelectorAll('.hero-slide');
+  if (slides.length < 2) return;
+
+  let idx = Math.max(0, [...slides].findIndex(s => s.classList.contains('active')));
+
+  setInterval(() => {
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 5000);
+});
