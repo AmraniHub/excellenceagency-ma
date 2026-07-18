@@ -138,25 +138,60 @@ if (form) {
   form.addEventListener('input', e => e.target.classList.remove('error'));
   form.addEventListener('change', e => e.target.closest('.error-group')?.classList.remove('error-group'));
 
-  form.addEventListener('submit', e => {
+  const genEventId = () => 'ev_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+
+  const getCookie = name => {
+    const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : undefined;
+  };
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     if (!validateStep(4)) return;
 
     const nameVal = document.getElementById('fullName').value.trim();
+    const checkedRadio = n => form.querySelector(`input[name="${n}"]:checked`)?.value || '';
+    const eventId = genEventId();
+
+    const payload = {
+      name: nameVal,
+      phone: document.getElementById('phone').value.trim(),
+      source: 'apply',
+      city: document.getElementById('city').value.trim(),
+      educLevel: checkedRadio('educLevel'),
+      destination: [...form.querySelectorAll('input[name="destination"]:checked')].map(i => i.value),
+      specialty: document.getElementById('specialty').value,
+      startDate: checkedRadio('startDate'),
+      budget: checkedRadio('budget'),
+      hearAbout: checkedRadio('source'),
+      notes: document.getElementById('notes').value.trim(),
+      eventId,
+      eventSourceUrl: location.href,
+      fbp: getCookie('_fbp'),
+      fbc: getCookie('_fbc')
+    };
 
     const submitBtn = form.querySelector('.btn-submit');
     submitBtn.disabled = true;
     submitBtn.textContent = 'جاري الإرسال...';
 
-    setTimeout(() => {
-      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-      formSuccess.classList.add('show');
-      document.getElementById('successName').textContent = nameVal;
-      stepDots.forEach(d => { d.classList.remove('active'); d.classList.add('done'); });
-      stepLines.forEach(l => l.classList.add('done'));
+    try {
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (_) { /* still show success below — don't block the UI on network issues */ }
 
-      document.querySelector('.apply-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 900);
+    if (typeof fbq !== 'undefined') { fbq('track', 'Lead', {}, { eventID: eventId }); }
+
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    formSuccess.classList.add('show');
+    document.getElementById('successName').textContent = nameVal;
+    stepDots.forEach(d => { d.classList.remove('active'); d.classList.add('done'); });
+    stepLines.forEach(l => l.classList.add('done'));
+
+    document.querySelector('.apply-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 

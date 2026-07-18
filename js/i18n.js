@@ -1,8 +1,8 @@
-/* Excellence Study Agency — i18n (Arabic / French) */
+/* Excellence Agency — i18n (Arabic / French) */
 
 const translations = {
   ar: {
-    "meta.title": "Excellence Study Agency | مكتب التميز للدراسة في الخارج",
+    "meta.title": "Excellence Agency | مكتب التميز للدراسة في الخارج",
     "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا والصين.",
 
     "nav.home": "الرئيسية",
@@ -15,7 +15,7 @@ const translations = {
     "nav.contact": "تواصل معنا",
     "nav.cta": "سجّل الآن",
 
-    "hero.badge": "Excellence Study Agency — مكتب التميز للدراسة في الخارج",
+    "hero.badge": "Excellence Agency — مكتب التميز للدراسة في الخارج",
     "hero.title.html": "حقّق حلمك<br /><span class=\"hero-highlight\">وادرس في الخارج</span>",
     "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا والصين",
     "hero.tagline": "Your Excellence Is Our Priority",
@@ -29,7 +29,7 @@ const translations = {
     "stats.experience": "سنوات خبرة",
 
     "about.tag": "من نحن",
-    "about.title.html": "Excellence Study Agency — شريكك<br /><span class=\"text-gold\">نحو مستقبل أفضل</span>",
+    "about.title.html": "Excellence Agency — شريكك<br /><span class=\"text-gold\">نحو مستقبل أفضل</span>",
     "about.p1": "مكتب التميز هو شريكك الموثوق لتحقيق حلم الدراسة في الخارج. بخبرة تتجاوز خمس سنوات، نُساعد الطلبة المغاربة على الالتحاق بأفضل الجامعات في آسيا وأوروبا، من خلال تقديم استشارات أكاديمية متخصصة ومرافقة شاملة في جميع مراحل القبول والتسجيل وحتى بدء الرحلة الدراسية.",
     "about.p2": "نؤمن بأن التعليم المتميز يجب أن يكون في متناول الجميع، لذلك نعمل على توفير فرص المنح الدراسية الكاملة والجزئية، مع تقديم حلول وخدمات احترافية تُسهّل إجراءات الدراسة بالخارج. نسعى إلى تمكين طلابنا من الحصول على تعليم عالمي، واكتساب خبرات أكاديمية وثقافية تُسهم في بناء مستقبل مهني واعد.",
     "about.badge": "موثوق من 500+ عائلة",
@@ -146,7 +146,7 @@ const translations = {
     "testi.tag": "قصص النجاح",
     "testi.title.html": "ماذا يقول <span class=\"text-gold\">طلابنا؟</span>",
     "testi.subtitle": "تجارب حقيقية من طلاب يدرسون الآن في الخارج بمساعدتنا",
-    "testi.t1.text": "\"ما كنت نتصور غادي نقبل بهاد السرعة، Excellence Study Agency تكفلات بملفي بالكامل من القبول حتى تأشيرة الدراسة. الآن كنقرا برمجة وتكنولوجيا الأنترنيت في فيلنيوس.\"",
+    "testi.t1.text": "\"ما كنت نتصور غادي نقبل بهاد السرعة، Excellence Agency تكفلات بملفي بالكامل من القبول حتى تأشيرة الدراسة. الآن كنقرا برمجة وتكنولوجيا الأنترنيت في فيلنيوس.\"",
     "testi.t1.name": "فيصل",
     "testi.t1.program": "برمجة وتكنولوجيا الأنترنيت — ليتوانيا",
     "testi.t2.text": "\"فريق محترف ومتابعة يومية، ساعدوني نجيب قبولي في نظم المعلومات وأمن المعلومات وخرجت التأشيرة فوقت قياسي. Your Excellence Is Our Priority فعلاً حقيقة.\"",
@@ -213,7 +213,7 @@ const translations = {
     "form.budget.o4": "مرن حسب الوجهة",
 
     "form.step4.title": "معلومات إضافية",
-    "form.source.label": "كيف عرفت عن Excellence Study Agency؟",
+    "form.source.label": "كيف عرفت عن Excellence Agency؟",
     "form.source.o1": "فيسبوك / إنستغرام",
     "form.source.o2": "توصية من صديق أو عائلة",
     "form.source.o3": "تيك توك",
@@ -221,7 +221,7 @@ const translations = {
     "form.source.o5": "مصدر آخر",
     "form.notes.label": "أسئلة أو ملاحظات إضافية",
     "form.notes.placeholder": "اكتب هنا أي سؤال تريد طرحه أو معلومات إضافية...",
-    "form.privacy.html": "أوافق على <a href=\"#\">سياسة الخصوصية</a> وأن يتواصل معي فريق Excellence Study Agency",
+    "form.privacy.html": "أوافق على <a href=\"#\">سياسة الخصوصية</a> وأن يتواصل معي فريق Excellence Agency",
     "form.submit": "أرسل طلبي الآن 🚀",
 
     "form.success.title": "تم استلام طلبك!",
@@ -247,13 +247,13 @@ const translations = {
     "footer.links.apply": "سجّل الآن",
     "footer.dest.title": "الوجهات",
     "footer.contact.title": "تواصل معنا",
-    "footer.copyright": "© 2026 Excellence Study Agency (ESA). جميع الحقوق محفوظة.",
+    "footer.copyright": "© 2026 Excellence Agency (ESA). جميع الحقوق محفوظة.",
     "footer.privacy": "سياسة الخصوصية",
     "footer.terms": "الشروط والأحكام"
   },
 
   fr: {
-    "meta.title": "Excellence Study Agency | Bureau d'études à l'étranger",
+    "meta.title": "Excellence Agency | Bureau d'études à l'étranger",
     "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne, Espagne et Chine.",
 
     "nav.home": "Accueil",
@@ -266,7 +266,7 @@ const translations = {
     "nav.contact": "Contact",
     "nav.cta": "Inscrivez-vous",
 
-    "hero.badge": "Excellence Study Agency — Bureau d'études à l'étranger",
+    "hero.badge": "Excellence Agency — Bureau d'études à l'étranger",
     "hero.title.html": "Réalisez votre rêve<br /><span class=\"hero-highlight\">étudiez à l'étranger</span>",
     "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne, Espagne et Chine",
     "hero.tagline": "Your Excellence Is Our Priority",
@@ -280,7 +280,7 @@ const translations = {
     "stats.experience": "Années d'expérience",
 
     "about.tag": "Qui sommes-nous",
-    "about.title.html": "Excellence Study Agency — votre partenaire<br /><span class=\"text-gold\">vers un avenir meilleur</span>",
+    "about.title.html": "Excellence Agency — votre partenaire<br /><span class=\"text-gold\">vers un avenir meilleur</span>",
     "about.p1": "Bureau Excellence est votre partenaire de confiance pour concrétiser votre projet d'études à l'étranger. Fort de plus de cinq années d'expérience, nous accompagnons les étudiants marocains dans leur admission au sein des meilleures universités d'Asie et d'Europe, grâce à des conseils académiques personnalisés et un accompagnement complet à chaque étape du processus, de la candidature jusqu'au départ.",
     "about.p2": "Convaincus que l'excellence académique doit être accessible à tous, nous aidons nos étudiants à obtenir des bourses d'études complètes ou partielles et leur proposons des services professionnels qui simplifient toutes les démarches administratives. Notre mission est de leur offrir l'accès à une éducation de qualité, tout en leur permettant de vivre une expérience académique et culturelle enrichissante qui favorisera leur réussite personnelle et professionnelle.",
     "about.badge": "Approuvé par plus de 500 familles",
@@ -397,7 +397,7 @@ const translations = {
     "testi.tag": "Témoignages",
     "testi.title.html": "Ce que disent <span class=\"text-gold\">nos étudiants</span>",
     "testi.subtitle": "Des expériences réelles d'étudiants qui étudient actuellement à l'étranger grâce à notre aide",
-    "testi.t1.text": "« Je n'aurais jamais imaginé être admis aussi vite. Excellence Study Agency a pris en charge tout mon dossier, de l'admission jusqu'au visa étudiant. J'étudie maintenant la programmation et les technologies internet à Vilnius. »",
+    "testi.t1.text": "« Je n'aurais jamais imaginé être admis aussi vite. Excellence Agency a pris en charge tout mon dossier, de l'admission jusqu'au visa étudiant. J'étudie maintenant la programmation et les technologies internet à Vilnius. »",
     "testi.t1.name": "Faical",
     "testi.t1.program": "Programmation et technologies internet — Lituanie",
     "testi.t2.text": "« Une équipe professionnelle avec un suivi quotidien, ils m'ont aidé à obtenir mon admission en systèmes d'information et cybersécurité, et mon visa est sorti en un temps record. Your Excellence Is Our Priority, vraiment. »",
@@ -464,7 +464,7 @@ const translations = {
     "form.budget.o4": "Flexible selon la destination",
 
     "form.step4.title": "Informations complémentaires",
-    "form.source.label": "Comment avez-vous connu Excellence Study Agency ?",
+    "form.source.label": "Comment avez-vous connu Excellence Agency ?",
     "form.source.o1": "Facebook / Instagram",
     "form.source.o2": "Recommandation d'un ami ou de la famille",
     "form.source.o3": "TikTok",
@@ -472,7 +472,7 @@ const translations = {
     "form.source.o5": "Autre source",
     "form.notes.label": "Questions ou remarques complémentaires",
     "form.notes.placeholder": "Écrivez ici toute question ou information supplémentaire...",
-    "form.privacy.html": "J'accepte la <a href=\"#\">politique de confidentialité</a> et que l'équipe Excellence Study Agency me contacte",
+    "form.privacy.html": "J'accepte la <a href=\"#\">politique de confidentialité</a> et que l'équipe Excellence Agency me contacte",
     "form.submit": "Envoyer ma demande 🚀",
 
     "form.success.title": "Votre demande a bien été reçue !",
@@ -498,14 +498,14 @@ const translations = {
     "footer.links.apply": "Inscrivez-vous",
     "footer.dest.title": "Destinations",
     "footer.contact.title": "Contact",
-    "footer.copyright": "© 2026 Excellence Study Agency (ESA). Tous droits réservés.",
+    "footer.copyright": "© 2026 Excellence Agency (ESA). Tous droits réservés.",
     "footer.privacy": "Politique de confidentialité",
     "footer.terms": "Conditions générales"
   },
 
   en: {
-    "meta.title": "Excellence Study Agency | Study Abroad Office",
-    "meta.description": "Excellence Study Agency (ESA) – your trusted partner to the best universities in Lithuania, Russia, Poland, Spain and China.",
+    "meta.title": "Excellence Agency | Study Abroad Office",
+    "meta.description": "Excellence Agency (ESA) – your trusted partner to the best universities in Lithuania, Russia, Poland, Spain and China.",
 
     "nav.home": "Home",
     "nav.destinations": "Destinations",
@@ -517,7 +517,7 @@ const translations = {
     "nav.contact": "Contact",
     "nav.cta": "Register Now",
 
-    "hero.badge": "Excellence Study Agency — Study Abroad Office",
+    "hero.badge": "Excellence Agency — Study Abroad Office",
     "hero.title.html": "Achieve your dream<br /><span class=\"hero-highlight\">study abroad</span>",
     "hero.subtitle.html": "We guide you from your first consultation all the way to your university —<br />in Lithuania, Russia, Poland, Spain and China",
     "hero.tagline": "Your Excellence Is Our Priority",
@@ -531,8 +531,8 @@ const translations = {
     "stats.experience": "Years of Experience",
 
     "about.tag": "About Us",
-    "about.title.html": "Excellence Study Agency — your partner<br /><span class=\"text-gold\">toward a better future</span>",
-    "about.p1": "Excellence Study Agency is your trusted partner in making your dream of studying abroad a reality. With more than five years of experience, we help Moroccan students gain admission to leading universities across Asia and Europe by providing personalized academic guidance and comprehensive support throughout every stage of the application process, from admission to departure.",
+    "about.title.html": "Excellence Agency — your partner<br /><span class=\"text-gold\">toward a better future</span>",
+    "about.p1": "Excellence Agency is your trusted partner in making your dream of studying abroad a reality. With more than five years of experience, we help Moroccan students gain admission to leading universities across Asia and Europe by providing personalized academic guidance and comprehensive support throughout every stage of the application process, from admission to departure.",
     "about.p2": "We believe that quality education should be accessible to everyone. That is why we assist students in securing full and partial scholarships while offering professional services that simplify every step of studying abroad. Our mission is to provide access to world-class education and empower students with a unique academic and cultural experience that prepares them for a successful personal and professional future.",
     "about.badge": "Trusted by 500+ families",
     "about.feat1": "Guaranteed university admission",
@@ -648,7 +648,7 @@ const translations = {
     "testi.tag": "Success Stories",
     "testi.title.html": "What our <span class=\"text-gold\">students say</span>",
     "testi.subtitle": "Real experiences from students currently studying abroad with our help",
-    "testi.t1.text": "\"I never imagined I'd be accepted this fast. Excellence Study Agency handled my entire file, from admission to my student visa. I'm now studying Programming and Internet Technologies in Vilnius.\"",
+    "testi.t1.text": "\"I never imagined I'd be accepted this fast. Excellence Agency handled my entire file, from admission to my student visa. I'm now studying Programming and Internet Technologies in Vilnius.\"",
     "testi.t1.name": "Faical",
     "testi.t1.program": "Programming & Internet Technologies — Lithuania",
     "testi.t2.text": "\"A professional team with daily follow-up, they helped me get admitted to Information Systems and Cybersecurity, and my visa came out in record time. Your Excellence Is Our Priority, truly.\"",
@@ -715,7 +715,7 @@ const translations = {
     "form.budget.o4": "Flexible depending on destination",
 
     "form.step4.title": "Additional Information",
-    "form.source.label": "How did you hear about Excellence Study Agency?",
+    "form.source.label": "How did you hear about Excellence Agency?",
     "form.source.o1": "Facebook / Instagram",
     "form.source.o2": "Recommendation from a friend or family",
     "form.source.o3": "TikTok",
@@ -723,7 +723,7 @@ const translations = {
     "form.source.o5": "Other source",
     "form.notes.label": "Questions or Additional Notes",
     "form.notes.placeholder": "Write any question or additional information here...",
-    "form.privacy.html": "I agree to the <a href=\"#\">privacy policy</a> and to be contacted by the Excellence Study Agency team",
+    "form.privacy.html": "I agree to the <a href=\"#\">privacy policy</a> and to be contacted by the Excellence Agency team",
     "form.submit": "Send My Request 🚀",
 
     "form.success.title": "Your Request Has Been Received!",
@@ -749,7 +749,7 @@ const translations = {
     "footer.links.apply": "Register Now",
     "footer.dest.title": "Destinations",
     "footer.contact.title": "Contact",
-    "footer.copyright": "© 2026 Excellence Study Agency (ESA). All rights reserved.",
+    "footer.copyright": "© 2026 Excellence Agency (ESA). All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms & Conditions"
   }
@@ -791,7 +791,7 @@ function applyLanguage(lang) {
 
   const titleKey = document.documentElement.getAttribute("data-title-key");
   if (titleKey && dict[titleKey]) {
-    document.title = `${dict[titleKey]} | Excellence Study Agency`;
+    document.title = `${dict[titleKey]} | Excellence Agency`;
   } else if (dict["meta.title"]) {
     document.title = dict["meta.title"];
   }
