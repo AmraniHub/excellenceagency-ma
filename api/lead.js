@@ -9,6 +9,8 @@
 //   TELEGRAM_CHAT_ID_2        - optional second bot's chat id
 //   SHEETS_WEBHOOK_URL        - Google Apps Script Web App URL (doPost)
 //   META_CAPI_ACCESS_TOKEN    - Conversions API access token (Events Manager → Settings → Conversions API)
+//   CRM_INTAKE_URL            - e.g. https://excellence-agency-crm.<you>.workers.dev/api/intake
+//   CRM_INTAKE_SECRET         - shared secret, must match the CRM Worker's INTAKE_SECRET
 //
 // If a variable is missing, that integration is skipped (not fatal) so the
 // others can still succeed. The request still returns 200 so the UI doesn't
@@ -91,7 +93,7 @@ export default async function handler(req, res) {
   };
   const timestamp = new Date().toISOString();
 
-  const results = { telegram: 'skipped', telegram2: 'skipped', sheets: 'skipped', metaCapi: 'skipped' };
+  const results = { telegram: 'skipped', telegram2: 'skipped', sheets: 'skipped', metaCapi: 'skipped', crm: 'skipped' };
 
   const lines = [
     `🎓 *New lead — Excellence Agency*`,
@@ -146,6 +148,33 @@ export default async function handler(req, res) {
     } catch (err) {
       results.sheets = `error: ${err.message || err}`;
       console.error('Sheets webhook request threw:', err);
+    }
+  }
+
+  const crmUrl = process.env.CRM_INTAKE_URL;
+  const crmSecret = process.env.CRM_INTAKE_SECRET;
+
+  if (crmUrl) {
+    try {
+      const crmRes = await fetch(crmUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(crmSecret ? { 'X-Intake-Secret': crmSecret } : {})
+        },
+        // skipTelegram: the alert above already went out — the CRM shouldn't page the team twice.
+        body: JSON.stringify({ ...lead, skipTelegram: true })
+      });
+      const crmText = await crmRes.text();
+      if (crmRes.ok) {
+        results.crm = 'sent';
+      } else {
+        results.crm = `failed (status ${crmRes.status}): ${crmText.slice(0, 300)}`;
+        console.error('CRM intake did not confirm success:', results.crm);
+      }
+    } catch (err) {
+      results.crm = `error: ${err.message || err}`;
+      console.error('CRM intake request threw:', err);
     }
   }
 
