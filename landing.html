@@ -720,6 +720,44 @@
     return match ? decodeURIComponent(match[1]) : undefined;
   }
 
+  /* Ad attribution — same contract as js/script.js, inlined because this
+     landing page is standalone and doesn't load the shared bundle. Last
+     touch wins; entries expire after 30 days. */
+  const ATTRIBUTION_KEY = 'exa_attr';
+  const ATTRIBUTION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+  function getAttribution() {
+    try {
+      const raw = localStorage.getItem(ATTRIBUTION_KEY);
+      if (!raw) return {};
+      const data = JSON.parse(raw);
+      if (!data.ts || Date.now() - data.ts > ATTRIBUTION_TTL_MS) {
+        localStorage.removeItem(ATTRIBUTION_KEY);
+        return {};
+      }
+      const { ts, ...rest } = data;
+      return rest;
+    } catch (_) {
+      return {};
+    }
+  }
+
+  (function captureAttribution() {
+    const params = new URLSearchParams(location.search);
+    const found = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+     'campaign_id', 'adset_id', 'ad_id'].forEach(key => {
+      const value = params.get(key);
+      if (value) found[key] = value.slice(0, 200);
+    });
+    const fbclid = params.get('fbclid');
+    if (fbclid) found.fbclid = fbclid.slice(0, 255);
+    if (!Object.keys(found).length) return;
+    found.landing_url = location.href.slice(0, 500);
+    found.ts = Date.now();
+    try { localStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(found)); } catch (_) {}
+  })();
+
   async function submitLead(name, phone, btn, originalText) {
     btn.disabled = true;
     btn.textContent = '⏳ جاري التسجيل...';
@@ -732,7 +770,8 @@
         body: JSON.stringify({
           name, phone, source: 'landing',
           eventId, eventSourceUrl: location.href,
-          fbp: getCookie('_fbp'), fbc: getCookie('_fbc')
+          fbp: getCookie('_fbp'), fbc: getCookie('_fbc'),
+          ...getAttribution()
         })
       });
     } catch (_) {}

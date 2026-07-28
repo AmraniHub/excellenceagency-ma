@@ -1,5 +1,61 @@
 /* Excellence Agency — Main JS */
 
+/* ── Ad attribution capture ──
+   Records which ad click brought the visitor here and keeps it across page
+   navigation, so a lead that lands on index.html from a Facebook ad and only
+   submits later on apply.html still carries its campaign/adset/ad ids.
+
+   Last touch wins: a fresh set of campaign parameters overwrites the stored
+   one, otherwise the stored one survives. Entries expire after 30 days so a
+   click from months ago can't take credit for today's lead.
+
+   Tag your Meta ad URLs with:
+     utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.name}}
+     &utm_content={{ad.name}}&campaign_id={{campaign.id}}
+     &adset_id={{adset.id}}&ad_id={{ad.id}}                                   */
+const ATTRIBUTION_KEY = 'exa_attr';
+const ATTRIBUTION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+function getAttribution() {
+  try {
+    const raw = localStorage.getItem(ATTRIBUTION_KEY);
+    if (!raw) return {};
+    const data = JSON.parse(raw);
+    if (!data.ts || Date.now() - data.ts > ATTRIBUTION_TTL_MS) {
+      localStorage.removeItem(ATTRIBUTION_KEY);
+      return {};
+    }
+    const { ts, ...rest } = data;
+    return rest;
+  } catch (_) {
+    return {};
+  }
+}
+
+function captureAttribution() {
+  const params = new URLSearchParams(location.search);
+  const found = {};
+
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+   'campaign_id', 'adset_id', 'ad_id'].forEach(key => {
+    const value = params.get(key);
+    if (value) found[key] = value.slice(0, 200);
+  });
+
+  const fbclid = params.get('fbclid');
+  if (fbclid) found.fbclid = fbclid.slice(0, 255);
+
+  if (!Object.keys(found).length) return getAttribution();
+
+  found.landing_url = location.href.slice(0, 500);
+  found.ts = Date.now();
+  try { localStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(found)); } catch (_) {}
+  return getAttribution();
+}
+
+captureAttribution();
+window.exaGetAttribution = getAttribution;
+
 /* ── Navbar scroll effect ── */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -168,7 +224,8 @@ if (form) {
       eventId,
       eventSourceUrl: location.href,
       fbp: getCookie('_fbp'),
-      fbc: getCookie('_fbc')
+      fbc: getCookie('_fbc'),
+      ...getAttribution()
     };
 
     const submitBtn = form.querySelector('.btn-submit');

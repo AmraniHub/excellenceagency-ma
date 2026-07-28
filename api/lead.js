@@ -89,7 +89,20 @@ export default async function handler(req, res) {
     eventId: clean(body.eventId, 100),
     eventSourceUrl: clean(body.eventSourceUrl, 300),
     fbp: clean(body.fbp, 100),
-    fbc: clean(body.fbc, 100)
+    fbc: clean(body.fbc, 100),
+    // Ad attribution captured by the page (see getAttribution in js/script.js).
+    // Passed straight through to the CRM so campaign spend can be joined to
+    // the leads it produced.
+    utm_source: clean(body.utm_source, 100),
+    utm_medium: clean(body.utm_medium, 100),
+    utm_campaign: clean(body.utm_campaign, 200),
+    utm_content: clean(body.utm_content, 200),
+    utm_term: clean(body.utm_term, 200),
+    fbclid: clean(body.fbclid, 255),
+    campaign_id: clean(body.campaign_id, 64),
+    adset_id: clean(body.adset_id, 64),
+    ad_id: clean(body.ad_id, 64),
+    landing_url: clean(body.landing_url, 500)
   };
   const timestamp = new Date().toISOString();
 
