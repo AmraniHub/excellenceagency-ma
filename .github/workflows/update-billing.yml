@@ -1,0 +1,46 @@
+name: Update billing
+
+# Triggered by the agency dashboard when you record a payment, change the
+# monthly fee, or correct the balance. Suspension follows the balance unless
+# the update explicitly overrides it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      update:
+        description: 'Billing update, e.g. {"balanceDue":0,"suspend":"false"}'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply update
+        id: bill
+        # Passed through the environment rather than interpolated into the
+        # script, so quotes in the payload cannot break out into the shell.
+        env:
+          UPDATE: ${{ github.event.inputs.update }}
+        run: node .github/scripts/billing.cjs apply "$UPDATE"
+
+      - name: Commit and push
+        if: steps.bill.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add billing.json site-status.js
+          git commit -m "Update billing"
+          git push
+
+      - name: Summary
+        run: |
+          echo '### Billing' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat billing.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

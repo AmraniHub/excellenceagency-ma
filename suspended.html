@@ -37,17 +37,8 @@
     justify-content: center;
     font-size: 32px;
   }
-  h1 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: #ffffff;
-  }
-  p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #cbd5e1;
-    margin-bottom: 10px;
-  }
+  h1 { font-size: 22px; margin-bottom: 12px; color: #ffffff; }
+  p { font-size: 15px; line-height: 1.6; color: #cbd5e1; margin-bottom: 10px; }
   .amount {
     display: inline-block;
     margin-top: 16px;
@@ -58,11 +49,7 @@
     font-weight: 600;
     font-size: 15px;
   }
-  .footer {
-    margin-top: 28px;
-    font-size: 13px;
-    color: #64748b;
-  }
+  .footer { margin-top: 28px; font-size: 13px; color: #64748b; }
 </style>
 </head>
 <body>
@@ -71,8 +58,31 @@
     <h1>Site temporairement indisponible</h1>
     <p>Ce site est actuellement suspendu car l'abonnement d'hébergement mensuel n'a pas encore été réglé pour ce mois-ci.</p>
     <p>Merci de bien vouloir procéder au paiement de l'hébergement afin de réactiver le site immédiatement.</p>
-    <div class="amount">Montant dû maintenant : 15$ &nbsp;·&nbsp; Puis 8$ / mois</div>
+
+    <!-- Filled in from billing.json. The fallback text shows if that fetch
+         fails, so the page is never left with an empty or wrong figure. -->
+    <div class="amount" id="amount">Veuillez contacter votre agence pour le montant dû.</div>
+
     <p class="footer">Pour toute question concernant le paiement, veuillez contacter votre agence.</p>
   </div>
+
+<script>
+(async function () {
+  try {
+    const res = await fetch('/billing.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const { balanceDue, monthlyFee, currency } = await res.json();
+    if (!Number.isFinite(balanceDue) || balanceDue <= 0) return;
+
+    const money = (n) => `${Number(n).toFixed(2).replace(/\.00$/, '')}${currency || '$'}`;
+    // textContent, never innerHTML — the figures are data, not markup.
+    document.getElementById('amount').textContent =
+      `Montant dû : ${money(balanceDue)}` +
+      (Number.isFinite(monthlyFee) && monthlyFee > 0 ? `  ·  Abonnement : ${money(monthlyFee)} / mois` : '');
+  } catch {
+    /* keep the fallback text */
+  }
+})();
+</script>
 </body>
 </html>
