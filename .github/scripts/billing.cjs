@@ -33,10 +33,14 @@ const SUSPENDED_RE = /^(export const suspended = )(true|false);/m;
 // Known services. `label` is what the client sees on the notice page.
 const CATALOG = {
   hosting: { label: 'Hébergement', fee: 8 },
+  theme: { label: 'Licence du thème', fee: 2 },
   chatbot: { label: 'Assistant IA', fee: 12 },
   maintenance: { label: 'Maintenance', fee: 10 },
   optimizations: { label: 'Optimisations', fee: 2 },
-  crm: { label: 'CRM', fee: 0 }
+  crm: { label: 'CRM', fee: 0 },
+  // Charged to REMOVE the agency credit from the footer. Active means the
+  // client is paying for a clean footer, so the credit is hidden.
+  whitelabel: { label: 'Sans marque (white-label)', fee: 5 }
 };
 
 // Add-ons that render something in a Shopify theme. Anything not listed here
@@ -50,9 +54,27 @@ function fail(message) {
   process.exit(1);
 }
 
+// Paying for a year up front earns a discount off twelve monthly payments.
+const YEARLY_DISCOUNT = 0.19;
+
 function money(value) {
   // Keep to cents; stops fractional fees drifting across months of accrual.
   return Math.round(Number(value) * 100) / 100;
+}
+
+// What one charge costs, given the service's billing period. `fee` is always
+// stored as the monthly rate so the two periods stay comparable.
+function chargeAmount(item) {
+  return item.period === 'yearly'
+    ? money(item.fee * 12 * (1 - YEARLY_DISCOUNT))
+    : money(item.fee);
+}
+
+// Months between two 'YYYY-MM' keys.
+function monthsBetween(from, to) {
+  const [fy, fm] = from.split('-').map(Number);
+  const [ty, tm] = to.split('-').map(Number);
+  return (ty - fy) * 12 + (tm - fm);
 }
 
 function readBilling() {
@@ -70,13 +92,19 @@ function readBilling() {
     fail(`${BILLING_FILE} is not valid JSON: ${err.message}`);
   }
 
+  const seededPeriod = typeof data.lastAccrual === 'string' ? data.lastAccrual.slice(0, 7) : '';
+
   let items;
   if (Array.isArray(data.items)) {
     items = data.items.map((item) => ({
       id: String(item.id || ''),
       label: String(item.label || CATALOG[item.id]?.label || item.id || ''),
       fee: money(item.fee ?? 0),
-      active: item.active === true
+      period: item.period === 'yearly' ? 'yearly' : 'monthly',
+      active: item.active === true,
+      // Items predating per-service tracking inherit the client's last accrual,
+      // so migrating cannot cause a second charge in the same month.
+      lastCharged: typeof item.lastCharged === 'string' ? item.lastCharged : seededPeriod
     }));
   } else {
     // Back-compat with the original single-fee format, so a repo that hasn't
@@ -85,7 +113,9 @@ function readBilling() {
       id: 'hosting',
       label: CATALOG.hosting.label,
       fee: money(data.monthlyFee ?? 0),
-      active: true
+      period: 'monthly',
+      active: true,
+      lastCharged: seededPeriod
     }];
   }
 
@@ -108,8 +138,11 @@ function writeBilling(billing) {
   fs.writeFileSync(BILLING_FILE, `${JSON.stringify(billing, null, 2)}\n`);
 }
 
+// What the plan costs per month on average — a yearly line spreads its
+// discounted charge across twelve months so the figure stays comparable.
 function monthlyTotal(billing) {
-  return money(billing.items.filter((i) => i.active).reduce((sum, i) => sum + i.fee, 0));
+  return money(billing.items.filter((i) => i.active).reduce(
+    (sum, i) => sum + (i.period === 'yearly' ? chargeAmount(i) / 12 : i.fee), 0));
 }
 
 // --- enforcement -----------------------------------------------------------
@@ -137,11 +170,30 @@ function writeShopifyGate(billing, shouldSuspend) {
     '{%- endcomment -%}'
   ];
 
+  // `render` accepts parameters, so the live figures are passed in rather than
+  // hardcoded in the snippet — otherwise the notice goes stale the moment a
+  // service is added to the plan.
+  const fmt = (n) => `${Number(n).toFixed(2).replace(/\.00$/, '')} ${billing.currency}`;
+
   for (const [id, widget] of Object.entries(THEME_WIDGETS)) {
     const item = billing.items.find((i) => i.id === id);
     if (!item || !item.active) continue;
-    lines.push(`{%- render '${shouldSuspend ? widget.suspended : widget.active}' -%}`);
+
+    if (!shouldSuspend) {
+      lines.push(`{%- render '${widget.active}' -%}`);
+      continue;
+    }
+    lines.push(
+      `{%- render '${widget.suspended}'` +
+      `, monthly: '${fmt(monthlyTotal(billing))}'` +
+      `, balance: '${fmt(billing.balanceDue)}' -%}`
+    );
   }
+
+  // The agency credit shows unless the client pays to have it removed, so
+  // subscribing to white-label is what takes it away.
+  const whitelabel = billing.items.find((i) => i.id === 'whitelabel');
+  if (!whitelabel?.active) lines.push(`{%- render 'agency-credit' -%}`);
 
   const next = `${lines.join('\n')}\n`;
   const current = fs.existsSync(GATE_FILE) ? fs.readFileSync(GATE_FILE, 'utf8') : '';
@@ -167,10 +219,13 @@ function todayIso() {
 
 function summarise(billing, shouldSuspend) {
   const active = billing.items.filter((i) => i.active);
+  const parts = active.map((i) => i.period === 'yearly'
+    ? `${i.label} ${billing.currency}${chargeAmount(i)}/an`
+    : `${i.label} ${billing.currency}${i.fee}`);
   return (
     `balance ${billing.currency}${billing.balanceDue}, ` +
-    `${active.length ? active.map((i) => `${i.label} ${billing.currency}${i.fee}`).join(' + ') : 'no services'} ` +
-    `= ${billing.currency}${monthlyTotal(billing)}/mo, ` +
+    `${parts.length ? parts.join(' + ') : 'no services'} ` +
+    `≈ ${billing.currency}${monthlyTotal(billing)}/mo, ` +
     `${shouldSuspend ? 'gated' : 'running'}`
   );
 }
@@ -179,24 +234,31 @@ function accrue() {
   const billing = readBilling();
   const period = todayIso().slice(0, 7);
 
-  if (billing.lastAccrual.slice(0, 7) === period) {
-    console.log(`unchanged (already accrued for ${period})`);
+  // Each service runs on its own cycle: monthly lines charge every month,
+  // yearly lines only once the twelve months they paid for have elapsed.
+  const charges = [];
+  for (const item of billing.items) {
+    if (!item.active || item.fee <= 0) continue;
+    const every = item.period === 'yearly' ? 12 : 1;
+    if (item.lastCharged && monthsBetween(item.lastCharged, period) < every) continue;
+
+    const amount = chargeAmount(item);
+    billing.balanceDue = money(billing.balanceDue + amount);
+    item.lastCharged = period;
+    charges.push(`${item.label} ${billing.currency}${amount}${item.period === 'yearly' ? '/an' : ''}`);
+  }
+
+  if (!charges.length) {
+    console.log(`unchanged (nothing due for ${period})`);
     return false;
   }
 
-  const due = monthlyTotal(billing);
-  if (due <= 0) {
-    console.log('unchanged (no active services to charge)');
-    return false;
-  }
-
-  billing.balanceDue = money(billing.balanceDue + due);
   billing.lastAccrual = todayIso();
   writeBilling(billing);
 
   const shouldSuspend = billing.balanceDue > 0;
   enforce(billing, shouldSuspend);
-  console.log(`accrued ${billing.currency}${due} for ${period} — ${summarise(billing, shouldSuspend)}`);
+  console.log(`charged ${charges.join(' + ')} for ${period} — ${summarise(billing, shouldSuspend)}`);
   return true;
 }
 
@@ -238,7 +300,10 @@ function apply(rawJson) {
 
       let item = billing.items.find((i) => i.id === id);
       if (!item) {
-        item = { id, label: CATALOG[id].label, fee: CATALOG[id].fee, active: false };
+        item = {
+          id, label: CATALOG[id].label, fee: CATALOG[id].fee,
+          period: 'monthly', active: false, lastCharged: ''
+        };
         billing.items.push(item);
       }
 
@@ -246,6 +311,13 @@ function apply(rawJson) {
         const fee = money(change.fee);
         if (!Number.isFinite(fee) || fee < 0) fail(`services.${id}.fee must be a number >= 0`);
         item.fee = fee;
+      }
+
+      if (change.period !== undefined) {
+        if (!['monthly', 'yearly'].includes(change.period)) {
+          fail(`services.${id}.period must be "monthly" or "yearly"`);
+        }
+        item.period = change.period;
       }
 
       if (change.active !== undefined) {
