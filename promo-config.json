@@ -1,5 +1,9 @@
 {
-  "enabled": false,
-  "keyHash": "",
-  "services": ["chatbot", "seo", "crm"]
+  "enabled": true,
+  "keyHash": "24d4b96f58da6d4a8512313bbd02a28ebf0ca95dec6e4c86ef78ce7f01e788ac",
+  "services": [
+    "chatbot",
+    "seo",
+    "crm"
+  ]
 }
