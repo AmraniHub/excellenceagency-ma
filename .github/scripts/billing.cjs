@@ -40,6 +40,8 @@ const CATALOG = {
   maintenance: { label: 'Maintenance', fee: 10 },
   optimizations: { label: 'Optimisations', fee: 2 },
   crm: { label: 'CRM', fee: 13 },
+  // Billed once on setup, never renewed — hence the default period.
+  pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' },
   // Charged to REMOVE the agency credit from the footer. Active means the
   // client is paying for a clean footer, so the credit is hidden.
   whitelabel: { label: 'Sans marque (white-label)', fee: 5 }
@@ -64,8 +66,10 @@ function money(value) {
   return Math.round(Number(value) * 100) / 100;
 }
 
-// What one charge costs, given the service's billing period. `fee` is always
-// stored as the monthly rate so the two periods stay comparable.
+const PERIODS = ['monthly', 'yearly', 'once'];
+
+// What one charge costs. For monthly and yearly, `fee` is the monthly rate so
+// the two stay comparable; for a one-off, `fee` is simply the price.
 function chargeAmount(item) {
   return item.period === 'yearly'
     ? money(item.fee * 12 * (1 - YEARLY_DISCOUNT))
@@ -102,7 +106,7 @@ function readBilling() {
       id: String(item.id || ''),
       label: String(item.label || CATALOG[item.id]?.label || item.id || ''),
       fee: money(item.fee ?? 0),
-      period: item.period === 'yearly' ? 'yearly' : 'monthly',
+      period: PERIODS.includes(item.period) ? item.period : 'monthly',
       active: item.active === true,
       // Items predating per-service tracking inherit the client's last accrual,
       // so migrating cannot cause a second charge in the same month.
@@ -143,7 +147,7 @@ function writeBilling(billing) {
 // What the plan costs per month on average — a yearly line spreads its
 // discounted charge across twelve months so the figure stays comparable.
 function monthlyTotal(billing) {
-  return money(billing.items.filter((i) => i.active).reduce(
+  return money(billing.items.filter((i) => i.active && i.period !== 'once').reduce(
     (sum, i) => sum + (i.period === 'yearly' ? chargeAmount(i) / 12 : i.fee), 0));
 }
 
@@ -286,13 +290,19 @@ function accrue() {
   const charges = [];
   for (const item of billing.items) {
     if (!item.active || item.fee <= 0) continue;
-    const every = item.period === 'yearly' ? 12 : 1;
-    if (item.lastCharged && monthsBetween(item.lastCharged, period) < every) continue;
+    // A one-off is charged the first time it is seen and never again.
+    if (item.period === 'once') {
+      if (item.lastCharged) continue;
+    } else {
+      const every = item.period === 'yearly' ? 12 : 1;
+      if (item.lastCharged && monthsBetween(item.lastCharged, period) < every) continue;
+    }
 
     const amount = chargeAmount(item);
     billing.balanceDue = money(billing.balanceDue + amount);
     item.lastCharged = period;
-    charges.push(`${item.label} ${billing.currency}${amount}${item.period === 'yearly' ? '/an' : ''}`);
+    const suffix = item.period === 'yearly' ? '/an' : item.period === 'once' ? ' (unique)' : '';
+    charges.push(`${item.label} ${billing.currency}${amount}${suffix}`);
   }
 
   if (!charges.length) {
@@ -349,7 +359,7 @@ function apply(rawJson) {
       if (!item) {
         item = {
           id, label: CATALOG[id].label, fee: CATALOG[id].fee,
-          period: 'monthly', active: false, lastCharged: ''
+          period: CATALOG[id].defaultPeriod || 'monthly', active: false, lastCharged: ''
         };
         billing.items.push(item);
       }
@@ -361,10 +371,21 @@ function apply(rawJson) {
       }
 
       if (change.period !== undefined) {
-        if (!['monthly', 'yearly'].includes(change.period)) {
-          fail(`services.${id}.period must be "monthly" or "yearly"`);
+        if (!PERIODS.includes(change.period)) {
+          fail(`services.${id}.period must be one of: ${PERIODS.join(', ')}`);
         }
         item.period = change.period;
+      }
+
+      // Anchors the renewal cycle. Set this when a client has already paid for
+      // a year elsewhere: a yearly line anchored to 2026-03 next renews in
+      // 2027-03 rather than being charged again now. Empty means "never
+      // charged", so the next accrual bills it.
+      if (change.lastCharged !== undefined) {
+        if (change.lastCharged !== '' && !/^\d{4}-(0[1-9]|1[0-2])$/.test(change.lastCharged)) {
+          fail(`services.${id}.lastCharged must be YYYY-MM or empty`);
+        }
+        item.lastCharged = change.lastCharged;
       }
 
       if (change.active !== undefined) {

@@ -49,7 +49,23 @@ const CATALOG = {
   const services = Array.isArray(config.services) ? config.services : [];
   if (!services.length) return;
 
-  render(services.map((id) => CATALOG[id]).filter(Boolean));
+  render(services.map((id) => withAudit(CATALOG[id], id, config.audit)).filter(Boolean));
+
+  // A measured PageSpeed score, when one was captured, replaces the generic SEO
+  // wording. Reporting Google's public measurement is a fact; it is never
+  // dressed up as Google recommending anything.
+  function withAudit(entry, id, audit) {
+    if (!entry) return null;
+    if (id !== 'seo' || !audit || typeof audit.score !== 'number') return entry;
+
+    const speed = audit.lcp ? ` Le contenu principal s'affiche en ${audit.lcp} sur mobile.` : '';
+    return {
+      name: `SEO — ${audit.score}/100 sur Google PageSpeed Insights`,
+      desc: `Mesure du ${audit.fetchedAt} sur ${audit.strategy === 'mobile' ? 'mobile' : 'ordinateur'}.${speed} ` +
+        "Améliorer la vitesse et le positionnement permet d'attirer des visiteurs qualifiés " +
+        'de façon régulière, sans dépendre uniquement de la publicité payante.'
+    };
+  }
 
   async function sha256Hex(value) {
     const bytes = new TextEncoder().encode(value);
