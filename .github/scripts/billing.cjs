@@ -51,6 +51,7 @@ const CATALOG = {
   // Billed once, never renewed. Setup fees sit alongside their subscription:
   // the client pays installation once, then the recurring fee as normal.
   pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' },
+  seo: { label: 'Optimisation SEO', fee: 20, defaultPeriod: 'once' },
   chatbot_setup: { label: 'Installation Assistant IA', fee: 80, defaultPeriod: 'once' },
   crm_setup: { label: 'Installation CRM', fee: 140, defaultPeriod: 'once' }
 };
