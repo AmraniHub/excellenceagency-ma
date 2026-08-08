@@ -35,6 +35,8 @@ jobs:
 
       - name: Commit and push
         if: steps.bill.outputs.changed == 'true'
+        env:
+          SUMMARY: ${{ steps.bill.outputs.summary }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -48,7 +50,10 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update billing"
+          # An ad-hoc charge names itself, so the payment history reads as a
+          # ledger rather than a row of identical "Update billing" lines.
+          MESSAGE="${SUMMARY:-Update billing}"
+          git commit -m "$MESSAGE"
 
           for attempt in 1 2 3; do
             if git push; then exit 0; fi

@@ -33,18 +33,23 @@ const SUSPENDED_RE = /^(export const suspended = )(true|false);/m;
 const AMOUNT_RE = /<!--amount-->[\s\S]*?<!--\/amount-->/;
 
 // Known services. `label` is what the client sees on the notice page.
+// `fee` is the MONTHLY rate even for services that default to yearly — the
+// yearly price is derived from it, so the two terms stay comparable.
+// `defaultPeriod` only sets what a service starts as; any period can be chosen
+// per client in the dashboard.
 const CATALOG = {
   hosting: { label: 'Hébergement', fee: 8 },
-  theme: { label: 'Licence du thème', fee: 2 },
-  chatbot: { label: 'Assistant IA', fee: 12 },
   maintenance: { label: 'Maintenance', fee: 10 },
   optimizations: { label: 'Optimisations', fee: 2 },
-  crm: { label: 'CRM', fee: 13 },
-  // Billed once on setup, never renewed — hence the default period.
-  pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' },
+  // Sold as annual commitments: cash up front, 19% off, and no monthly chasing.
+  theme: { label: 'Licence du thème', fee: 2, defaultPeriod: 'yearly' },
+  chatbot: { label: 'Assistant IA', fee: 12, defaultPeriod: 'yearly' },
+  crm: { label: 'CRM', fee: 13, defaultPeriod: 'yearly' },
   // Charged to REMOVE the agency credit from the footer. Active means the
   // client is paying for a clean footer, so the credit is hidden.
-  whitelabel: { label: 'Sans marque (white-label)', fee: 5 }
+  whitelabel: { label: 'Sans marque (white-label)', fee: 5, defaultPeriod: 'yearly' },
+  // Billed once on setup, never renewed.
+  pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' }
 };
 
 // Add-ons that render something in a Shopify theme. Anything not listed here
@@ -395,6 +400,25 @@ function apply(rawJson) {
     }
   }
 
+  // A one-off charge billed immediately rather than waiting for the 8th —
+  // a setup fee the client has just agreed to. The label lands in the commit
+  // message, which is what the payment history displays.
+  let chargeNote = '';
+  if (update.charge !== undefined) {
+    const { amount, label } = update.charge || {};
+    const value = money(amount);
+    if (!Number.isFinite(value) || value <= 0) fail('charge.amount must be a number > 0');
+
+    // Sanitised because it becomes a git commit message.
+    const clean = String(label || 'Frais ponctuel')
+      .replace(/[^\w\s\-().,'€$£¥éèêàçûôîÉÈÀÇ]/g, '')
+      .trim()
+      .slice(0, 60) || 'Frais ponctuel';
+
+    billing.balanceDue = money(billing.balanceDue + value);
+    chargeNote = `${clean} — ${billing.currency}${value}`;
+  }
+
   const mode = update.suspend === undefined ? 'auto' : String(update.suspend);
   if (!['auto', 'true', 'false'].includes(mode)) fail('suspend must be "auto", "true" or "false"');
   const shouldSuspend = mode === 'auto' ? billing.balanceDue > 0 : mode === 'true';
@@ -406,6 +430,12 @@ function apply(rawJson) {
   if (!billingChanged && !enforcementChanged) {
     console.log('unchanged');
     return false;
+  }
+
+  // The workflow uses this as the commit message, so an ad-hoc charge is
+  // self-describing in the payment history rather than a generic "Update".
+  if (chargeNote && process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `summary=${chargeNote}\n`);
   }
 
   console.log(summarise(billing, shouldSuspend));
