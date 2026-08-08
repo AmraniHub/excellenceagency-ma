@@ -61,7 +61,12 @@ const CATALOG = {
   const services = Array.isArray(config.services) ? config.services : [];
   if (!services.length) return;
 
-  render(services.map((id) => withAudit(CATALOG[id], id, config.audit)).filter(Boolean));
+  // Only one entry carries the measured score — quoting the same figure twice
+  // reads as a template filling itself in. Speed work owns it when offered.
+  const scoreOwner = services.includes('pagespeed') ? 'pagespeed' : 'seo';
+  render(services
+    .map((id) => withAudit(CATALOG[id], id, id === scoreOwner ? config.audit : null))
+    .filter(Boolean));
 
   // A measured PageSpeed score, when one was captured, replaces the generic SEO
   // wording. Reporting Google's public measurement is a fact; it is never
