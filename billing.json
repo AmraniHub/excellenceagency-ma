@@ -14,7 +14,7 @@
       "label": "Maintenance",
       "fee": 10,
       "period": "monthly",
-      "active": true,
+      "active": false,
       "lastCharged": ""
     }
   ],
