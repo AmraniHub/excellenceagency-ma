@@ -45,6 +45,7 @@ const CATALOG = {
   theme: { label: 'Licence du thème', fee: 2, defaultPeriod: 'yearly' },
   chatbot: { label: 'Assistant IA', fee: 12, defaultPeriod: 'yearly' },
   crm: { label: 'CRM', fee: 13, defaultPeriod: 'yearly' },
+  content: { label: 'Contenu IA (articles SEO)', fee: 14 },
   // Charged to REMOVE the agency credit from the footer. Active means the
   // client is paying for a clean footer, so the credit is hidden.
   whitelabel: { label: 'Sans marque (white-label)', fee: 5, defaultPeriod: 'yearly' },
@@ -53,7 +54,8 @@ const CATALOG = {
   pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' },
   seo: { label: 'Optimisation SEO', fee: 20, defaultPeriod: 'once' },
   chatbot_setup: { label: 'Installation Assistant IA', fee: 80, defaultPeriod: 'once' },
-  crm_setup: { label: 'Installation CRM', fee: 140, defaultPeriod: 'once' }
+  crm_setup: { label: 'Installation CRM', fee: 140, defaultPeriod: 'once' },
+  content_setup: { label: 'Installation Contenu IA', fee: 40, defaultPeriod: 'once' }
 };
 
 // Add-ons that render something in a Shopify theme. Anything not listed here

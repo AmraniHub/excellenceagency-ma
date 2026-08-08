@@ -28,6 +28,10 @@ const CATALOG = {
     name: 'Optimisation de la vitesse de chargement',
     desc: "Réduire le temps d'affichage sur mobile, où une part importante des visiteurs quitte la page avant même de la voir. Intervention ponctuelle, sans abonnement."
   },
+  content: {
+    name: 'Articles publiés automatiquement (IA)',
+    desc: "Publier régulièrement des articles optimisés pour les moteurs de recherche, sans rédaction manuelle. La régularité de publication est l'un des signaux les plus constants pour apparaître durablement dans les résultats."
+  },
   crm: {
     name: 'Gestion centralisée des contacts (CRM)',
     desc: "Regrouper tous les contacts au même endroit et suivre chaque demande jusqu'à sa conclusion, pour éviter les relances oubliées et les opportunités perdues."
