@@ -30,7 +30,9 @@ jobs:
           else
             VALUE=false
           fi
-          sed -i -E "s/suspended = (true|false);/suspended = ${VALUE};/" site-status.js
+          # Anchored to the start of the line so comments mentioning the
+          # pattern are never rewritten.
+          sed -i -E "s/^(export const suspended = )(true|false);/\1${VALUE};/" site-status.js
           echo "value=${VALUE}" >> "$GITHUB_OUTPUT"
           cat site-status.js
 
