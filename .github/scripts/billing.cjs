@@ -263,6 +263,18 @@ function writeShopifyGate(billing, shouldSuspend) {
   return true;
 }
 
+// What the gate is doing right now, so an operation can leave it untouched.
+function currentlySuspended() {
+  if (fs.existsSync(STATUS_FILE)) {
+    const m = fs.readFileSync(STATUS_FILE, 'utf8').match(SUSPENDED_RE);
+    return m ? m[2] === 'true' : false;
+  }
+  if (fs.existsSync(GATE_FILE)) {
+    return /render\s+'chatbot-suspended'/.test(fs.readFileSync(GATE_FILE, 'utf8'));
+  }
+  return false;
+}
+
 function enforce(billing, shouldSuspend) {
   let changed = false;
   if (fs.existsSync(STATUS_FILE)) changed = setVercelSuspended(shouldSuspend) || changed;
@@ -324,7 +336,10 @@ function accrue() {
   billing.lastAccrual = todayIso();
   writeBilling(billing);
 
-  const shouldSuspend = billing.balanceDue > 0;
+  // Charging does NOT gate. The client is notified first and gets a grace
+  // period; the daily job in the dashboard gates them only once that expires.
+  // Cutting service the same hour an invoice is raised is not collections.
+  const shouldSuspend = currentlySuspended();
   enforce(billing, shouldSuspend);
 
   // Name what was charged in the commit message. The payment history reads
