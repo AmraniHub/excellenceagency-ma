@@ -27,6 +27,8 @@ jobs:
 
       - name: Commit and push
         if: steps.bill.outputs.changed == 'true'
+        env:
+          SUMMARY: ${{ steps.bill.outputs.summary }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -43,7 +45,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Accrue monthly subscription"
+          git commit -m "${SUMMARY:-Accrue monthly subscription}"
 
           # Another run may have pushed between our checkout and now. Rebase
           # onto it and retry rather than dropping this change on the floor.

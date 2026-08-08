@@ -323,6 +323,15 @@ function accrue() {
 
   const shouldSuspend = billing.balanceDue > 0;
   enforce(billing, shouldSuspend);
+
+  // Name what was charged in the commit message. The payment history reads
+  // from these messages, and so does the reminder email — "Accrue monthly
+  // subscription" tells a client nothing about what they owe.
+  if (process.env.GITHUB_OUTPUT) {
+    const summary = `${charges.join(' + ')} (${period})`.slice(0, 72);
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `summary=${summary}\n`);
+  }
+
   console.log(`charged ${charges.join(' + ')} for ${period} — ${summarise(billing, shouldSuspend)}`);
   return true;
 }
