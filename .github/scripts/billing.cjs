@@ -48,8 +48,11 @@ const CATALOG = {
   // Charged to REMOVE the agency credit from the footer. Active means the
   // client is paying for a clean footer, so the credit is hidden.
   whitelabel: { label: 'Sans marque (white-label)', fee: 5, defaultPeriod: 'yearly' },
-  // Billed once on setup, never renewed.
-  pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' }
+  // Billed once, never renewed. Setup fees sit alongside their subscription:
+  // the client pays installation once, then the recurring fee as normal.
+  pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' },
+  chatbot_setup: { label: 'Installation Assistant IA', fee: 80, defaultPeriod: 'once' },
+  crm_setup: { label: 'Installation CRM', fee: 140, defaultPeriod: 'once' }
 };
 
 // Add-ons that render something in a Shopify theme. Anything not listed here
