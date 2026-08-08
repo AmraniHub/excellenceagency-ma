@@ -51,6 +51,8 @@ const CATALOG = {
   whitelabel: { label: 'Sans marque (white-label)', fee: 5, defaultPeriod: 'yearly' },
   // Billed once, never renewed. Setup fees sit alongside their subscription:
   // the client pays installation once, then the recurring fee as normal.
+  shopify_build: { label: 'Création boutique Shopify', fee: 90, defaultPeriod: 'once' },
+  site_build: { label: 'Création site web', fee: 90, defaultPeriod: 'once' },
   pagespeed: { label: 'Optimisation PageSpeed', fee: 15, defaultPeriod: 'once' },
   seo: { label: 'Optimisation SEO', fee: 20, defaultPeriod: 'once' },
   chatbot_setup: { label: 'Installation Assistant IA', fee: 80, defaultPeriod: 'once' },
