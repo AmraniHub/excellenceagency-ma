@@ -20,6 +20,14 @@ const CATALOG = {
     name: 'SEO — Optimisation pour les moteurs de recherche',
     desc: "Améliorer le positionnement du site dans les résultats de recherche afin d'attirer des visiteurs qualifiés de façon régulière, sans dépendre uniquement de la publicité payante."
   },
+  optimizations: {
+    name: 'Optimisations continues',
+    desc: "Améliorations régulières du site — vitesse, parcours d'achat, formulaires — afin que les performances ne se dégradent pas au fil des mises à jour et des ajouts de contenu."
+  },
+  pagespeed: {
+    name: 'Optimisation de la vitesse de chargement',
+    desc: "Réduire le temps d'affichage sur mobile, où une part importante des visiteurs quitte la page avant même de la voir. Intervention ponctuelle, sans abonnement."
+  },
   crm: {
     name: 'Gestion centralisée des contacts (CRM)',
     desc: "Regrouper tous les contacts au même endroit et suivre chaque demande jusqu'à sa conclusion, pour éviter les relances oubliées et les opportunités perdues."
@@ -56,14 +64,24 @@ const CATALOG = {
   // dressed up as Google recommending anything.
   function withAudit(entry, id, audit) {
     if (!entry) return null;
-    if (id !== 'seo' || !audit || typeof audit.score !== 'number') return entry;
+    if ((id !== 'seo' && id !== 'pagespeed') || !audit || typeof audit.score !== 'number') return entry;
 
     const speed = audit.lcp ? ` Le contenu principal s'affiche en ${audit.lcp} sur mobile.` : '';
+    const where = audit.strategy === 'mobile' ? 'mobile' : 'ordinateur';
+    const measured = `Mesure du ${audit.fetchedAt} sur ${where}.${speed}`;
+
+    if (id === 'pagespeed') {
+      return {
+        name: `Vitesse — ${audit.score}/100 sur Google PageSpeed Insights`,
+        desc: `${measured} Réduire ce temps d'affichage retient les visiteurs qui ` +
+          'quittent la page avant de la voir. Intervention ponctuelle, sans abonnement.'
+      };
+    }
+
     return {
       name: `SEO — ${audit.score}/100 sur Google PageSpeed Insights`,
-      desc: `Mesure du ${audit.fetchedAt} sur ${audit.strategy === 'mobile' ? 'mobile' : 'ordinateur'}.${speed} ` +
-        "Améliorer la vitesse et le positionnement permet d'attirer des visiteurs qualifiés " +
-        'de façon régulière, sans dépendre uniquement de la publicité payante.'
+      desc: `${measured} Améliorer la vitesse et le positionnement permet d'attirer ` +
+        'des visiteurs qualifiés de façon régulière, sans dépendre uniquement de la publicité payante.'
     };
   }
 
