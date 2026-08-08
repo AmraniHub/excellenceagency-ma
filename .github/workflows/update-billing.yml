@@ -1,8 +1,8 @@
 name: Update billing
 
-# Triggered by the agency dashboard when you record a payment, change the
-# monthly fee, or correct the balance. Suspension follows the balance unless
-# the update explicitly overrides it.
+# Triggered by the agency dashboard when you record a payment, change the plan,
+# or correct the balance. What is gated follows the balance unless the update
+# explicitly overrides it.
 
 on:
   workflow_dispatch:
@@ -18,6 +18,10 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Queue concurrent updates instead of racing them to the same branch.
+    concurrency:
+      group: billing-${{ github.ref }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -34,9 +38,25 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add billing.json site-status.js
+
+          for f in billing.json site-status.js suspended.html snippets/subscription-gate.liquid; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+
+          if git diff --cached --quiet; then
+            echo "Nothing staged."
+            exit 0
+          fi
+
           git commit -m "Update billing"
-          git push
+
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push rejected — rebasing and retrying ($attempt/3)"
+            git pull --rebase
+          done
+          echo "Could not push after 3 attempts."
+          exit 1
 
       - name: Summary
         run: |

@@ -17,7 +17,7 @@ const CATALOG = {
     desc: "Répondre automatiquement aux questions des visiteurs 24h/24 et enregistrer les demandes reçues en dehors des heures d'ouverture, au lieu de les perdre."
   },
   seo: {
-    name: 'Optimisation pour les moteurs de recherche',
+    name: 'SEO — Optimisation pour les moteurs de recherche',
     desc: "Améliorer le positionnement du site dans les résultats de recherche afin d'attirer des visiteurs qualifiés de façon régulière, sans dépendre uniquement de la publicité payante."
   },
   crm: {

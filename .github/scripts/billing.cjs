@@ -26,9 +26,11 @@ const path = require('path');
 
 const BILLING_FILE = 'billing.json';
 const STATUS_FILE = 'site-status.js';
+const NOTICE_FILE = 'suspended.html';
 const SNIPPETS_DIR = 'snippets';
 const GATE_FILE = path.join(SNIPPETS_DIR, 'subscription-gate.liquid');
 const SUSPENDED_RE = /^(export const suspended = )(true|false);/m;
+const AMOUNT_RE = /<!--amount-->[\s\S]*?<!--\/amount-->/;
 
 // Known services. `label` is what the client sees on the notice page.
 const CATALOG = {
@@ -37,7 +39,7 @@ const CATALOG = {
   chatbot: { label: 'Assistant IA', fee: 12 },
   maintenance: { label: 'Maintenance', fee: 10 },
   optimizations: { label: 'Optimisations', fee: 2 },
-  crm: { label: 'CRM', fee: 0 },
+  crm: { label: 'CRM', fee: 13 },
   // Charged to REMOVE the agency credit from the footer. Active means the
   // client is paying for a clean footer, so the credit is hidden.
   whitelabel: { label: 'Sans marque (white-label)', fee: 5 }
@@ -157,6 +159,48 @@ function setVercelSuspended(shouldSuspend) {
   return true;
 }
 
+// Renders the amount block on the Vercel notice page. Escapes nothing by hand
+// because every value here is a number or a validated currency mark.
+function writeNoticeAmount(billing) {
+  if (!fs.existsSync(NOTICE_FILE)) return false;
+
+  const cur = billing.currency;
+  const fmt = (n) => `${Number(n).toFixed(2).replace(/\.00$/, '')} ${cur}`;
+  const active = billing.items.filter((i) => i.active);
+  const monthly = monthlyTotal(billing);
+
+  let block;
+  if (billing.balanceDue > 0) {
+    // What they owe now, what it costs per month, and the annual alternative —
+    // the discount is the reason to settle for a year rather than chase monthly.
+    const yearly = money(monthly * 12 * (1 - YEARLY_DISCOUNT));
+    const lines = [
+      `<div class="amount">Montant dû : ${fmt(billing.balanceDue)}</div>`,
+      active.length
+        ? `<p class="terms">Abonnement mensuel : ${fmt(monthly)} / mois` +
+          (monthly > 0
+            ? `<br>Ou ${fmt(yearly)} / an — soit ${Math.round(YEARLY_DISCOUNT * 100)}% d'économie.`
+            : '') +
+          `</p>`
+        : ''
+    ];
+    block = lines.filter(Boolean).join('\n    ');
+  } else {
+    block = `<div class="amount">Veuillez contacter votre agence pour le montant dû.</div>`;
+  }
+
+  const next = `<!--amount-->\n    ${block}\n    <!--/amount-->`;
+  const source = fs.readFileSync(NOTICE_FILE, 'utf8');
+  if (!AMOUNT_RE.test(source)) {
+    fail(`${NOTICE_FILE} has no <!--amount--> block to fill in`);
+  }
+
+  const updated = source.replace(AMOUNT_RE, next);
+  if (updated === source) return false;
+  fs.writeFileSync(NOTICE_FILE, updated);
+  return true;
+}
+
 // Writes the render call directly rather than Liquid conditionals: `render`
 // runs in an isolated scope, so a snippet cannot hand variables back to
 // theme.liquid. Generating the decision here keeps the theme side trivial.
@@ -208,6 +252,9 @@ function enforce(billing, shouldSuspend) {
   let changed = false;
   if (fs.existsSync(STATUS_FILE)) changed = setVercelSuspended(shouldSuspend) || changed;
   if (fs.existsSync(SNIPPETS_DIR)) changed = writeShopifyGate(billing, shouldSuspend) || changed;
+  // The amount is refreshed even while the site is live, so the notice is
+  // already correct the moment a suspension takes effect.
+  changed = writeNoticeAmount(billing) || changed;
   return changed;
 }
 

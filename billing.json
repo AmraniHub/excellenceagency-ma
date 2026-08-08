@@ -1,6 +1,23 @@
 {
   "currency": "$",
-  "monthlyFee": 8,
+  "items": [
+    {
+      "id": "hosting",
+      "label": "Hébergement",
+      "fee": 8,
+      "period": "monthly",
+      "active": true,
+      "lastCharged": "2026-08"
+    },
+    {
+      "id": "maintenance",
+      "label": "Maintenance",
+      "fee": 10,
+      "period": "monthly",
+      "active": true,
+      "lastCharged": ""
+    }
+  ],
   "balanceDue": 15,
   "lastAccrual": "2026-08-08"
 }

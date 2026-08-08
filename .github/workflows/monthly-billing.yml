@@ -1,8 +1,8 @@
 name: Monthly hosting accrual
 
-# Adds one month's hosting fee to the outstanding balance on the 8th and
-# suspends the site while anything is owed. Also runnable by hand from the
-# Actions tab to test it without waiting for the schedule.
+# Adds each subscribed service to the outstanding balance on the 8th and gates
+# what the client is paying for while anything is owed. Also runnable by hand
+# from the Actions tab to test it without waiting for the schedule.
 #
 # Note: GitHub only runs scheduled workflows on the default branch, and may
 # start them somewhat later than the stated time when the queue is busy.
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Accrue this month's fee
+      - name: Accrue what is due this month
         id: bill
         run: node .github/scripts/billing.cjs accrue
 
@@ -30,9 +30,30 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add billing.json site-status.js
-          git commit -m "Accrue monthly hosting fee"
-          git push
+
+          # Stage only the files this system owns, and only where they exist —
+          # a Shopify repo has no site-status.js, a Vercel one has no snippets.
+          # Never `git add -A`: that would sweep up unrelated local work.
+          for f in billing.json site-status.js suspended.html snippets/subscription-gate.liquid; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+
+          if git diff --cached --quiet; then
+            echo "Nothing staged."
+            exit 0
+          fi
+
+          git commit -m "Accrue monthly subscription"
+
+          # Another run may have pushed between our checkout and now. Rebase
+          # onto it and retry rather than dropping this change on the floor.
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push rejected — rebasing and retrying ($attempt/3)"
+            git pull --rebase
+          done
+          echo "Could not push after 3 attempts."
+          exit 1
 
       - name: Summary
         run: |

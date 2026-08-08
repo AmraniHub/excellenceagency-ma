@@ -1,7 +1,8 @@
 name: Update recommendations panel
 
 # Triggered by the agency dashboard. Replaces promo-config.json with the
-# supplied JSON and pushes, which makes Vercel redeploy.
+# supplied JSON, regenerates the Shopify snippet if this is a theme repo, and
+# pushes — which makes Vercel or Shopify pick it up.
 
 on:
   workflow_dispatch:
@@ -17,6 +18,11 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Two clicks in the same second used to race each other to the branch and
+    # one would be rejected. Queue them instead.
+    concurrency:
+      group: promo-${{ github.ref }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -35,14 +41,36 @@ jobs:
             console.log('config ok:', JSON.stringify(c));
           "
 
-      - name: Commit and push if changed
+      - name: Regenerate the theme snippet
+        # Shopify themes cannot fetch a root-level JSON file, so the panel is
+        # baked into a snippet instead. No-op on a Vercel site.
+        run: |
+          if [ -f .github/scripts/promo.cjs ]; then
+            node .github/scripts/promo.cjs
+          else
+            echo "No promo.cjs — Vercel site, promo.js reads the config directly."
+          fi
+
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- promo-config.json; then
+
+          for f in promo-config.json snippets/recommendations.liquid; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+
+          if git diff --cached --quiet; then
             echo "No change."
-          else
-            git add promo-config.json
-            git commit -m "Update recommendations panel config"
-            git push
+            exit 0
           fi
+
+          git commit -m "Update recommendations panel"
+
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push rejected — rebasing and retrying ($attempt/3)"
+            git pull --rebase
+          done
+          echo "Could not push after 3 attempts."
+          exit 1
