@@ -1,0 +1,48 @@
+name: Update recommendations panel
+
+# Triggered by the agency dashboard. Replaces promo-config.json with the
+# supplied JSON and pushes, which makes Vercel redeploy.
+
+on:
+  workflow_dispatch:
+    inputs:
+      config:
+        description: "New promo-config.json contents (JSON)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write and validate config
+        # Passed through the environment rather than interpolated into the
+        # script, so quotes in the payload cannot break out into the shell.
+        env:
+          CONFIG: ${{ github.event.inputs.config }}
+        run: |
+          printf '%s\n' "$CONFIG" > promo-config.json
+          node -e "
+            const c = JSON.parse(require('fs').readFileSync('promo-config.json','utf8'));
+            if (typeof c.enabled !== 'boolean') throw new Error('enabled must be a boolean');
+            if (typeof c.keyHash !== 'string') throw new Error('keyHash must be a string');
+            if (!Array.isArray(c.services)) throw new Error('services must be an array');
+            console.log('config ok:', JSON.stringify(c));
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- promo-config.json; then
+            echo "No change."
+          else
+            git add promo-config.json
+            git commit -m "Update recommendations panel config"
+            git push
+          fi
