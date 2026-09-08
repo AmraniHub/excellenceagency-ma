@@ -7,7 +7,7 @@
       "fee": 8,
       "period": "monthly",
       "active": true,
-      "lastCharged": "2026-08"
+      "lastCharged": "2026-09"
     },
     {
       "id": "maintenance",
@@ -18,6 +18,6 @@
       "lastCharged": ""
     }
   ],
-  "balanceDue": 0,
-  "lastAccrual": "2026-08-08"
+  "balanceDue": 8,
+  "lastAccrual": "2026-09-08"
 }
