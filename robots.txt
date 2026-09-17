@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The lead endpoint has nothing to index.
+Disallow: /api/
+
+Sitemap: https://www.excellence-agency.org/sitemap.xml

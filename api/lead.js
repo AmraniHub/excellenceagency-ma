@@ -31,7 +31,7 @@ const EDUC_LABELS = {
 
 const DEST_LABELS = {
   lithuania: 'ليتوانيا', russia: 'روسيا', poland: 'بولندا',
-  spain: 'إسبانيا', china: 'الصين', other: 'وجهة أخرى'
+  spain: 'إسبانيا', china: 'الصين', cyprus: 'قبرص', other: 'وجهة أخرى'
 };
 
 const START_LABELS = {

@@ -4,12 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سجّل الآن | Excellence Agency</title>
-  <meta name="description" content="سجّل الآن مجاناً واحصل على استشارة مجانية مع خبراء Excellence Agency خلال 24 ساعة." />
+  <meta name="description" content="سجّل مجاناً لدى Excellence Agency وسيتواصل معك أحد مستشارينا لدراسة ملفك وتحديد الخيارات المناسبة للدراسة بالخارج." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+
+  <!-- canonical / social -->
+  <link rel="canonical" href="https://www.excellence-agency.org/apply.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Excellence Agency" />
+  <meta property="og:locale" content="ar_MA" />
+  <meta property="og:locale:alternate" content="fr_MA" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://www.excellence-agency.org/apply.html" />
+  <meta property="og:title" content="سجّل الآن | Excellence Agency" />
+  <meta property="og:description" content="سجّل مجاناً وسيتواصل معك أحد مستشارينا لدراسة ملفك وتحديد الخيارات المناسبة." />
+  <meta property="og:image" content="https://www.excellence-agency.org/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Excellence Agency — Study Abroad, Guided End to End" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="سجّل الآن | Excellence Agency" />
+  <meta name="twitter:description" content="سجّل مجاناً وسيتواصل معك أحد مستشارينا لدراسة ملفك وتحديد الخيارات المناسبة." />
+  <meta name="twitter:image" content="https://www.excellence-agency.org/img/og-cover.jpg" />
+  <meta name="theme-color" content="#16255c" />
+
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
 
@@ -81,7 +102,7 @@
       <div class="apply-info">
         <div class="section-tag" data-i18n="apply.tag">التسجيل المجاني</div>
         <h2 class="section-title" data-i18n-html="apply.title.html">ابدأ رحلتك<br /><span class="text-gold">اليوم مجاناً</span></h2>
-        <p data-i18n="apply.desc">سجّل الآن واحصل على استشارة مجانية مع أحد خبرائنا خلال 24 ساعة.</p>
+        <p data-i18n="apply.desc">سجّل الآن وسيتواصل معك أحد مستشارينا لدراسة ملفك وتحديد الخيارات المناسبة.</p>
         <ul class="apply-perks">
           <li data-i18n="apply.perk1">✓ استشارة مجانية بدون التزام</li>
           <li data-i18n="apply.perk2">✓ تقييم ملفك الدراسي</li>
@@ -191,6 +212,12 @@
                   <span class="check-custom"></span>
                   <svg class="flag-icon"><use href="#flag-cn"/></svg>
                   <span data-i18n="dest.cn.name">الصين</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="destination" value="cyprus" />
+                  <span class="check-custom"></span>
+                  <svg class="flag-icon"><use href="#flag-cy"/></svg>
+                  <span data-i18n="dest.cy.name">قبرص</span>
                 </label>
                 <label class="checkbox-option">
                   <input type="checkbox" name="destination" value="other" />
@@ -339,7 +366,7 @@
           <div class="form-success" id="formSuccess">
             <div class="success-icon">🎉</div>
             <h3 data-i18n="form.success.title">تم استلام طلبك!</h3>
-            <p data-i18n-html="form.success.text.html">شكراً <span id="successName"></span>! سيتواصل معك أحد مستشارينا خلال 24 ساعة على رقم هاتفك.</p>
+            <p data-i18n-html="form.success.text.html">شكراً <span id="successName"></span>! توصّلنا بطلبك وسيتواصل معك أحد مستشارينا على رقم هاتفك.</p>
             <a href="https://wa.me/212660095616" class="btn btn-whatsapp" target="_blank" data-i18n="form.success.whatsapp">
               تواصل معنا الآن على واتساب
             </a>
@@ -389,6 +416,7 @@
       <a href="destinations.html"><svg class="flag-icon"><use href="#flag-pl"/></svg> <span data-i18n="dest.pl.name">بولندا</span></a>
       <a href="destinations.html"><svg class="flag-icon"><use href="#flag-es"/></svg> <span data-i18n="dest.es.name">إسبانيا</span></a>
       <a href="destinations.html"><svg class="flag-icon"><use href="#flag-cn"/></svg> <span data-i18n="dest.cn.name">الصين</span></a>
+      <a href="destinations.html"><svg class="flag-icon"><use href="#flag-cy"/></svg> <span data-i18n="dest.cy.name">قبرص</span></a>
     </div>
     <div class="footer-contact">
       <h4 data-i18n="footer.contact.title">تواصل معنا</h4>

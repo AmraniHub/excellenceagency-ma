@@ -3,7 +3,7 @@
 const translations = {
   ar: {
     "meta.title": "Excellence Agency | مكتب التميز للدراسة في الخارج",
-    "meta.description": "مكتب التميز للدراسة في الخارج (ESA) – شريكك الموثوق لإيصالك إلى أفضل الجامعات في ليتوانيا وروسيا وبولندا وإسبانيا والصين.",
+    "meta.description": "مكتب التميز للدراسة في الخارج (ESA) — مواكبة الطلبة في التوجيه والتسجيل الجامعي وملفات التأشيرة نحو ليتوانيا وروسيا وبولندا وإسبانيا والصين وقبرص.",
 
     "nav.home": "الرئيسية",
     "nav.destinations": "الوجهات",
@@ -17,32 +17,36 @@ const translations = {
 
     "hero.badge": "Excellence Agency — مكتب التميز للدراسة في الخارج",
     "hero.title.html": "حقّق حلمك<br /><span class=\"hero-highlight\">وادرس في الخارج</span>",
-    "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا والصين",
+    "hero.subtitle.html": "نرافقك من الاستشارة الأولى حتى وصولك إلى الجامعة —<br />في ليتوانيا وروسيا وبولندا وإسبانيا والصين وقبرص",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "سجّل مجاناً الآن",
     "hero.cta2": "كيف نساعدك؟",
     "hero.scroll": "اكتشف أكثر",
+    "stats.proof.visas": "قصة نجاح موثقة",
+    "stats.proof.dest": "وجهات دراسية",
+    "stats.proof.letters": "خطاب قبول منشور",
+    "stats.proof.reviews": "شهادة طالب",
 
-    "stats.students": "طالب مسجّل",
-    "stats.countries": "دول وجهة",
-    "stats.acceptance": "نسبة القبول",
-    "stats.experience": "سنوات خبرة",
 
     "about.tag": "من نحن",
     "about.title.html": "Excellence Agency — شريكك<br /><span class=\"text-gold\">نحو مستقبل أفضل</span>",
-    "about.p1": "مكتب التميز هو شريكك الموثوق لتحقيق حلم الدراسة في الخارج. بخبرة تتجاوز خمس سنوات، نُساعد الطلبة المغاربة على الالتحاق بأفضل الجامعات في آسيا وأوروبا، من خلال تقديم استشارات أكاديمية متخصصة ومرافقة شاملة في جميع مراحل القبول والتسجيل وحتى بدء الرحلة الدراسية.",
-    "about.p2": "نؤمن بأن التعليم المتميز يجب أن يكون في متناول الجميع، لذلك نعمل على توفير فرص المنح الدراسية الكاملة والجزئية، مع تقديم حلول وخدمات احترافية تُسهّل إجراءات الدراسة بالخارج. نسعى إلى تمكين طلابنا من الحصول على تعليم عالمي، واكتساب خبرات أكاديمية وثقافية تُسهم في بناء مستقبل مهني واعد.",
-    "about.badge": "موثوق من 500+ عائلة",
-    "about.feat1": "قبول جامعي مضمون",
+    "about.p1": "Excellence Agency وكالة متخصصة في خدمات الدراسة بالخارج ومواكبة الطلبة خلال مختلف مراحل مشروعهم الدراسي. نؤمن بأن اختيار الدراسة بالخارج يحتاج إلى معلومات واضحة، تخطيط جيد ومواكبة منظمة.",
+    "about.p2": "لهذا نعمل على تقديم مجموعة من الخدمات التي تساعد الطالب على الانتقال من مرحلة التفكير والتخطيط إلى مرحلة القبول والاستعداد للسفر: التوجيه واختيار الدولة والتخصص، التسجيل ومتابعة إجراءات القبول، تجهيز الوثائق والترجمة المحلفة، إعداد ملف التأشيرة، السكن والتأمين، وتنظيم الاستعداد للسفر.",
+    "about.badge": "مواكبة شخصية لكل ملف",
+    "about.feat1": "مواكبة في ملف القبول",
     "about.feat2": "متابعة تأشيرة الدراسة",
     "about.feat3": "مساعدة في السكن",
     "about.feat4": "دعم ما بعد الوصول",
+    "about.vision.title": "رؤيتنا",
+    "about.vision.text": "أن نكون شريكاً موثوقاً للطلاب الراغبين في بناء مستقبلهم الدراسي خارج المغرب، من خلال تقديم خدمة منظمة ومهنية تضع احتياجات الطالب في المقدمة.",
+    "about.mission.title": "مهمتنا",
+    "about.mission.text": "تبسيط رحلة الدراسة بالخارج وتوفير المواكبة التي يحتاجها الطالب في كل مرحلة.",
 
     "home.explore.tag": "اكتشف المزيد",
     "home.explore.title.html": "اكتشف <span class=\"text-gold\">كل التفاصيل</span>",
     "home.explore.subtitle": "تصفّح كل قسم على حدة لمعرفة المزيد",
-    "home.cta.title": "جاهز تبدأ رحلتك؟",
-    "home.cta.subtitle": "سجّل الآن واحصل على استشارة مجانية خلال 24 ساعة",
+    "home.cta.title": "هل تخطط للدراسة بالخارج؟",
+    "home.cta.subtitle": "ابدأ بخطوة بسيطة: تحدّث مع فريق Excellence Agency واكتشف الخيارات المناسبة لملفك.",
 
     "visa.tag": "قصص نجاح حقيقية",
     "visa.title.html": "طلابنا يحصلون على <span class=\"text-gold\">التأشيرة والإقامة</span>",
@@ -56,7 +60,7 @@ const translations = {
 
     "dest.tag": "الوجهات",
     "dest.title.html": "اختر وجهتك <span class=\"text-gold\">الدراسية</span>",
-    "dest.subtitle": "خيارات متنوعة لتناسب مختلف التخصصات والميزانيات",
+    "dest.subtitle": "نوفر خدمات المواكبة الدراسية لعدد من الوجهات الدولية، مع اختلاف البرامج والشروط حسب كل دولة ومؤسسة تعليمية.",
     "dest.lt.badge": "الأكثر طلباً",
     "dest.lt.name": "ليتوانيا",
     "dest.lt.desc": "دراسة الطب والهندسة بتكاليف معقولة في قلب أوروبا، مع جامعات معترف بها دولياً.",
@@ -93,25 +97,56 @@ const translations = {
     "dest.cn.tag3": "إدارة الأعمال",
     "dest.cn.info1": "🎓 منح دراسية متاحة",
     "dest.cn.info2": "💰 تكلفة معيشة منخفضة",
+    "dest.cy.name": "قبرص",
+    "dest.cy.desc": "جامعات ومؤسسات تعليمية تقدّم برامج باللغة الإنجليزية على ساحل البحر المتوسط، مع خيارات متنوعة للطلاب الدوليين.",
+    "dest.cy.tag1": "الطب والعلوم الصحية",
+    "dest.cy.tag2": "إدارة الأعمال",
+    "dest.cy.tag3": "الهندسة وتقنية المعلومات",
+    "dest.cy.info1": "📘 برامج بالإنجليزية",
+    "dest.cy.info2": "☀️ مناخ متوسطي",
+    "dest.help.title": "لا تعرف أي وجهة تناسبك؟",
+    "dest.help.text": "تواصل معنا للحصول على توجيه أولي بناءً على ملفك وأهدافك الدراسية.",
+    "dest.help.cta": "اطلب توجيهاً أولياً",
     "dest.more.title": "ودول أخرى",
-    "dest.more.desc": "ألمانيا، فرنسا، تركيا، رومانيا، قبرص وأكثر...",
+    "dest.more.desc": "ألمانيا، فرنسا، تركيا، رومانيا وأكثر...",
     "dest.more.cta": "استفسر الآن",
 
     "services.tag": "خدماتنا",
     "services.title.html": "كل ما تحتاجه في <span class=\"text-gold\">مكان واحد</span>",
-    "services.subtitle": "نتكفل بكل شيء لتتفرغ أنت لمستقبلك",
-    "services.s1.title": "القبول الجامعي",
-    "services.s1.desc": "نساعدك في اختيار الجامعة المناسبة وتقديم ملفك وضمان القبول.",
-    "services.s2.title": "تأشيرة الدراسة",
-    "services.s2.desc": "نتولى إعداد ملف التأشيرة كاملاً ومتابعته مع السفارة خطوة بخطوة.",
-    "services.s3.title": "السكن الطلابي",
-    "services.s3.desc": "نوفر لك خيارات سكن مناسبة ومأمونة قرب جامعتك منذ اليوم الأول.",
-    "services.s4.title": "التأمين الطلابي",
-    "services.s4.desc": "نساعدك في استخراج التأمين الصحي المطلوب للدراسة في الخارج.",
-    "services.s5.title": "مجتمع الطلاب",
-    "services.s5.desc": "نربطك بمجتمع من الطلاب المغاربة في نفس البلد لدعم بعضكم البعض.",
-    "services.s6.title": "الدعم المستمر",
-    "services.s6.desc": "فريقنا متاح لك على مدار الساعة للإجابة عن أسئلتك ومتابعة ملفك.",
+    "services.subtitle": "حلول متكاملة لمشروعك الدراسي والسفر إلى الخارج",
+    "services.s1.title": "الدراسة بالخارج",
+    "services.s2.title": "خدمات التأشيرة",
+    "services.s3.title": "المواعيد",
+    "services.s4.title": "الوثائق والترجمة",
+    "services.s5.title": "خدمات الطالب",
+    "services.s6.title": "الاستشارة والتوجيه",
+    "services.s6.desc": "قبل البدء في أي إجراء، يمكنك التواصل معنا لدراسة مشروعك وتحديد المسار الأنسب حسب مستواك الدراسي، الدولة التي تستهدفها والهدف الذي تسعى إليه.",
+    "services.s1.i1": "التوجيه الدراسي",
+    "services.s1.i2": "اختيار الدولة والتخصص",
+    "services.s1.i3": "اختيار الجامعة أو المؤسسة التعليمية",
+    "services.s1.i4": "التسجيل ومتابعة إجراءات القبول",
+    "services.s1.i5": "تجهيز الملف الدراسي",
+    "services.s2.i1": "فيزا الدراسة",
+    "services.s2.i2": "فيزا السياحة",
+    "services.s2.i3": "فيزا الزيارة",
+    "services.s2.i4": "المساعدة في تجهيز ملف التأشيرة",
+    "services.s2.i5": "مراجعة الوثائق المطلوبة",
+    "services.s2.note": "تختلف شروط وإجراءات التأشيرة حسب الدولة وحسب وضعية كل ملف، لذلك يتم التعامل مع كل حالة بشكل مستقل.",
+    "services.s3.i1": "المواعيد القنصلية",
+    "services.s3.i2": "مواعيد مراكز التأشيرات",
+    "services.s3.i3": "مواعيد البصمات",
+    "services.s3.i4": "المساعدة في متابعة إجراءات الموعد",
+    "services.s4.i1": "الترجمة المحلفة",
+    "services.s4.i2": "تجهيز الوثائق",
+    "services.s4.i3": "ترتيب الملف",
+    "services.s4.i4": "مراجعة الوثائق حسب متطلبات الجهة المعنية",
+    "services.s5.i1": "البحث عن السكن",
+    "services.s5.i2": "حجز السكن حسب الإمكانية",
+    "services.s5.i3": "التأمين",
+    "services.s5.i4": "المساعدة في حجز تذاكر السفر",
+    "services.s5.i5": "الاستعداد للسفر",
+    "services.s5.i6": "خدمات المساندة بعد الوصول حسب الوجهة",
+    "services.cta": "تواصل معنا لمعرفة الخدمة المناسبة لملفك.",
 
     "how.tag": "كيف نعمل",
     "how.title.html": "أربع خطوات <span class=\"text-gold\">لحلمك</span>",
@@ -135,7 +170,7 @@ const translations = {
     "partners.p3.name": "Vytautas Magnus University",
     "partners.p3.loc": "كاوناس، ليتوانيا",
     "partners.p4.name": "شركاء إضافيون",
-    "partners.p4.loc": "روسيا، بولندا، إسبانيا، الصين 🌍",
+    "partners.p4.loc": "روسيا، بولندا، إسبانيا، الصين، قبرص 🌍",
     "partners.note": "* صور الشراكة والاعتماد الرسمي قيد الإضافة",
 
     "certs.tag": "شهادات القبول",
@@ -158,7 +193,7 @@ const translations = {
 
     "apply.tag": "التسجيل المجاني",
     "apply.title.html": "ابدأ رحلتك<br /><span class=\"text-gold\">اليوم مجاناً</span>",
-    "apply.desc": "سجّل الآن واحصل على استشارة مجانية مع أحد خبرائنا خلال 24 ساعة.",
+    "apply.desc": "سجّل الآن وسيتواصل معك أحد مستشارينا لدراسة ملفك وتحديد الخيارات المناسبة.",
     "apply.perk1": "✓ استشارة مجانية بدون التزام",
     "apply.perk2": "✓ تقييم ملفك الدراسي",
     "apply.perk3": "✓ اقتراح أفضل الوجهات لك",
@@ -225,7 +260,7 @@ const translations = {
     "form.submit": "أرسل طلبي الآن 🚀",
 
     "form.success.title": "تم استلام طلبك!",
-    "form.success.text.html": "شكراً <span id=\"successName\"></span>! سيتواصل معك أحد مستشارينا خلال 24 ساعة على رقم هاتفك.",
+    "form.success.text.html": "شكراً <span id=\"successName\"></span>! توصّلنا بطلبك وسيتواصل معك أحد مستشارينا على رقم هاتفك.",
     "form.success.whatsapp": "تواصل معنا الآن على واتساب",
 
     "contact.tag": "تواصل معنا",
@@ -254,7 +289,7 @@ const translations = {
 
   fr: {
     "meta.title": "Excellence Agency | Bureau d'études à l'étranger",
-    "meta.description": "Bureau Excellence (ESA) – votre partenaire de confiance vers les meilleures universités en Lituanie, Russie, Pologne, Espagne et Chine.",
+    "meta.description": "Excellence Agency (ESA) — accompagnement des étudiants dans l'orientation, l'inscription universitaire et les dossiers de visa vers la Lituanie, la Russie, la Pologne, l'Espagne, la Chine et Chypre.",
 
     "nav.home": "Accueil",
     "nav.destinations": "Destinations",
@@ -268,32 +303,36 @@ const translations = {
 
     "hero.badge": "Excellence Agency — Bureau d'études à l'étranger",
     "hero.title.html": "Réalisez votre rêve<br /><span class=\"hero-highlight\">étudiez à l'étranger</span>",
-    "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne, Espagne et Chine",
+    "hero.subtitle.html": "Nous vous accompagnons du premier conseil jusqu'à votre arrivée à l'université —<br />en Lituanie, Russie, Pologne, Espagne, Chine et Chypre",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "Inscription gratuite",
     "hero.cta2": "Comment ça marche ?",
     "hero.scroll": "Découvrir",
+    "stats.proof.visas": "réussites documentées",
+    "stats.proof.dest": "destinations d'études",
+    "stats.proof.letters": "lettres d'admission publiées",
+    "stats.proof.reviews": "témoignages d'étudiants",
 
-    "stats.students": "Étudiants inscrits",
-    "stats.countries": "Pays de destination",
-    "stats.acceptance": "Taux d'admission",
-    "stats.experience": "Années d'expérience",
 
     "about.tag": "Qui sommes-nous",
     "about.title.html": "Excellence Agency — votre partenaire<br /><span class=\"text-gold\">vers un avenir meilleur</span>",
-    "about.p1": "Bureau Excellence est votre partenaire de confiance pour concrétiser votre projet d'études à l'étranger. Fort de plus de cinq années d'expérience, nous accompagnons les étudiants marocains dans leur admission au sein des meilleures universités d'Asie et d'Europe, grâce à des conseils académiques personnalisés et un accompagnement complet à chaque étape du processus, de la candidature jusqu'au départ.",
-    "about.p2": "Convaincus que l'excellence académique doit être accessible à tous, nous aidons nos étudiants à obtenir des bourses d'études complètes ou partielles et leur proposons des services professionnels qui simplifient toutes les démarches administratives. Notre mission est de leur offrir l'accès à une éducation de qualité, tout en leur permettant de vivre une expérience académique et culturelle enrichissante qui favorisera leur réussite personnelle et professionnelle.",
-    "about.badge": "Approuvé par plus de 500 familles",
-    "about.feat1": "Admission universitaire garantie",
+    "about.p1": "Excellence Agency est une agence spécialisée dans les services d'études à l'étranger et l'accompagnement des étudiants à chaque étape de leur projet. Choisir d'étudier à l'étranger demande des informations claires, une bonne planification et un accompagnement structuré.",
+    "about.p2": "Nous proposons donc un ensemble de services qui aident l'étudiant à passer de la réflexion et de la planification à l'admission et à la préparation du départ : orientation et choix du pays et de la filière, inscription et suivi de l'admission, préparation des documents et traduction assermentée, constitution du dossier de visa, logement et assurance, et organisation du départ.",
+    "about.badge": "Un accompagnement personnalisé",
+    "about.feat1": "Accompagnement du dossier d'admission",
     "about.feat2": "Suivi du visa étudiant",
     "about.feat3": "Aide au logement",
     "about.feat4": "Accompagnement après l'arrivée",
+    "about.vision.title": "Notre vision",
+    "about.vision.text": "Être un partenaire de confiance pour les étudiants qui souhaitent construire leur avenir académique hors du Maroc, à travers un service organisé et professionnel qui place les besoins de l'étudiant au premier plan.",
+    "about.mission.title": "Notre mission",
+    "about.mission.text": "Simplifier le parcours d'études à l'étranger et offrir l'accompagnement dont l'étudiant a besoin à chaque étape.",
 
     "home.explore.tag": "En savoir plus",
     "home.explore.title.html": "Découvrez <span class=\"text-gold\">tous les détails</span>",
     "home.explore.subtitle": "Parcourez chaque section pour en savoir plus",
-    "home.cta.title": "Prêt à commencer votre parcours ?",
-    "home.cta.subtitle": "Inscrivez-vous maintenant et bénéficiez d'une consultation gratuite sous 24 heures",
+    "home.cta.title": "Vous envisagez d'étudier à l'étranger ?",
+    "home.cta.subtitle": "Commencez simplement : parlez à l'équipe Excellence Agency et découvrez les options adaptées à votre dossier.",
 
     "visa.tag": "Histoires de réussite réelles",
     "visa.title.html": "Nos étudiants obtiennent <span class=\"text-gold\">visa et titre de séjour</span>",
@@ -307,7 +346,7 @@ const translations = {
 
     "dest.tag": "Destinations",
     "dest.title.html": "Choisissez votre <span class=\"text-gold\">destination</span>",
-    "dest.subtitle": "Des options variées adaptées à toutes les filières et tous les budgets",
+    "dest.subtitle": "Nous proposons un accompagnement pour plusieurs destinations internationales ; les programmes et les conditions varient selon le pays et l'établissement.",
     "dest.lt.badge": "Le plus demandé",
     "dest.lt.name": "Lituanie",
     "dest.lt.desc": "Étudiez la médecine et l'ingénierie à coût abordable au cœur de l'Europe, dans des universités reconnues mondialement.",
@@ -344,25 +383,56 @@ const translations = {
     "dest.cn.tag3": "Commerce",
     "dest.cn.info1": "🎓 Bourses disponibles",
     "dest.cn.info2": "💰 Faible coût de la vie",
+    "dest.cy.name": "Chypre",
+    "dest.cy.desc": "Universités et établissements proposant des programmes en anglais sur la côte méditerranéenne, avec des options variées pour les étudiants internationaux.",
+    "dest.cy.tag1": "Médecine et sciences de la santé",
+    "dest.cy.tag2": "Gestion d'entreprise",
+    "dest.cy.tag3": "Ingénierie et informatique",
+    "dest.cy.info1": "📘 Programmes en anglais",
+    "dest.cy.info2": "☀️ Climat méditerranéen",
+    "dest.help.title": "Vous ne savez pas quelle destination vous convient ?",
+    "dest.help.text": "Contactez-nous pour une orientation préliminaire fondée sur votre dossier et vos objectifs d'études.",
+    "dest.help.cta": "Demander une orientation",
     "dest.more.title": "Et d'autres pays",
-    "dest.more.desc": "Allemagne, France, Turquie, Roumanie, Chypre et plus...",
+    "dest.more.desc": "Allemagne, France, Turquie, Roumanie et plus...",
     "dest.more.cta": "Renseignez-vous",
 
     "services.tag": "Nos services",
     "services.title.html": "Tout ce dont vous avez besoin en <span class=\"text-gold\">un seul endroit</span>",
-    "services.subtitle": "Nous nous occupons de tout pour que vous vous consacriez à votre avenir",
-    "services.s1.title": "Admission universitaire",
-    "services.s1.desc": "Nous vous aidons à choisir la bonne université, à soumettre votre dossier et à garantir votre admission.",
-    "services.s2.title": "Visa étudiant",
-    "services.s2.desc": "Nous préparons l'intégralité de votre dossier de visa et le suivons avec l'ambassade étape par étape.",
-    "services.s3.title": "Logement étudiant",
-    "services.s3.desc": "Nous vous proposons des solutions de logement adaptées et sécurisées près de votre université dès le premier jour.",
-    "services.s4.title": "Assurance étudiante",
-    "services.s4.desc": "Nous vous aidons à obtenir l'assurance santé requise pour étudier à l'étranger.",
-    "services.s5.title": "Communauté étudiante",
-    "services.s5.desc": "Nous vous mettons en relation avec une communauté d'étudiants marocains dans le même pays pour vous entraider.",
-    "services.s6.title": "Support continu",
-    "services.s6.desc": "Notre équipe est disponible à tout moment pour répondre à vos questions et suivre votre dossier.",
+    "services.subtitle": "Des solutions complètes pour votre projet d'études et de voyage à l'étranger",
+    "services.s1.title": "Études à l'étranger",
+    "services.s2.title": "Services de visa",
+    "services.s3.title": "Rendez-vous",
+    "services.s4.title": "Documents et traduction",
+    "services.s5.title": "Services étudiants",
+    "services.s6.title": "Conseil et orientation",
+    "services.s6.desc": "Avant d'entamer toute démarche, contactez-nous pour étudier votre projet et déterminer le parcours le plus adapté à votre niveau d'études, au pays visé et à l'objectif que vous poursuivez.",
+    "services.s1.i1": "Orientation scolaire",
+    "services.s1.i2": "Choix du pays et de la filière",
+    "services.s1.i3": "Choix de l'université ou de l'établissement",
+    "services.s1.i4": "Inscription et suivi de l'admission",
+    "services.s1.i5": "Préparation du dossier académique",
+    "services.s2.i1": "Visa étudiant",
+    "services.s2.i2": "Visa touristique",
+    "services.s2.i3": "Visa de visite",
+    "services.s2.i4": "Aide à la constitution du dossier de visa",
+    "services.s2.i5": "Vérification des documents requis",
+    "services.s2.note": "Les conditions et les procédures de visa varient selon le pays et la situation de chaque dossier ; chaque cas est donc traité individuellement.",
+    "services.s3.i1": "Rendez-vous consulaires",
+    "services.s3.i2": "Rendez-vous en centre de visas",
+    "services.s3.i3": "Rendez-vous biométriques",
+    "services.s3.i4": "Aide au suivi des démarches de rendez-vous",
+    "services.s4.i1": "Traduction assermentée",
+    "services.s4.i2": "Préparation des documents",
+    "services.s4.i3": "Organisation du dossier",
+    "services.s4.i4": "Vérification des documents selon les exigences de l'organisme concerné",
+    "services.s5.i1": "Recherche de logement",
+    "services.s5.i2": "Réservation du logement selon disponibilité",
+    "services.s5.i3": "Assurance",
+    "services.s5.i4": "Aide à la réservation des billets",
+    "services.s5.i5": "Préparation au départ",
+    "services.s5.i6": "Services d'accompagnement après l'arrivée, selon la destination",
+    "services.cta": "Contactez-nous pour connaître le service adapté à votre dossier.",
 
     "how.tag": "Notre méthode",
     "how.title.html": "Quatre étapes <span class=\"text-gold\">vers votre rêve</span>",
@@ -386,7 +456,7 @@ const translations = {
     "partners.p3.name": "Vytautas Magnus University",
     "partners.p3.loc": "Kaunas, Lituanie",
     "partners.p4.name": "Autres partenaires",
-    "partners.p4.loc": "Russie, Pologne, Espagne, Chine 🌍",
+    "partners.p4.loc": "Russie, Pologne, Espagne, Chine, Chypre 🌍",
     "partners.note": "* Photos de partenariat et accréditations officielles à venir",
 
     "certs.tag": "Lettres d'admission",
@@ -409,7 +479,7 @@ const translations = {
 
     "apply.tag": "Inscription gratuite",
     "apply.title.html": "Commencez votre parcours<br /><span class=\"text-gold\">dès aujourd'hui, gratuitement</span>",
-    "apply.desc": "Inscrivez-vous maintenant et bénéficiez d'une consultation gratuite avec l'un de nos experts sous 24 heures.",
+    "apply.desc": "Inscrivez-vous et l'un de nos conseillers vous contactera pour étudier votre dossier et définir les options adaptées.",
     "apply.perk1": "✓ Consultation gratuite sans engagement",
     "apply.perk2": "✓ Évaluation de votre dossier scolaire",
     "apply.perk3": "✓ Proposition des meilleures destinations pour vous",
@@ -476,7 +546,7 @@ const translations = {
     "form.submit": "Envoyer ma demande 🚀",
 
     "form.success.title": "Votre demande a bien été reçue !",
-    "form.success.text.html": "Merci <span id=\"successName\"></span> ! Un de nos conseillers vous contactera sous 24 heures au numéro indiqué.",
+    "form.success.text.html": "Merci <span id=\"successName\"></span> ! Nous avons bien reçu votre demande ; un conseiller vous contactera sur votre numéro.",
     "form.success.whatsapp": "Contactez-nous maintenant sur WhatsApp",
 
     "contact.tag": "Contact",
@@ -505,7 +575,7 @@ const translations = {
 
   en: {
     "meta.title": "Excellence Agency | Study Abroad Office",
-    "meta.description": "Excellence Agency (ESA) – your trusted partner to the best universities in Lithuania, Russia, Poland, Spain and China.",
+    "meta.description": "Excellence Agency (ESA) — guiding students through orientation, university registration and visa files for Lithuania, Russia, Poland, Spain, China and Cyprus.",
 
     "nav.home": "Home",
     "nav.destinations": "Destinations",
@@ -519,32 +589,36 @@ const translations = {
 
     "hero.badge": "Excellence Agency — Study Abroad Office",
     "hero.title.html": "Achieve your dream<br /><span class=\"hero-highlight\">study abroad</span>",
-    "hero.subtitle.html": "We guide you from your first consultation all the way to your university —<br />in Lithuania, Russia, Poland, Spain and China",
+    "hero.subtitle.html": "We guide you from the first consultation to your arrival at university —<br />in Lithuania, Russia, Poland, Spain, China and Cyprus",
     "hero.tagline": "Your Excellence Is Our Priority",
     "hero.cta1": "Register for Free",
     "hero.cta2": "How Can We Help?",
     "hero.scroll": "Discover More",
+    "stats.proof.visas": "documented success stories",
+    "stats.proof.dest": "study destinations",
+    "stats.proof.letters": "published acceptance letters",
+    "stats.proof.reviews": "student testimonials",
 
-    "stats.students": "Registered Students",
-    "stats.countries": "Destination Countries",
-    "stats.acceptance": "Acceptance Rate",
-    "stats.experience": "Years of Experience",
 
     "about.tag": "About Us",
     "about.title.html": "Excellence Agency — your partner<br /><span class=\"text-gold\">toward a better future</span>",
-    "about.p1": "Excellence Agency is your trusted partner in making your dream of studying abroad a reality. With more than five years of experience, we help Moroccan students gain admission to leading universities across Asia and Europe by providing personalized academic guidance and comprehensive support throughout every stage of the application process, from admission to departure.",
-    "about.p2": "We believe that quality education should be accessible to everyone. That is why we assist students in securing full and partial scholarships while offering professional services that simplify every step of studying abroad. Our mission is to provide access to world-class education and empower students with a unique academic and cultural experience that prepares them for a successful personal and professional future.",
-    "about.badge": "Trusted by 500+ families",
-    "about.feat1": "Guaranteed university admission",
+    "about.p1": "Excellence Agency is an agency specialising in study-abroad services and in supporting students through every stage of their academic project. Choosing to study abroad calls for clear information, sound planning and structured support.",
+    "about.p2": "So we offer a set of services that help a student move from thinking and planning to admission and preparing to travel: guidance and choosing the country and field, registration and admission follow-up, preparing documents and sworn translation, assembling the visa file, housing and insurance, and organising the departure.",
+    "about.badge": "Personal guidance on every file",
+    "about.feat1": "Support with the admission file",
     "about.feat2": "Student visa follow-up",
     "about.feat3": "Housing assistance",
     "about.feat4": "Support after arrival",
+    "about.vision.title": "Our Vision",
+    "about.vision.text": "To be a trusted partner for students building their academic future outside Morocco, through an organised, professional service that puts the student's needs first.",
+    "about.mission.title": "Our Mission",
+    "about.mission.text": "To simplify the study-abroad journey and provide the support a student needs at every stage.",
 
     "home.explore.tag": "Explore More",
     "home.explore.title.html": "Discover <span class=\"text-gold\">all the details</span>",
     "home.explore.subtitle": "Browse each section to learn more",
-    "home.cta.title": "Ready to start your journey?",
-    "home.cta.subtitle": "Register now and get a free consultation within 24 hours",
+    "home.cta.title": "Planning to study abroad?",
+    "home.cta.subtitle": "Start with one simple step: talk to the Excellence Agency team and discover the options that fit your file.",
 
     "visa.tag": "Real Success Stories",
     "visa.title.html": "Our students get their <span class=\"text-gold\">visa & residence permit</span>",
@@ -558,7 +632,7 @@ const translations = {
 
     "dest.tag": "Destinations",
     "dest.title.html": "Choose your study <span class=\"text-gold\">destination</span>",
-    "dest.subtitle": "Varied options to suit different majors and budgets",
+    "dest.subtitle": "We provide study guidance for a number of international destinations; programmes and requirements vary by country and institution.",
     "dest.lt.badge": "Most requested",
     "dest.lt.name": "Lithuania",
     "dest.lt.desc": "Study medicine and engineering at an affordable cost in the heart of Europe, at internationally recognized universities.",
@@ -595,25 +669,56 @@ const translations = {
     "dest.cn.tag3": "Business",
     "dest.cn.info1": "🎓 Scholarships available",
     "dest.cn.info2": "💰 Low cost of living",
+    "dest.cy.name": "Cyprus",
+    "dest.cy.desc": "Universities and institutions offering English-taught programmes on the Mediterranean coast, with a range of options for international students.",
+    "dest.cy.tag1": "Medicine & health sciences",
+    "dest.cy.tag2": "Business administration",
+    "dest.cy.tag3": "Engineering & IT",
+    "dest.cy.info1": "📘 English-taught programmes",
+    "dest.cy.info2": "☀️ Mediterranean climate",
+    "dest.help.title": "Not sure which destination suits you?",
+    "dest.help.text": "Contact us for initial guidance based on your file and your study goals.",
+    "dest.help.cta": "Request initial guidance",
     "dest.more.title": "And other countries",
-    "dest.more.desc": "Germany, France, Turkey, Romania, Cyprus and more...",
+    "dest.more.desc": "Germany, France, Turkey, Romania and more...",
     "dest.more.cta": "Ask now",
 
     "services.tag": "Our Services",
     "services.title.html": "Everything you need in <span class=\"text-gold\">one place</span>",
-    "services.subtitle": "We handle everything so you can focus on your future",
-    "services.s1.title": "University Admission",
-    "services.s1.desc": "We help you choose the right university, submit your file and secure your admission.",
-    "services.s2.title": "Student Visa",
-    "services.s2.desc": "We prepare your entire visa file and follow it up with the embassy step by step.",
-    "services.s3.title": "Student Housing",
-    "services.s3.desc": "We provide suitable, safe housing options near your university from day one.",
-    "services.s4.title": "Student Insurance",
-    "services.s4.desc": "We help you obtain the health insurance required to study abroad.",
-    "services.s5.title": "Student Community",
-    "services.s5.desc": "We connect you with a community of Moroccan students in the same country to support each other.",
-    "services.s6.title": "Ongoing Support",
-    "services.s6.desc": "Our team is available around the clock to answer your questions and follow up on your file.",
+    "services.subtitle": "Complete solutions for your study and travel project abroad",
+    "services.s1.title": "Study Abroad",
+    "services.s2.title": "Visa Services",
+    "services.s3.title": "Appointments",
+    "services.s4.title": "Documents & Translation",
+    "services.s5.title": "Student Services",
+    "services.s6.title": "Consultation & Guidance",
+    "services.s6.desc": "Before starting any procedure, contact us to review your project and determine the path best suited to your level of study, the country you are targeting and the goal you are pursuing.",
+    "services.s1.i1": "Academic guidance",
+    "services.s1.i2": "Choosing the country and field of study",
+    "services.s1.i3": "Choosing the university or institution",
+    "services.s1.i4": "Registration and admission follow-up",
+    "services.s1.i5": "Preparing the academic file",
+    "services.s2.i1": "Student visa",
+    "services.s2.i2": "Tourist visa",
+    "services.s2.i3": "Visitor visa",
+    "services.s2.i4": "Help assembling the visa file",
+    "services.s2.i5": "Reviewing the required documents",
+    "services.s2.note": "Visa conditions and procedures vary by country and by the situation of each file, so every case is handled individually.",
+    "services.s3.i1": "Consular appointments",
+    "services.s3.i2": "Visa centre appointments",
+    "services.s3.i3": "Biometrics appointments",
+    "services.s3.i4": "Help following up the appointment process",
+    "services.s4.i1": "Sworn translation",
+    "services.s4.i2": "Document preparation",
+    "services.s4.i3": "Organising the file",
+    "services.s4.i4": "Checking documents against the requirements of the relevant authority",
+    "services.s5.i1": "Housing search",
+    "services.s5.i2": "Housing booking, subject to availability",
+    "services.s5.i3": "Insurance",
+    "services.s5.i4": "Help booking travel tickets",
+    "services.s5.i5": "Preparing for departure",
+    "services.s5.i6": "Post-arrival support services, depending on the destination",
+    "services.cta": "Contact us to find out which service fits your file.",
 
     "how.tag": "How It Works",
     "how.title.html": "Four steps <span class=\"text-gold\">to your dream</span>",
@@ -637,7 +742,7 @@ const translations = {
     "partners.p3.name": "Vytautas Magnus University",
     "partners.p3.loc": "Kaunas, Lithuania",
     "partners.p4.name": "Additional Partners",
-    "partners.p4.loc": "Russia, Poland, Spain, China 🌍",
+    "partners.p4.loc": "Russia, Poland, Spain, China, Cyprus 🌍",
     "partners.note": "* Partnership photos and official accreditation coming soon",
 
     "certs.tag": "Acceptance Letters",
@@ -660,7 +765,7 @@ const translations = {
 
     "apply.tag": "Free Registration",
     "apply.title.html": "Start your journey<br /><span class=\"text-gold\">today, for free</span>",
-    "apply.desc": "Register now and get a free consultation with one of our experts within 24 hours.",
+    "apply.desc": "Register and one of our advisers will contact you to review your file and set out the options that fit.",
     "apply.perk1": "✓ Free consultation, no commitment",
     "apply.perk2": "✓ Evaluation of your academic file",
     "apply.perk3": "✓ The best destinations suggested for you",
@@ -727,7 +832,7 @@ const translations = {
     "form.submit": "Send My Request 🚀",
 
     "form.success.title": "Your Request Has Been Received!",
-    "form.success.text.html": "Thank you <span id=\"successName\"></span>! One of our advisors will contact you within 24 hours at your phone number.",
+    "form.success.text.html": "Thank you <span id=\"successName\"></span>! We have received your request and an adviser will contact you on your number.",
     "form.success.whatsapp": "Contact Us Now on WhatsApp",
 
     "contact.tag": "Contact Us",
@@ -757,10 +862,42 @@ const translations = {
 
 const I18N_STORAGE_KEY = "esa-lang";
 
+const I18N_LANGS = ["ar", "fr", "en"];
+
+/**
+ * ?lang= wins over the stored choice, so a link can be shared in the language
+ * it was read in. Before this, the switcher lived only in localStorage: sending
+ * a francophone parent a link always landed them on the Arabic page.
+ */
 function getStoredLang() {
+  let fromUrl = null;
+  try {
+    fromUrl = new URLSearchParams(window.location.search).get("lang");
+  } catch (err) {
+    /* very old browser — fall through to the stored value */
+  }
+  if (I18N_LANGS.indexOf(fromUrl) !== -1) return fromUrl;
+
   const stored = localStorage.getItem(I18N_STORAGE_KEY);
-  if (stored === "ar" || stored === "fr" || stored === "en") return stored;
+  if (I18N_LANGS.indexOf(stored) !== -1) return stored;
   return "ar";
+}
+
+/**
+ * Reflects an explicit switch in the address bar. Only called on a click, never
+ * on load: rewriting the URL for a returning visitor would be surprising, and
+ * the canonical tag deliberately points at the parameter-free URL.
+ */
+function syncLangInUrl(lang) {
+  if (!window.history || !window.history.replaceState) return;
+  try {
+    const url = new URL(window.location.href);
+    if (lang === "ar") url.searchParams.delete("lang");
+    else url.searchParams.set("lang", lang);
+    window.history.replaceState(null, "", url.toString());
+  } catch (err) {
+    /* file:// or an unsupported URL — the language still applies */
+  }
 }
 
 function applyLanguage(lang) {
@@ -812,6 +949,9 @@ document.addEventListener("DOMContentLoaded", () => {
   applyLanguage(getStoredLang());
 
   document.querySelectorAll(".lang-switch button").forEach(btn => {
-    btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    btn.addEventListener("click", () => {
+      applyLanguage(btn.dataset.lang);
+      syncLangInUrl(btn.dataset.lang);
+    });
   });
 });
