@@ -2687,3 +2687,130 @@ body.lang-ltr .form-group textarea {
   .faq-item summary { font-size: .94rem; padding: 16px 18px; padding-inline-end: 46px; }
   .faq-answer { padding: 14px 18px 18px; }
 }
+
+
+/* ==========================================================================
+   STUDENT JOURNEY (how-it-works)
+   Seven stages, so a vertical rail rather than the old four-across strip:
+   seven items cannot sit on one connecting line, and a vertical list is what
+   reads as a journey on a phone.
+   ========================================================================== */
+
+.journey {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 820px;
+  position: relative;
+}
+
+/* The rail. Stops short at both ends so it does not overshoot the first and
+   last markers. */
+.journey::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 31px;
+  top: 26px;
+  bottom: 26px;
+  width: 2px;
+  background: linear-gradient(to bottom,
+              var(--gold) 0%, rgba(211,39,46,.35) 55%, var(--gray-200) 100%);
+}
+
+.journey-item {
+  position: relative;
+  padding-inline-start: 86px;
+  padding-bottom: 30px;
+}
+
+.journey-item:last-child { padding-bottom: 0; }
+
+.journey-marker {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 1.15rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 7px var(--white), var(--shadow-gold);
+  transition: var(--transition);
+}
+
+/* direction:ltr belongs on the digits, NOT on the marker. Set on the marker it
+   makes that element resolve its OWN inset-inline-start against LTR, so the
+   circle jumps to the left while the rail stays on the right in Arabic. */
+.journey-marker span { direction: ltr; unicode-bidi: isolate; }
+
+.journey-item:hover .journey-marker {
+  background: var(--navy);
+  transform: scale(1.06);
+}
+
+.journey-body {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  min-height: 64px;
+  transition: var(--transition);
+}
+
+.journey-item:hover .journey-body {
+  border-color: var(--gold);
+  box-shadow: var(--shadow);
+}
+
+.journey-body h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 8px;
+  text-align: start;
+}
+
+.journey-emoji { font-size: 1.25rem; line-height: 1; flex: none; }
+
+.journey-body p {
+  margin: 0;
+  font-size: .91rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  text-align: start;
+}
+
+.journey-outro {
+  max-width: 820px;
+  margin: 38px auto 0;
+  text-align: center;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--navy);
+  background: rgba(211,39,46,.06);
+  border: 1px solid rgba(211,39,46,.16);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+
+@media (max-width: 640px) {
+  .journey::before { inset-inline-start: 23px; }
+  .journey-item { padding-inline-start: 64px; padding-bottom: 24px; }
+  .journey-marker {
+    width: 48px; height: 48px;
+    font-size: .98rem;
+    box-shadow: 0 0 0 5px var(--white), var(--shadow-gold);
+  }
+  .journey-body { padding: 15px 17px; }
+  .journey-body h3 { font-size: .95rem; }
+  .journey-outro { font-size: .94rem; padding: 17px 18px; }
+}
