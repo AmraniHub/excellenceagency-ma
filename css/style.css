@@ -2814,3 +2814,26 @@ body.lang-ltr .form-group textarea {
   .journey-body h3 { font-size: .95rem; }
   .journey-outro { font-size: .94rem; padding: 17px 18px; }
 }
+
+
+/* ── HOURS POSTER (contact) ───────────────────────────────────────────────
+   The agency's own Horaires de travail artwork, confirming the hours stated
+   in the list above it. Capped rather than full width: it is a 9:16 story
+   poster and would otherwise run the length of the column. */
+.hours-poster {
+  margin: 26px 0 0;
+  max-width: 300px;
+}
+
+.hours-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 640px) {
+  .hours-poster { max-width: 260px; margin-inline: auto; }
+}

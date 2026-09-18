@@ -307,6 +307,7 @@ const translations = {
     "contact.email.label": "البريد الإلكتروني",
     "contact.hours.label": "ساعات العمل",
     "contact.hours.value": "الاثنين – السبت: 9:00 – 13:00 و 14:00 – 18:00",
+    "contact.hours.poster": "ساعات عمل مكتب التميز: من 9:00 إلى 13:00 ومن 14:00 إلى 18:00",
     "contact.map.note": "خريطة قريباً",
 
     "footer.tagline": "Your Excellence Is Your Priority",
@@ -629,6 +630,7 @@ const translations = {
     "contact.email.label": "E-mail",
     "contact.hours.label": "Horaires d'ouverture",
     "contact.hours.value": "Lundi – Samedi : 9h – 13h et 14h – 18h",
+    "contact.hours.poster": "Horaires de travail d'Excellence Agency : 9h–13h et 14h–18h",
     "contact.map.note": "Carte bientôt disponible",
 
     "footer.tagline": "Your Excellence Is Your Priority",
@@ -951,6 +953,7 @@ const translations = {
     "contact.email.label": "Email",
     "contact.hours.label": "Business Hours",
     "contact.hours.value": "Monday – Saturday: 9 AM – 1 PM and 2 PM – 6 PM",
+    "contact.hours.poster": "Excellence Agency working hours: 9 AM–1 PM and 2 PM–6 PM",
     "contact.map.note": "Map coming soon",
 
     "footer.tagline": "Your Excellence Is Your Priority",
@@ -1028,6 +1031,13 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
+  });
+
+  // Alt text carries meaning for anyone using a screen reader, so it has to
+  // follow the language like every other string rather than staying Arabic.
+  document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+    const key = el.getAttribute("data-i18n-alt");
+    if (dict[key] !== undefined) el.setAttribute("alt", dict[key]);
   });
 
   document.querySelectorAll("[data-lang-block]").forEach(el => {
