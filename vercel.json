@@ -39,5 +39,19 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "https://servolia.com/client-editor/excellenceagency"
+    },
+    {
+      "source": "/api/site-editor",
+      "destination": "https://servolia.com/api/site-editor"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://servolia.com/_next/:path*"
+    }
   ]
 }
