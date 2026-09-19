@@ -62,11 +62,11 @@
       "destination": "https://servolia.com/api/assistant"
     },
     {
-      "source": "/api/chat",
+      "source": "/api/site-chat",
       "destination": "https://servolia.com/api/chat"
     },
     {
-      "source": "/api/chat-fallback",
+      "source": "/api/site-chat-fallback",
       "destination": "https://servolia.com/api/chat-fallback"
     }
   ]
